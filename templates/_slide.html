@@ -1,0 +1,23 @@
+{% macro slide(slide, section) %}
+
+{% if section.folder %}
+  {% set url = 'pages/' + section.folder + '/' + slide %}
+{% else %}
+  {% set url = 'pages/' + slide %}
+{% endif %}
+
+{% set attrs = url|attributes %}
+
+<div  class="ft-page" {% if attrs.title %}data-title="{{attrs.title}}"{% endif %} {% if attrs.state%}data-state="{{attrs.state}}"{% endif %}>
+  <div class="ft-page--content">
+    {{ url|render|safe }}
+
+    {% if attrs.footnote %}
+    <div class="ft-page--footnote">
+      {{ attrs.footnote|markdown|safe }}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endmacro %}

@@ -2,7 +2,11 @@
   "name": "magic-tricks-with-houdini",
   "version": "0.0.0",
   "devDependencies": {
-    "sass-toolkit": "~2.9.0"
+    "sass-toolkit": "~2.9.0",
+    "snugug-flowtime": "~0.1.1"
+  },
+  "dependencies": {
+    "flowtime": "*",
+    "prism": "~1.5.0"
   }
 }
-

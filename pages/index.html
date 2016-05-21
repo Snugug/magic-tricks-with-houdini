@@ -1,10 +1,24 @@
 ---
-title: 'Nunjucks Intro'
+pages:
+  - title: Magic Tricks with Houdini
+    slides:
+      - intro.md
+  - slides:
+      - thanks.html
 ---
 {% extends '_layout.html' %}
 
-{%block content %}
-<p>Pages can be written in HTML and compiled via <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>. This allows for automatically templating. HTML supports <a href="http://jekyllrb.com/docs/frontmatter/">front-matter</a>, allowing for variables to be defined and passed in to a file when compiled.
+{% from '_slide.html' import slide %}
 
-<p>Pages cal also be written in <a href="/markdown">markdown</a>.</p>
+{%block content %}
+<article class="flowtime">
+  {% for section in pages %}
+    <section class="ft-section" {% if section.title %}data-title="{{section.title}}"{% endif %}>
+      {% for page in section.slides %}
+        {{ slide(page, section) }}
+      {% endfor %}
+    </section>
+  {% endfor %}
+</article>
 {% endblock %}
+
