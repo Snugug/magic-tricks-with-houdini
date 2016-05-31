@@ -1,0 +1,17 @@
+<p><strong>A Wild Animation Appeared!</strong></p>
+<pre><code class="language-javascript">window.CSS.registerProperty({
+  name: '--stop-color',
+  syntax: '<color>',
+  inherits: false,
+  initialValue: 'rgba(0,0,0,0)'
+});
+</code></pre>
+<pre class="ft-fragment"><code class="language-scss">.button {
+  --stop-color: red;
+  background: linear-gradient(var(--stop-color), black);
+  transition: --stop-color 1s;
+}
+
+.button:hover {
+  --stop-color: green;
+}</code></pre>

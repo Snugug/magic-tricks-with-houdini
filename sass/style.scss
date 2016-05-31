@@ -1,3 +1,77 @@
 $accent: 'orange';
+$snugug-intro: true;
 
 @import 'snugug-flowtime';
+
+[data-state]:not([data-state="end"]):not([data-state="intro"]) {
+  color: transparent;
+}
+
+[data-state='magic'] {
+  @extend %state-cover;
+  background-size: contain;
+  background-color: color('purple', 80);
+  background-image: url('../images/magic.gif');
+}
+
+[data-state='cool'] {
+  @extend %state-cover;
+  background-image: url('../images/cool.gif');
+}
+
+[data-state='secret-sauce'] {
+  @extend %state-cover;
+  background-size: contain;
+  background-color: black;
+  background-image: url('../images/secret-sauce.gif');
+}
+
+[data-state='rad'] {
+  @extend %state-cover;
+  background-size: contain;
+  background-color: rgb(237, 254, 253);
+  background-image: url('../images/rad.gif');
+}
+
+
+[data-state='excited'] {
+  @extend %state-cover;
+  background-size: contain;
+  background-color: black;
+  background-image: url('../images/excited.gif');
+}
+
+[data-state='magic-out'] {
+  @extend %state-cover;
+  background-size: contain;
+  background-color: black;
+  background-image: url('../images/magic-gob.gif');
+}
+
+[data-state='end'] {
+  a:hover {
+    font-weight: bolder;
+    text-shadow: none !important;
+  }
+}
+
+.blink,
+.blink-2,
+.blink-3 {
+  animation: blink 1s steps(5, start) infinite;
+  animation-delay: 0s;
+}
+
+.blink-2 {
+  animation-delay: .1s;
+}
+
+.blink-3 {
+  animation-delay: .2s;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,19 @@
+<p><strong>Define</strong></p>
+<pre><code class="language-javascript">window.CSS.registerLayout('masonry', class {
+  static get inputProperties() {
+    return ['width', 'height']
+  }
+  static get childrenInputProperties() {
+    return ['x', 'y', 'position']
+  }
+  layout(children, constraintSpace, styleMap, breakToken) {
+    // Magic layout logic goes here.
+  }
+});</code></pre>
+
+<div class="ft-fragment">
+<p><strong>Then Use</strong></p>
+<pre><code class="language-scss">.article {
+  display: layout('masonry');
+}</code></pre>
+</div>

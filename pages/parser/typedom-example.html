@@ -1,0 +1,14 @@
+<pre><code class="language-scss">.example {
+  background-position: center bottom 10px;
+}</code></pre>
+
+<pre><code class="language-javascript">var example = document.querySelector('.example');
+
+// center bottom 10px
+example.styleMap.get('background-position').cssText;
+
+// 50% - as a CSSSimpleLength
+example.styleMap.get('background-position').x;
+
+// calc(100% - 10px) - as a CSSCalcLength
+example.styleMap.get('background-position').y;</code></pre>

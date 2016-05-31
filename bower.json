@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "devDependencies": {
     "sass-toolkit": "~2.9.0",
-    "snugug-flowtime": "~0.1.1"
+    "snugug-flowtime": "~0.2.0"
   },
   "dependencies": {
     "flowtime": "*",
