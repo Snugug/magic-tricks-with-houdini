@@ -75,3 +75,43 @@ $snugug-intro: true;
     visibility: hidden;
   }
 }
+
+// .columns {
+//   column-count: 2;
+
+//   li {
+//     break-inside: avoid;
+//   }
+// }
+
+.full-frame {
+  width: 67vw;
+  height: 100vh;
+}
+
+.editable {
+  background: black;
+  color: white;
+  display: block;
+
+  hyphens: none;
+  word-spacing: normal;
+  text-align: left;
+  word-break: normal;
+  white-space: pre;
+  word-wrap: normal;
+  direction: ltr;
+  tab-size: 2;
+  overflow-y: overlay;
+  font-family: 'source-code-pro', 'Source Code Pro', 'Lucida Console', 'Lucida Sans Typewriter', 'monaco', 'Bitstream Vera Sans Mono', monospace;
+}
+
+
+.twitter {
+  width: 67vw;
+  height: 100vh;
+  max-width: 360px;
+  max-height: 567px;
+  margin: 0 auto;
+  display: block;
+}

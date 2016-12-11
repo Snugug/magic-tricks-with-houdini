@@ -1,17 +1,24 @@
-<p><strong>A Wild Animation Appeared!</strong></p>
+<h4>A Wild Animation Appeared!</h4>
+<div class="half">
 <pre><code class="language-javascript">window.CSS.registerProperty({
-  name: '--stop-color',
+  name: '--registered-color',
   syntax: '<color>',
   inherits: false,
-  initialValue: 'rgba(0,0,0,0)'
+  initialValue: 'rebeccapurple',
 });
 </code></pre>
-<pre class="ft-fragment"><code class="language-scss">.button {
-  --stop-color: red;
-  background: linear-gradient(var(--stop-color), black);
-  transition: --stop-color 1s;
+</div>
+<div class="half ft-fragment">
+<pre><code class="language-scss" contenteditable="">.registered-demo {
+  --registered-color: #c0ffee;
+  background: var(--registered-color);
+  transition: background 1s;
 }
 
-.button:hover {
-  --stop-color: green;
+.registered-demo:hover {
+  --registered-color: #bada55;
 }</code></pre>
+</div>
+
+
+<button class="registered-demo ft-fragment">This is registered!</button>
