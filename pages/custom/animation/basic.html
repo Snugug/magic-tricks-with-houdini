@@ -15,26 +15,26 @@
     children.forEach(elem => {
       const part = elem.styleMap.get('--part');
       if (part == 'avatar') {
-	const t = elem.styleMap.transform;
+      	const t = elem.styleMap.transform;
 
-	t.m11 = 1 - 0.6 * scroll;
-	t.m22 = 1 - 0.6 * scroll;
-	t.m41 = -scroll * 45*0.6;
+      	t.m11 = 1 - 0.6 * scroll;
+      	t.m22 = 1 - 0.6 * scroll;
+      	t.m41 = -scroll * 45*0.6;
 
-	if(root.scrollOffsets.top > 189 - 45 * 0.6) {
-	  t.m42 = root.scrollOffsets.top - (189 - 45 * 0.6) + 45;
-	} else {
-	  t.m42 = 45;
-	}
+      	if(root.scrollOffsets.top > 189 - 45 * 0.6) {
+      	  t.m42 = root.scrollOffsets.top - (189 - 45 * 0.6) + 45;
+      	} else {
+      	  t.m42 = 45;
+      	}
 
-	elem.styleMap.transform = t;
+      	elem.styleMap.transform = t;
       } else if (part == 'bar') {
-	const t = elem.styleMap.transform;
+      	const t = elem.styleMap.transform;
 
-	t.m42 = root.scrollOffsets.top;
+      	t.m42 = root.scrollOffsets.top;
 
-	elem.styleMap.transform = t;
-	elem.styleMap.opacity = scroll;
+      	elem.styleMap.transform = t;
+      	elem.styleMap.opacity = scroll;
       }
     });
   }
