@@ -26,8 +26,8 @@ if (window.CSS) {
 }
 
 if (window.paintWorklet) {
-  window.paintWorklet.import('js/circle.js');
-  window.paintWorklet.import('js/smile.js');
+  window.paintWorklet.import('js/circle.not.min.js');
+  window.paintWorklet.import('js/smile.not.min.js');
 }
 
 window.addEventListener('DOMContentLoaded', function() {
