@@ -1,0 +1,15 @@
+<h4>A Wild Animation Appeared!</h4> <div class="half"> <pre><code class="language-javascript">window.CSS.registerProperty({
+  name: '--registered-color',
+  syntax: '<color>',
+  inherits: false,
+  initialValue: 'rebeccapurple',
+});
+</color></code></pre> </div> <div class="half ft-fragment"> <pre><code class="language-scss" contenteditable>.registered-demo {
+  --registered-color: #c0ffee;
+  background: var(--registered-color);
+  transition: background 1s;
+}
+
+.registered-demo:hover {
+  --registered-color: #bada55;
+}</code></pre> </div> <button class="registered-demo ft-fragment">This is registered!</button> 
