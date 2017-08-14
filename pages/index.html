@@ -81,13 +81,13 @@ pages:
 {% from '_slide.html' import slide %}
 
 {%block content %}
-<article class="flowtime">
+<main class="_stage">
   {% for section in pages %}
-    <section class="ft-section" {% if section.title %}data-title="{{section.title}}"{% endif %}>
+    <article class="_stage--group" {% if section.title %}data-title="{{section.title}}"{% endif %}>
       {% for page in section.slides %}
         {{ slide(page, section) }}
       {% endfor %}
-    </section>
+    </article>
   {% endfor %}
 </article>
 {% endblock %}

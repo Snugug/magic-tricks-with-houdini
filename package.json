@@ -2,17 +2,16 @@
   "name": "magic-tricks-with-houdini",
   "version": "0.0.0",
   "scripts": {
-    "postinstall": "npm run install:bower",
-    "install:bower": "bower install",
-    "bower": "bower",
     "gulp": "gulp",
     "start": "gulp",
-    "test": "gulp build",
-    "posttest": "gulp dist"
+    "test": "gulp deploy:dry"
   },
   "devDependencies": {
-    "bower": "^1.4.1",
     "gulp": "^3.8.11",
-    "gulp-armadillo": "^2.0.1"
+    "gulp-armadillo": "^4.2.1"
+  },
+  "dependencies": {
+    "prismjs": "^1.6.0",
+    "stage-fright": "^0.7.0"
   }
 }

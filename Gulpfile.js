@@ -5,20 +5,13 @@
 //////////////////////////////
 var gulp = require('gulp');
 
-require('gulp-armadillo')(gulp, {
-  tasks: {
-    dist: {
-      copy: [
-        'copy:dist',
-        'copy:js',
-        'imagemin:dist',
-        'usemin',
-      ],
-    },
-  },
-});
+require('gulp-armadillo')(gulp);
 
 gulp.task('copy:js', () => {
-  gulp.src('js/**/*.min.js')
-    .pipe(gulp.dest('.dist/js'));
+  return gulp.src('js/**/*.min.js')
+    .pipe(gulp.dest('.www/js'));
+});
+
+gulp.task('copy:js:watch', () => {
+  return gulp.watch(['js/**/*.min.js'], ['copy:js']);
 });
