@@ -25,7 +25,7 @@ editor.run('.editor', {
 
 if (window.paintWorklet) {
   window.paintWorklet.addModule('js/circle.not.min.js');
-  // window.paintWorklet.import('js/smile.not.min.js');
+  window.paintWorklet.addModule('js/face.not.min.js');
 }
 
 // window.addEventListener('DOMContentLoaded', function() {
