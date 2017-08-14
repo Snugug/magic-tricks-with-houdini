@@ -10,6 +10,8 @@
 $black: #000;
 
 @import 'stage-fright';
+@import 'editor';
+
 // [data-state]:not([data-state='end']):not([data-state='intro']) { // sass-lint:disable-line force-pseudo-nesting
 //   color: transparent;
 // }

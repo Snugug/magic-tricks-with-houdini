@@ -1,0 +1,61 @@
+@import '../node_modules/prismjs/themes/prism-okaidia';
+
+.editor {
+  position: relative;
+  overflow: hidden;
+
+  &--textarea,
+  &--pre,
+  &--code {
+    box-sizing: border-box;
+    // position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem !important;
+    border: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+    font-size: 1rem !important;
+    line-height: 1.25 !important;
+    background: transparent;
+    white-space: pre-wrap !important;
+    word-wrap: break-word;
+  }
+
+  &--textarea {
+    position: absolute;
+    border: none;
+    background: transparent;
+    outline: none;
+    resize: none;
+    color: transparent;
+    caret-color: white;
+    padding: 2rem !important;
+    transform: translateY(.5rem);
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &--textarea,
+  &--pre {
+    min-height: 100%;
+  }
+
+  &--code {
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    display: block;
+  }
+}
+
+
+// .CodeFlask__textarea_line-numbers {
+//     width: calc(100% - 3.8em);
+//     margin-left: 3.8em;
+//     padding-left: 0px !important;
+// }
+
+// .CodeFlask__pre_line-numbers {
+//     padding-left: 3.8em !important;
+// }
