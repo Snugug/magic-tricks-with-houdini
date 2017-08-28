@@ -8,10 +8,11 @@
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "gulp-armadillo": "^4.2.1"
+    "gulp-armadillo": "^4.2.1",
+    "ibm-design-colors": "^2.0.4"
   },
   "dependencies": {
     "prismjs": "^1.6.0",
-    "stage-fright": "^0.7.0"
+    "stage-fright": "^0.8.0"
   }
 }

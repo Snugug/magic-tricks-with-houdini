@@ -1,11 +1,14 @@
 import stageFright from 'stage-fright/src/js/lib/core';
 import Editor from './editor';
 import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-javascript';
 
 stageFright({
   navigation: {
     arrows: false,
+    spacebar: 'alt',
   },
+  notes: 'alt',
 });
 
 const editor = new Editor;
@@ -14,45 +17,16 @@ editor.run('.editor', {
   live: true,
 });
 
-// if (window.CSS) {
-//   window.CSS.registerProperty({
-//     name: '--registered-color',
-//     syntax: '<color>',
-//     inherits: false,
-//     initialValue: 'rebeccapurple',
-//   });
-// }
-
-if (window.paintWorklet) {
-  window.paintWorklet.addModule('js/circle.not.min.js');
-  window.paintWorklet.addModule('js/face.not.min.js');
+if (window.CSS) {
+  window.CSS.registerProperty({
+    name: '--registered-color',
+    syntax: '<color>',
+    inherits: false,
+    initialValue: 'rebeccapurple',
+  });
 }
 
-// window.addEventListener('DOMContentLoaded', function() {
-//   var editable = document.querySelectorAll('[contenteditable]');
-//   var styles = [];
-
-//   Array.prototype.forEach.call(editable, function(elem, i) {
-//     elem.setAttribute('data-style-index', i);
-//     elem.addEventListener('input', updateStyles);
-//     elem.addEventListener('keypress', noArrows);
-//     elem.addEventListener('keyup', noArrows);
-//     elem.addEventListener('keydown', noArrows);
-
-//     styles[i] = document.createElement('style');
-//     styles[i].setAttribute('data-style-index', i);
-//     styles[i].textContent = elem.textContent;
-//     document.body.appendChild(styles[i]);
-//   });
-
-//   function noArrows(e) {
-//     e.stopPropagation();
-//   }
-
-//   function updateStyles(e) {
-//     var target = e.target
-//     var i = target.getAttribute('data-style-index');
-//     var style = document.querySelector('style[data-style-index="' + i + '"]');
-//     style.textContent = target.textContent;
-//   }
-// });
+if (window.CSS.paintWorklet) {
+  window.CSS.paintWorklet.addModule('js/circle.not.min.js');
+  window.CSS.paintWorklet.addModule('js/face.not.min.js');
+}

@@ -1,135 +1,173 @@
+@import 'ibm-colors';
+
 // $background: #fdfdfd !default;
 // $color: #323232 !default;
-// $accent: (
-//   light: #6eedd8,
-//   neutral: #008571,
-//   dark: #003c32,
-// ) !default;
+$accent: (
+  light: color('purple', 20),
+  neutral: color('purple', 50),
+  dark: color('purple', 80),
+);
 // $transition: all .35s cubic-bezier(.77, .1, .22, 1) !default;
 // $font-sizes: 1.618em 1em .618em !default;
 $black: #000;
 
 @import 'stage-fright';
 @import 'editor';
+@import 'registered-demo-container';
 
-// [data-state]:not([data-state='end']):not([data-state='intro']) { // sass-lint:disable-line force-pseudo-nesting
-//   color: transparent;
-// }
+*,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  line-height: 1.25;
+}
 
-// %state-cover {
-//   background-position: center;
-//   background-size: cover;
-// }
+pre[class*='language-'], // sass-lint:disable-line force-attribute-nesting, no-qualifying-elements
+code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no-qualifying-elements
+  font-size: 1.1rem !important; // sass-lint:disable-line no-important
+  line-height: 1.25 !important; // sass-lint:disable-line no-important
+}
 
-// [data-state='magic'] {
-//   @extend %state-cover;
-//   background-color: color('purple', 80);
-//   background-image: url('../images/magic.gif');
-//   background-size: contain;
-// }
+.painted {
+  min-height: 20vh;
+  min-width: 30vw;
+}
 
-// [data-state='cool'] {
-//   @extend %state-cover;
-//   background-image: url('../images/cool.gif');
-// }
+[data-state]:not([data-state='end']):not([data-state='intro']) { // sass-lint:disable-line force-pseudo-nesting
+  color: transparent;
+}
 
-// [data-state='secret-sauce'] {
-//   @extend %state-cover;
-//   background-color: $black;
-//   background-image: url('../images/secret-sauce.gif');
-//   background-size: contain;
-// }
+%state-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-// [data-state='rad'] {
-//   @extend %state-cover;
-//   $rad: rgb(237, 254, 253);
+[data-state='magic'] {
+  @extend %state-cover;
+  background-color: color('purple', 80);
+  background-image: url('../images/magic.gif');
+  background-size: contain;
+}
 
-//   background-color: $rad;
-//   background-image: url('../images/rad.gif');
-//   background-size: contain;
-// }
+[data-state='cool'] {
+  @extend %state-cover;
+  background-image: url('../images/cool.gif');
+}
 
+[data-state='secret-sauce'] {
+  @extend %state-cover;
+  background-image: url('../images/tennent-sauce.gif');
+}
 
-// [data-state='excited'] {
-//   @extend %state-cover;
-//   background-color: $black;
-//   background-image: url('../images/excited.gif');
-//   background-size: contain;
-// }
+[data-state='rad'] {
+  @extend %state-cover;
+  $rad: rgb(237, 254, 253);
 
-// [data-state='magic-out'] {
-//   @extend %state-cover;
-//   background-color: $black;
-//   background-image: url('../images/magic-gob.gif');
-//   background-size: contain;
-// }
-
-// [data-state='end'] {
-//   a {
-//     &:hover {
-//       font-weight: bolder;
-//       text-shadow: none !important; // sass-lint:disable-line no-important
-//     }
-//   }
-// }
-
-// .blink,
-// .blink-2,
-// .blink-3 {
-//   animation: blink 1s steps(5, start) infinite;
-//   animation-delay: 0s;
-// }
-
-// .blink-2 {
-//   animation-delay: .1s;
-// }
-
-// .blink-3 {
-//   animation-delay: .2s;
-// }
-
-// @keyframes blink {
-//   to {
-//     visibility: hidden;
-//   }
-// }
-
-// // .columns {
-// //   column-count: 2;
-
-// //   li {
-// //     break-inside: avoid;
-// //   }
-// // }
-
-// .full-frame {
-//   height: 100vh;
-//   width: 67vw;
-// }
-
-// // .editable {
-// //   background: $black;
-// //   color: white;
-// //   display: block;
-
-// //   hyphens: none;
-// //   word-spacing: normal;
-// //   text-align: left;
-// //   word-break: normal;
-// //   white-space: pre;
-// //   word-wrap: normal;
-// //   direction: ltr;
-// //   tab-size: 2;
-// //   overflow-y: overlay;
-// //   font-family: 'source-code-pro', 'Source Code Pro', 'Lucida Console', 'Lucida Sans Typewriter', 'monaco', 'Bitstream Vera Sans Mono', monospace;
-// // }
+  background-color: $rad;
+  background-image: url('../images/rad.gif');
+  background-size: contain;
+}
 
 
-// // .twitter {
-// //   width: 67vw;
-// //   height: 100vh;
-// //   max-width: 360px;
-// //   max-height: 567px;
-// //   margin: 0 auto;
-// //   display: block;
-// // }
+[data-state='excited'] {
+  @extend %state-cover;
+  background-color: $black;
+  background-image: url('../images/excited.gif');
+  background-size: contain;
+}
+
+[data-state='magic-out'] {
+  @extend %state-cover;
+  background-color: $black;
+  background-image: url('../images/magic-gob.gif');
+  background-size: contain;
+}
+
+[data-state='end'] {
+  a {
+    &:hover {
+      font-weight: bolder;
+      text-shadow: none !important; // sass-lint:disable-line no-important
+    }
+  }
+}
+
+.blink,
+.blink-2,
+.blink-3 {
+  animation: blink 1s steps(5, start) infinite;
+  animation-delay: 0s;
+}
+
+.blink-2 {
+  animation-delay: .1s;
+}
+
+.blink-3 {
+  animation-delay: .2s;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+._stage {
+  &--slide {
+    position: relative;
+  }
+
+  &--footnote {
+    bottom: 1rem;
+    font-size: .75em;
+    left: 1rem;
+    position: absolute;
+  }
+}
+
+.columns {
+  column-count: 2;
+
+  li {
+    break-inside: avoid;
+  }
+}
+
+.full-frame {
+  height: 100vh;
+  width: 67vw;
+}
+
+.registered-demo::after { // sass-lint:disable-line force-pseudo-nesting
+  content: '';
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+}
+
+
+.twitter {
+  display: block;
+  height: 100vh;
+  margin: 0 auto;
+  max-height: 567px;
+  max-width: 360px;
+  width: 67vw;
+}
+
+.windowCSS code { // sass-lint:disable-line class-name-format, force-pseudo-nesting, force-element-nesting
+  font-size: 2rem !important; // sass-lint:disable-line no-important
+}
+
+.half {
+  box-sizing: border-box;
+  float: left;
+  margin: 0 .5rem;
+  width: calc(50% - 1rem);
+}

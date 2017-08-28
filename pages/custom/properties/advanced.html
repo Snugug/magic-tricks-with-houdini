@@ -1,24 +1,27 @@
-<h4>A Wild Animation Appeared!</h4>
-<div class="half">
-<pre><code class="language-javascript">window.CSS.registerProperty({
+<h4>Ooo! A Wild Registered Property!</h4>
+
+<div class="registered-demo-container"><pre class="registered-demo-container--js"><code class="language-javascript">window.CSS.registerProperty({
   name: '--registered-color',
-  syntax: '<color>',
+  syntax: '&lt;color&gt;',
   inherits: false,
   initialValue: 'rebeccapurple',
 });
 </code></pre>
-</div>
-<div class="half ft-fragment">
-<pre><code class="language-scss" contenteditable="">.registered-demo {
+<div class="editor fragment registered-demo-container--css" data-language="scss">.registered-demo {
   --registered-color: #c0ffee;
   background: var(--registered-color);
   transition: background 1s;
 }
 
+.registered-demo::after {
+  background-image: url('../images/icon.svg');
+}
+
 .registered-demo:hover {
   --registered-color: #bada55;
-}</code></pre>
+}
 </div>
 
 
-<button class="registered-demo ft-fragment">This is registered!</button>
+<button class="registered-demo-container--btn registered-demo fragment">This is registered! <span class="registered-demo-icon"></span></button>
+</div>

@@ -24,8 +24,6 @@ export default class {
 
       const language = target.dataset.language || opts.language || 'markup';
 
-      console.log(language);
-
       const initialCode = target.textContent;
       const lang = this._language(language);
 

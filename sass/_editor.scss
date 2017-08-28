@@ -1,39 +1,39 @@
 @import '../node_modules/prismjs/themes/prism-okaidia';
 
 .editor {
-  position: relative;
   overflow: hidden;
+  position: relative;
 
   &--textarea,
   &--pre,
   &--code {
-    box-sizing: border-box;
-    // position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem !important;
-    border: none;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
-    font-size: 1rem !important;
-    line-height: 1.25 !important;
     background: transparent;
-    white-space: pre-wrap !important;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important; // sass-lint:disable-line no-important
+    font-size: 1.1rem !important; // sass-lint:disable-line no-important
+    left: 0;
+    line-height: 1.25 !important; // sass-lint:disable-line no-important
+    padding: 1rem !important; // sass-lint:disable-line no-important
+    top: 0;
+    white-space: pre-wrap !important; // sass-lint:disable-line no-important
+    width: 100%;
     word-wrap: break-word;
   }
 
   &--textarea {
-    position: absolute;
-    border: none;
+    -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-text-fill-color: transparent; // sass-lint:disable-line no-vendor-prefixes
     background: transparent;
-    outline: none;
-    resize: none;
+    border: 0;
+    caret-color: #fff; // sass-lint:disable-line no-color-literals
     color: transparent;
-    caret-color: white;
-    padding: 2rem !important;
+    outline: 0;
+    padding: 2rem !important; // sass-lint:disable-line no-important
+    position: absolute;
+    resize: 0;
+
     transform: translateY(.5rem);
-    -webkit-overflow-scrolling: touch;
-    -webkit-text-fill-color: transparent;
   }
 
   &--textarea,
@@ -42,10 +42,10 @@
   }
 
   &--code {
-    font-size: inherit;
-    font-family: inherit;
     color: inherit;
     display: block;
+    font-family: inherit;
+    font-size: inherit;
   }
 }
 
