@@ -1,0 +1,27 @@
+<pre><code class="language-js">    // ...
+    let blockOffset = edges.all.blockStart;
+    for (let fragment of childFragments) {
+      // Position the fragment in a block like manner, centering it in the inline direction.
+      fragment.blockOffset = blockOffset;
+      fragment.inlineOffset = Math.max(
+        edges.all.inlineStart,
+        (availableInlineSize - fragment.inlineSize) / 2
+      );
+
+      blockOffset += fragment.blockSize;
+    }
+
+    const autoBlockSize = blockOffset + edges.all.blockEnd;
+    const blockSize = resolveBlockSize(
+      constraintSpace,
+      styleMap,
+      autoBlockSize
+    );
+
+    return {
+      inlineSize: inlineSize,
+      blockSize: blockSize,
+      childFragments: childFragments,
+    };
+  }
+});</code></pre>

@@ -1,0 +1,24 @@
+<pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- Fragment --&gt;
+&lt;!-- If #container starts at inlineOffset = 20, blockOffset = 30 --&gt;
+&lt;!-- .child-relative final position is (25, 40), with relative positioning handled by the user agent --&gt;
+&lt;!-- .child-absolute would not appear as a LayoutChild --&gt;
+&lt;style&gt;
+  #container {
+    display: layout(foo);
+    position: relative; /* container is a containing block */
+    width: 100px;
+    height: 100px;
+  }
+  #child-relative {
+    position: relative;
+    left: 5px;
+    top: 10px;
+  }
+&lt;/style&gt;
+&lt;div id="container"&gt;
+  &lt;div id="child-relative"&gt;&lt;/div&gt;
+  &lt;div id="child-absolute"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>

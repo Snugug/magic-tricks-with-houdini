@@ -1,0 +1,20 @@
+<pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/#example-13a91ee5 August 29, 2017 Collection of Interesting Ideas
+
+registerLayout('block-like', class {
+  *intrinsicSizes(styleMap, children) {
+    const childrenSizes = yield children.map((child) => {
+      return child.intrinsicSizes();
+    });
+
+    const maxContentSize = childrenSizes.reduce((max, childSizes) => {
+      return Math.max(max, childSizes.maxContentContribution);
+    }, 0);
+
+    const minContentSize = childrenSizes.reduce((max, childSizes) => {
+      return Math.max(max, childSizes.minContentContribution);
+    }, 0);
+
+    return {maxContentSize, minContentSize};
+  }
+
+  // ...</code></pre>

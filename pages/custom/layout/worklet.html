@@ -1,0 +1,15 @@
+<h5><code>layoutWorklet</code> Class</h5>
+<pre><code class="language-js">class MyLayout {
+  static get inputProperties() { return ['--foo']; }
+  static get childrenInputProperties() { return ['--bar']; }
+  static get childDisplay() { return 'normal'; }
+
+  // Generator functions instead of normal functions to support async/parallel layout engines
+  *intrinsicSizes(children, styleMap) {
+    // Intrinsic sizes code goes here.
+  }
+
+  *layout(space, children, styleMap, edges, breakToken) {
+    // Layout code goes here.
+  }
+}</code></pre>
