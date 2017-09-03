@@ -1,11 +1,17 @@
-<p><strong>Define</strong></p> <pre><code class="language-javascript">window.CSS.registerAtRule({
+<p><strong>Define</strong></p>
+<pre><code class="language-javascript">window.CSS.registerAtRule({
   name: '--eq',
   callback: eqjs, // Callback to do stuff
   grammar: { // Hard to tell if needs to be this or `declarations`.
     stylesheet: true,
   },
-});</code></pre> <div class="ft-fragment"> <p><strong>Then Use</strong></p> <pre><code class="language-scss">.component {
+});</code></pre>
+
+<div class="fragment">
+<p><strong>Then Use</strong></p>
+<pre><code class="language-scss">.component {
   @--eq (min-width: 500px) { // I `think` this should work.
     background: green;
   }
-}</code></pre> </div> 
+}</code></pre>
+</div>

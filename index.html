@@ -1,112 +1,1241 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Magic Tricks with Houdini</title> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <style type="text/css">@charset "UTF-8";article,section{display:block}.flowtime,.ft-section{-webkit-transform:translateZ(0)}.ft-page,html{box-sizing:border-box}article,body,div,em,h1,h2,h3,html,li,p,section,strong,ul{background:0 0;border:0;font-size:100%;margin:0;outline:0;padding:0;vertical-align:baseline}body{line-height:1}a{background-color:transparent;font-size:100%;margin:0;padding:0;vertical-align:baseline}ul{list-style:none}.ft-page{overflow:hidden}*,:after,:before{box-sizing:inherit}.flowtime,.ft-section,body,html{width:100%;height:100%}body,html{-webkit-text-size-adjust:none}.flowtime{font-size:0;white-space:nowrap;-webkit-transform-origin:0 0;transform-origin:0 0;transform:translateZ(0);-webkit-backface-visibility:hidden;backface-visibility:hidden}.ft-section{position:relative;transform:translateZ(0);font-size:16px;font-size:1rem;white-space:normal;display:inline-block;vertical-align:top}.ft-page--content:after,.ft-page:after{content:"";display:table;clear:both}html{-ms-text-size-adjust:100%;font-family:'Helvetica Neue',Helvetica,Arial,Roboto,sans-serif;font-size:100%;line-height:1.618em;background:#fdfdfd;color:#323232;font-weight:300}.ft-page{position:relative;z-index:auto;font-size:150%;height:100vh;width:100vw}.ft-page--content{position:relative;top:50%;-webkit-transform:translateY(calc(-50% - 1.5rem));transform:translateY(calc(-50% - 1.5rem));padding:2rem;max-width:67vw;max-height:100vh;margin:0 auto;width:100%}.ft-page--content *+*{margin-top:1rem}.ft-page a{text-decoration:none;background-repeat:repeat-x;background-size:.125em .1875em;background-position:0 1.075em;text-shadow:.0625em .0625em 0 #fdfdfd,-.0625em 0 0 #fdfdfd;color:#d74108;background-image:-webkit-linear-gradient(bottom,#fdfdfd 75%,#d74108 75%);background-image:linear-gradient(to top,#fdfdfd 75%,#d74108 75%)}.ft-page h2,.ft-page h3{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;word-wrap:break-word}.ft-page ul{list-style:disc;margin-left:1em}.ft-page li{margin-top:.5rem;line-height:1.25rem}.ft-page h1,.ft-page h2,.ft-page h3{text-align:left;font-weight:400;line-height:1.2;margin:1rem 0}.ft-page h1{font-size:3.5em;color:#d74108}.ft-page h2{text-shadow:2px 2px #fdfdfd,-2px -2px #fdfdfd;font-size:2.5em;color:#d74108}.ft-page h3{font-size:2em;color:#d74108}.ft-page .center{text-align:center;margin:0 auto;display:block}[data-state]{background-size:cover}[data-state=cool],[data-state=excited]{background-size:100%;background-position:center;background-repeat:no-repeat;background-color:#000}[data-state=intro]{background-color:#c20030;background:-webkit-linear-gradient(bottom,rgba(194,0,48,0) 10%,rgba(194,0,48,.05) 10%,rgba(194,0,48,.05) 20%,rgba(194,0,48,.1) 20%,rgba(194,0,48,.1) 30%,rgba(194,0,48,.15) 30%,rgba(194,0,48,.15) 40%,rgba(194,0,48,.2) 40%,rgba(194,0,48,.2) 50%,rgba(194,0,48,.3) 50%,rgba(194,0,48,.3) 60%,rgba(194,0,48,.4) 60%,rgba(194,0,48,.4) 70%,rgba(194,0,48,.5) 70%,rgba(194,0,48,.5) 80%,rgba(194,0,48,.6) 80%,rgba(194,0,48,.6) 90%,rgba(194,0,48,.8) 90%),-webkit-linear-gradient(right,rgba(194,0,48,0) 10%,rgba(194,0,48,.05) 10%,rgba(194,0,48,.05) 20%,rgba(194,0,48,.1) 20%,rgba(194,0,48,.1) 30%,rgba(194,0,48,.15) 30%,rgba(194,0,48,.15) 40%,rgba(194,0,48,.2) 40%,rgba(194,0,48,.2) 50%,rgba(194,0,48,.3) 50%,rgba(194,0,48,.3) 60%,rgba(194,0,48,.4) 60%,rgba(194,0,48,.4) 70%,rgba(194,0,48,.5) 70%,rgba(194,0,48,.5) 80%,rgba(194,0,48,.6) 80%,rgba(194,0,48,.6) 90%,rgba(194,0,48,.8) 90%),#da9400;background:linear-gradient(0deg,rgba(194,0,48,0) 10%,rgba(194,0,48,.05) 10%,rgba(194,0,48,.05) 20%,rgba(194,0,48,.1) 20%,rgba(194,0,48,.1) 30%,rgba(194,0,48,.15) 30%,rgba(194,0,48,.15) 40%,rgba(194,0,48,.2) 40%,rgba(194,0,48,.2) 50%,rgba(194,0,48,.3) 50%,rgba(194,0,48,.3) 60%,rgba(194,0,48,.4) 60%,rgba(194,0,48,.4) 70%,rgba(194,0,48,.5) 70%,rgba(194,0,48,.5) 80%,rgba(194,0,48,.6) 80%,rgba(194,0,48,.6) 90%,rgba(194,0,48,.8) 90%),linear-gradient(-90deg,rgba(194,0,48,0) 10%,rgba(194,0,48,.05) 10%,rgba(194,0,48,.05) 20%,rgba(194,0,48,.1) 20%,rgba(194,0,48,.1) 30%,rgba(194,0,48,.15) 30%,rgba(194,0,48,.15) 40%,rgba(194,0,48,.2) 40%,rgba(194,0,48,.2) 50%,rgba(194,0,48,.3) 50%,rgba(194,0,48,.3) 60%,rgba(194,0,48,.4) 60%,rgba(194,0,48,.4) 70%,rgba(194,0,48,.5) 70%,rgba(194,0,48,.5) 80%,rgba(194,0,48,.6) 80%,rgba(194,0,48,.6) 90%,rgba(194,0,48,.8) 90%),#da9400}[data-state=intro] h1{color:#fdfdfd;text-align:right;text-shadow:0 -.005em #111,-.005em 0 #282828,-.005em -.01em #111,-.01em -.005em #282828,-.01em -.015em #111,-.015em -.01em #282828,-.015em -.02em #111,-.02em -.015em #282828,-.02em -.025em #111,-.025em -.02em #282828,-.025em -.03em #111,-.03em -.025em #282828,-.03em -.035em #111,-.035em -.03em #282828,-.035em -.04em #111,-.04em -.035em #282828,-.04em -.045em #111,-.045em -.04em #282828,-.045em -.05em #111,-.05em -.045em #282828,-.05em -.055em #111,-.055em -.05em #282828,-.055em -.06em #111,-.06em -.055em #282828,-.06em -.065em #111,-.065em -.06em #282828,-.065em -.07em #111,-.07em -.065em #282828,-.07em -.075em #111,-.075em -.07em #282828}[data-state=end]{background-color:#323232;background:-webkit-linear-gradient(bottom,rgba(50,50,50,0) 10%,rgba(50,50,50,.05) 10%,rgba(50,50,50,.05) 20%,rgba(50,50,50,.1) 20%,rgba(50,50,50,.1) 30%,rgba(50,50,50,.15) 30%,rgba(50,50,50,.15) 40%,rgba(50,50,50,.2) 40%,rgba(50,50,50,.2) 50%,rgba(50,50,50,.3) 50%,rgba(50,50,50,.3) 60%,rgba(50,50,50,.4) 60%,rgba(50,50,50,.4) 70%,rgba(50,50,50,.5) 70%,rgba(50,50,50,.5) 80%,rgba(50,50,50,.6) 80%,rgba(50,50,50,.6) 90%,rgba(50,50,50,.8) 90%),-webkit-linear-gradient(right,rgba(50,50,50,0) 10%,rgba(50,50,50,.05) 10%,rgba(50,50,50,.05) 20%,rgba(50,50,50,.1) 20%,rgba(50,50,50,.1) 30%,rgba(50,50,50,.15) 30%,rgba(50,50,50,.15) 40%,rgba(50,50,50,.2) 40%,rgba(50,50,50,.2) 50%,rgba(50,50,50,.3) 50%,rgba(50,50,50,.3) 60%,rgba(50,50,50,.4) 60%,rgba(50,50,50,.4) 70%,rgba(50,50,50,.5) 70%,rgba(50,50,50,.5) 80%,rgba(50,50,50,.6) 80%,rgba(50,50,50,.6) 90%,rgba(50,50,50,.8) 90%),#777677;background:linear-gradient(0deg,rgba(50,50,50,0) 10%,rgba(50,50,50,.05) 10%,rgba(50,50,50,.05) 20%,rgba(50,50,50,.1) 20%,rgba(50,50,50,.1) 30%,rgba(50,50,50,.15) 30%,rgba(50,50,50,.15) 40%,rgba(50,50,50,.2) 40%,rgba(50,50,50,.2) 50%,rgba(50,50,50,.3) 50%,rgba(50,50,50,.3) 60%,rgba(50,50,50,.4) 60%,rgba(50,50,50,.4) 70%,rgba(50,50,50,.5) 70%,rgba(50,50,50,.5) 80%,rgba(50,50,50,.6) 80%,rgba(50,50,50,.6) 90%,rgba(50,50,50,.8) 90%),linear-gradient(-90deg,rgba(50,50,50,0) 10%,rgba(50,50,50,.05) 10%,rgba(50,50,50,.05) 20%,rgba(50,50,50,.1) 20%,rgba(50,50,50,.1) 30%,rgba(50,50,50,.15) 30%,rgba(50,50,50,.15) 40%,rgba(50,50,50,.2) 40%,rgba(50,50,50,.2) 50%,rgba(50,50,50,.3) 50%,rgba(50,50,50,.3) 60%,rgba(50,50,50,.4) 60%,rgba(50,50,50,.4) 70%,rgba(50,50,50,.5) 70%,rgba(50,50,50,.5) 80%,rgba(50,50,50,.6) 80%,rgba(50,50,50,.6) 90%,rgba(50,50,50,.8) 90%),#777677;color:#fdfdfd}[data-state=end] a{color:#fdfdfd;text-shadow:none}[data-state]:not([data-state=end]):not([data-state=intro]){color:transparent}[data-state=cool]{background-image:url(/images/cool.gif)}[data-state=excited]{background-size:contain;background-color:#000;background-image:url(/images/excited.gif)}.blink{-webkit-animation:blink 1s steps(5,start) infinite;animation:blink 1s steps(5,start) infinite;-webkit-animation-delay:0s;animation-delay:0s}@-webkit-keyframes blink{to{visibility:hidden}}@keyframes blink{to{visibility:hidden}}</style> <script id="loadcss">!function(e,n){!function(e){"use strict";var n=function(n,t,o){var l,r=e.document,d=r.createElement("link");if(t)l=t;else{var i=(r.body||r.getElementsByTagName("head")[0]).childNodes;l=i[i.length-1]}var s=r.styleSheets;d.rel="stylesheet",d.href=n,d.media="only x",l.parentNode.insertBefore(d,t?l:l.nextSibling);var a=function(e){for(var n=d.href,t=s.length;t--;)if(s[t].href===n)return e();setTimeout(function(){a(e)})};return d.onloadcssdefined=a,a(function(){d.media=o||"all"}),d};"undefined"!=typeof module?module.exports=n:e.loadCSS=n}("undefined"!=typeof global?global:this);for(var t in e)loadCSS(e[t],n)}(["css/style.css"],document.getElementById("loadcss"));</script> <noscript> <link rel="stylesheet" href="css/style.css"> </noscript> </head> <body> <article class="flowtime"> <section class="ft-section" data-title="Magic Tricks with Houdini"> <div class="ft-page" data-state="intro"> <div class="ft-page--content"> <h1 id="magic-tricks-with-houdini">Magic Tricks with Houdini</h1> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h2>What is the <em>CSS-TAG Houdini Task Force</em>?</h2> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <blockquote> <p>The objective of the CSS-TAG Houdini Task Force (CSS Houdini) is to jointly develop features that explain the “magic” of Styling and Layout on the web.</p> <footer><cite><a href="https://github.com/w3c/css-houdini-drafts/wiki">CSS Houdini Wiki</a></cite></footer> </blockquote> </div> </div> <div class="ft-page" data-state="magic"> <div class="ft-page--content"> <p>Magic</p> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <p>Practically, though, what does that mean?</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <h2>Extending CSS via JS</h2> <p class="ft-fragment">so authors no longer have to wait a decade for standards bodies and browsers to do something new</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <h3>But Wait! Can't We Do This Already!</h3> <p class="ft-fragment">PostCSS does this! There are lots of JS libraries that extend CSS already!</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <h3>Not Quite</h3> <ul class="ft-fragment"> <li>It's currently not possible to <em>extend</em> CSS with JS, only write JS that mimics CSS</li> <li class="ft-fragment">Actually polyfilling CSS, or introducing new features (like CSS Grids), is hard-to-impossible to do. Doubly so in a way that's not terrible for performance.</li> <li class="ft-fragment">Houdini will let authors <em>tap in to the actual CSS engine</em>, finally allowing them to extend CSS, and do so at CSS Engine speeds</li> </ul> </div> </div> </section> <section class="ft-section"> <div class="ft-page" data-state="cool"> <div class="ft-page--content"> <p>That's Cool</p> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h2 class="blink">WARNING</h2> <p>This is very early days work in progress, nothing more. No compatible implementations exist. What little actually works only really does so in Chrome Canary. This deck will likely break if not viewed there. Syntax and semantics are likely to change. Some of this comes directly from talking with <a href="https://twitter.com/tabatkins">Tab Atkins</a>, and may or may not exist written down outside of this presentation. Terms and conditions apply. Not redeemable for cash. Your mileage may vary.</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <iframe class="full-frame" src="http://ishoudinireadyyet.com/" frameborder="0"></iframe> </div> <div class="ft-page--footnote"> <p><a href="http://ishoudinireadyyet.com/">Is Houdini Ready Yet?</a></p> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h2>Part 1: The Typed OM</h2> <p>(aka CSSOM v2, aka The New Hotness, aka Big CSS)</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <blockquote> <p>Converting CSSOM value strings into meaningfully typed JavaScript representations and back can incur a significant performance overhead. This specification exposes CSS values as typed JavaScript objects to facilitate their performant manipulation.</p> <footer> <cite><a href="https://drafts.css-houdini.org/css-typed-om/">Typed OM Level 1 Working Draft</a></cite> </footer> </blockquote> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p>Typed OM exposes structure, beyond simple strings, for CSS Values. These then can be manipulated and retrieved in a more performant manner.</p> <ul class="ft-fragment"> <li><strong>CSSStyleValue</strong> - Superclass for all CSS Values <ul class="ft-fragment columns"> <li><strong>CSSKeywordValue</strong> - A keyword. For instance, <code>inherit</code></li> <li><strong>CSSNumberValue</strong> - A unitless number. For instance, the value for <code>z-index</code></li> <li><strong>CSSLengthValue</strong> - <em>CSSSimpleLength</em> that has a single unit type (<code>42px</code>) or <em>CSSCalcLength</em> that has multiple units (<code>calc(56em + 10%)</code>)</li> <li><strong>CSSAngleValue</strong> - An angle value. For instance, <code>42deg</code></li> <li><strong>CSSTransformValue</strong> - Value of a <em>transform</em> property as a list of <em>CSSTransformComponent</em>s. For instance, <code>transform: translate(10px) rotate(45deg)</code> would contain a <code>CSSTranslation</code> and <code>CSSRotation</code> CSSTransformComponent</li> <li><strong>CSSPositionValue</strong> - A position value. For instance, the value for <code>background-position</code></li> <li><strong>CSSResourceValue</strong> - A CSS value that may require async network fetch before being usable. Provides <code>unloaded</code>, <code>loading</code>, <code>loaded</code>, and <code>error</code> states</li> <li><strong>CSSImageValue</strong> - Values that take images. For instance, <code>background-image</code> Subclass of CSSResourceValue</li> <li><strong>CSSFontFaceValue</strong> - A font face that can be used to render text. Subclass of CSSResourceValue</li> </ul></li> </ul> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <pre><code class="language-scss">.example {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magic Tricks with Houdini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/0.1.1/codeflask.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  
+<main class="_stage">
+  
+    <article class="_stage--group" data-title="Magic Tricks with Houdini">
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="intro">
+  <div class="_stage--content">
+    <h1>Magic Tricks with Houdini</h1>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h2>What is the <em>CSS-TAG Houdini Task Force</em>?</h2>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <blockquote>
+  <p>The objective of the CSS-TAG Houdini Task Force (CSS Houdini) is to jointly develop features that explain the “magic” of Styling and Layout on the web.</p>
+  <footer><cite><a href="https://github.com/w3c/css-houdini-drafts/wiki">CSS Houdini Wiki</a></cite></footer>
+</blockquote>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="magic">
+  <div class="_stage--content">
+    <p>Magic</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p>Practically, though, what does that mean?</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h2>Extending CSS via JS</h2>
+<p class="fragment">so authors no longer have to wait a decade for standards bodies and browsers to do something new</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h3>But Wait! Can't We Do This Already!</h3>
+
+<p class="fragment">PostCSS does this! There are lots of JS libraries that extend CSS already!</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h3>Not Quite</h3>
+
+<ul class="fragment">
+  <li>It's currently not possible to <em>extend</em> CSS with JS, only write JS that mimics CSS</li>
+  <li class="fragment">Actually polyfilling CSS, or introducing new features (like CSS Grids), is hard-to-impossible to do. Doubly so in a way that's not terrible for performance.</li>
+  <li class="fragment">Houdini will let authors <em>tap in to the actual CSS engine</em>, finally allowing them to extend CSS, and do so at CSS Engine speeds</li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h3>Much like Service Workers are a low-level JavaScript API for the browser's cache <em class="fragment colored">Houdini introduces low-level JavaScript APIs for the browser's render engine</em></h3>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="cool">
+  <div class="_stage--content">
+    <p>That's Cool</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h2 class="blink">WARNING</h2>
+
+<p>This is very early days work in progress, nothing more. No compatible implementations exist. What little actually works only really does so in Chrome Canary. This deck will likely break if not viewed there. Syntax and semantics are likely to change. In fact, in the course of a year, one API has gone through 4ish incompatible API changes. Some of the examples provided are speculative based on previous and current working implementations and may not reflect final syntax. Terms and conditions apply. Not redeemable for cash. Your mileage may vary.</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h4>A Big Thanks to <span class="blink">.</span><span class="blink-2">.</span><span class="blink-3">.</span></h4>
+
+<p><strong><a href="https://twitter.com/tabatkins">Tab Atkins</a></strong> - Spec Hacker, Google, for getting me in to Houdini 4ish years ago</p>
+<p><strong><a href="https://twitter.com/DasSurma">Surma</a></strong> - Web Advocate and Engineer, Google, for answering all of my recent Houdini questions</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <iframe class="full-frame" src="http://ishoudinireadyyet.com/" frameborder="0"></iframe>
+
+  </div>
+  
+  
+  <footer class="_stage--footnote">
+    <p><a href="http://ishoudinireadyyet.com/">Is Houdini Ready Yet?</a></p>
+
+  </footer>
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="supertopic">
+  <div class="_stage--content">
+    <h2>Part 1: Worklets</h2>
+<p>(itty bitty web<em>ish</em> workers)</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p>Worklets are <em>extension points for rendering engines</em></p>
+<p class="fragment">They're like Web Workers, but with a much smaller scope, can be parallelized and run on multiple threads, and live happy live on the global scope to be used by the browser</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-js">// From https://drafts.css-houdini.org/worklets/ May 1, 2017 Editor's Draft
+
+// From inside the browser's context
+// Script gets loaded in the main thread, then sources are sent to Worklet threads
+// Same script can be loaded in to multiple Worklet threads
+window.demoWorklet.addModule('path/to/script.js');</code></pre>
+
+<pre class="fragment"><code class="language-js">// From https://drafts.css-houdini.org/worklets/ May 1, 2017 Editor's Draft
+
+// worklet.addModule returns a Promise!
+// Sometimes post-register work is done with loaded worklets, this makes it possible
+Promise.all([
+  window.demoWorklet1.addModule('path/to/script1.js'),
+  window.demoWorklet2.addModule('path/to/script2.js'),
+]).then(worklets => {
+  // Worklets have loaded and can be worked on!
+});
+</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-js">// From https://drafts.css-houdini.org/worklets/ May 1, 2017 Editor's Draft
+
+// The kind of worklet it is
+registerDemoWorklet('name', class { // The name we'll call this worklet
+
+  // Each worklet can define different functions to be used
+  // These will be called by the render engine as needed
+  process(arg) {
+    // Stuff happens in here! What happens depends on the worklet
+    // Sometimes it'll return something
+    // Other times it'll work directly on the arguments
+    return !arg;
+  }
+});
+</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p><strong>Worklets</strong> are the underlying foundation to which all of Houdini is based. They're the magic that makes it happen. They're Houdini's <em>Secret Sauce</em></p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="secret-sauce">
+  <div class="_stage--content">
+    Secret Sauce
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="supertopic">
+  <div class="_stage--content">
+    <h2>Part 2: The Typed OM</h2>
+<p>(aka CSSOM v2, aka The New Hotness, aka Big CSS)</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <blockquote>
+  <p>Converting CSSOM value strings into meaningfully typed JavaScript representations and back can incur a significant performance overhead. This specification exposes CSS values as typed JavaScript objects to facilitate their performant manipulation.</p>
+  <footer>
+    <cite><a href="https://drafts.css-houdini.org/css-typed-om/">Typed OM Level 1 Working Draft</a></cite>
+  </footer>
+</blockquote>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p>Typed OM exposes structure, beyond simple strings, for CSS Values. These then can be manipulated and retrieved in a more performant manner, and are part of the new <strong>CSSStyleValue</strong> class.</p>
+
+<ul class="fragment columns">
+  <li><strong>CSSKeywordValue</strong> - CSS Keywords and other identifiers (like <code>inherit</code>)</li>
+  <li><strong>CSSPositionValue</strong> - Position (<code>x</code> and <code>y</code>) values</li>
+
+  <li><strong>CSSTransformValue</strong> - A list of CSS transforms consisting of <code>CSSTransformComponent</code> including <code>CSSTranslation</code>, <code>CSSRotation</code>, <code>CSSRotation</code>, <code>CSSScale</code>, and <code>CSSSkew</code></li>
+  <li><strong>CSSUnitValue</strong> - Numeric values that can be expressed as a single unit (or a naked number or percentage)</li>
+  <li><strong>CSSMathvalue</strong> - and its subclasses <code>CSSMathSum</code>, <code>CSSMathProduct</code>, <code>CSSMathMin</code>, <code>CSSMathMax</code>, <code>CSSMathNegate</code>, and <code>CSSMathInvert</code>. Complicated numeric values (like <code>calc</code>, <code>min</code>, <code>max</code>, etc…)</li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-scss">.example {
   background-position: center bottom 10px;
-}</code></pre> <pre><code class="language-javascript">var example = document.querySelector('.example');
+}</code></pre>
 
-// center bottom 10px
-getComputedStyleMap(example).get('background-position').cssText;
-// example.styleMap for inline styles
+<pre><code class="language-javascript">// From https://drafts.css-houdini.org/css-typed-om/ August 28, 2017 Editor Draft
 
-// 50% - as a CSSSimpleLength
-getComputedStyleMap(example).get('background-position').x;
+let map = document.querySelector('.example').attributeStyleMap;
 
-// calc(100% - 10px) - as a CSSCalcLength
-getComputedStyleMap(example).get('background-position').y;</code></pre> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p>The <strong>Typed OM</strong> is the underlying foundation to which all of Houdini is based. It's our next-generation CSS Object Model (CSSOM). It's Houdini's <em>Secret Sauce</em>.</p> </div> </div> <div class="ft-page" data-state="secret-sauce"> <div class="ft-page--content"> Secret Sauce </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h3>Yah, But What Can I <em>DO</em> With This?</h3> <p>Some <em>pretty rad stuff</em></p> </div> </div> <div class="ft-page" data-state="rad"> <div class="ft-page--content"> Rad </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h2>Part 2: The Cool Custom Stuff</h2> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p>Please allow me to introduce you to <span class="blink">.</span><span class="blink-2">.</span><span class="blink-3">.</span></p> <h2 class="ft-fragment"><code class="language-scss">window.CSS</code></h2> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h3>CSS Custom Properties</h3> <p><em>Make Em Smarter!</em></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p><strong>Current Situation</strong></p> <pre><code class="language-scss">.thing {
+map.get('background-position').x;
+// CSS.percent(50)
+
+map.get('background-position').y;
+// CSSMathSum(CSS.percent(100), CSS.px(-10))</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p>The <strong>Typed OM</strong> provides the underlying foundation to meaningfully connect our CSS and our Worklets. If Worklets are Houdini's Secret Sauce, Typed OM are the <em>Chicken Nuggets</em> letting us scoop up that sauce without getting our fingers dirty</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="nuggets">
+  <div class="_stage--content">
+    <p>Dancing Nuggets</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h3>Yah, But What Can I <em>DO</em> With This?</h3>
+<p>Some <em>pretty rad stuff</em></p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="rad">
+  <div class="_stage--content">
+    Rad
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="supertopic">
+  <div class="_stage--content">
+    <h2>Part 3: The Cool Custom Stuff</h2>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p>Please allow me to introduce you to <span class="blink">.</span><span class="blink-2">.</span><span class="blink-3">.</span></p>
+<pre class="fragment windowCSS"><code class="language-javascript">window.CSS</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="topic">
+  <div class="_stage--content">
+    <h3>CSS <span class="fragment properties"><del>Variables</del> <span class="reveal">Custom Properties</span></span></h3>
+<p class="fragment">Make Snozzberries taste like Snozzberries</p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p><strong>Current Situation</strong></p>
+
+<pre><code class="language-scss">.thing {
   --my-color: green;
-  --my-color: url('not-a-color'); // Sad!
+  --my-color: url('not-a-color'); // It's just a variable! It doesn't know any better
   color: var(--my-color);
 }
-</code></pre> <div class="ft-fragment"> <p><strong>But Then</strong></p> <pre><code class="language-javascript">window.CSS.registerProperty({
+</code></pre>
+
+<div class="fragment">
+<p><strong>But Then</strong></p>
+<pre><code class="language-javascript">window.CSS.registerProperty({
   name: '--my-color',
   syntax: '&lt;color&gt;' // Now it's def a color. That `url` junk is skipped!
-});</code></pre> </div> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <h4>A Wild Animation Appeared!</h4> <div class="half"> <pre><code class="language-javascript">window.CSS.registerProperty({
+});</code></pre>
+</div>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5>Structure of a Registered Property</h5>
+<pre><code class="language-js">// From https://drafts.css-houdini.org/css-properties-values-api/ July 19, 2017 Editor's Draft
+
+window.CSS.registerProperty({
+  name: '--foo', // String, name of the custom property
+  syntax: '&lt;color&gt;', // String, how to parse this property. Defaults to *
+  inherits: false, // Boolean, if true should inherit down the DOM tree
+  initialValue: 'black', // String, initial value of this property
+})</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p>The following are valid types for <code>syntax</code></p>
+
+<ul class="fragment columns">
+  <li><code>&lt;length&gt;</code> - Any valid length value</li>
+  <li><code>&lt;number&gt;</code> - Number values</li>
+  <li><code>&lt;percentage&gt;</code> - Any valid percentage</li>
+  <li><code>&lt;length-percentage&gt;</code> - Any valid length or percentage value, any valid <code>calc()</code> expression combining length and percentage</li>
+  <li><code>&lt;color&gt;</code> - Any valid color value</li>
+  <li><code>&lt;image&gt;</code> - Any valid image value</li>
+  <li><code>&lt;url&gt;</code> - Any valid url value</li>
+  <li><code>&lt;integer&gt;</code> - Any valid integer value</li>
+  <li><code>&lt;angle&gt;</code> - Any valid angle value</li>
+  <li><code>&lt;time&gt;</code> - Any valid time value</li>
+  <li><code>&lt;resolution&gt;</code> - Any valid resolution value</li>
+  <li><code>&lt;transform-list&gt;</code> - A list of valid transform-function values</li>
+  <li><code>&lt;custom-ident&gt;</code> - Any valid custom-ident value</li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p><code>syntax</code> also allows for combiners</p>
+
+<ul class="fragment columns">
+  <li><code>&lt;length&gt;</code> - A single length value</li>
+  <li><code>&lt;image&gt; | &lt;url&gt;</code> - Accepts a single image <em>or</em> a single URL</li>
+  <li><code>big | bigger | BIGGER</code> - Accepts the ident "big", the ident "bigger", or the ident "BIGGER"</li>
+  <li><code>&lt;length&gt;+</code> - Accepts a list of length values</li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h4>Ooo! A Wild Registered Property!</h4>
+
+<div class="registered-demo-container"><pre class="registered-demo-container--js"><code class="language-javascript">// https://drafts.css-houdini.org/css-properties-values-api/
+// August 28, 2017 Editor's Draft
+
+window.CSS.registerProperty({
   name: '--registered-color',
-  syntax: '<color>',
+  syntax: '&lt;color&gt;',
   inherits: false,
   initialValue: 'rebeccapurple',
 });
-</color></code></pre> </div> <div class="half ft-fragment"> <pre><code class="language-scss" contenteditable>.registered-demo {
+</code></pre>
+<div class="editor fragment registered-demo-container--css" data-language="scss">.registered-demo {
   --registered-color: #c0ffee;
   background: var(--registered-color);
   transition: background 1s;
 }
 
+.registered-demo::after {
+  background-image: url('../images/icon.svg');
+}
+
 .registered-demo:hover {
   --registered-color: #bada55;
-}</code></pre> </div> <button class="registered-demo ft-fragment">This is registered!</button> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h3>CSS Paint API</h3> <p><em>Draw, in CSS, but, like, for real</em></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <ul> <li>Ever wanted to use <code>canvas</code> as a background in CSS?</li> <li class="ft-fragment">With the styling flexibility of an element?</li> <li class="ft-fragment">And the scalability of SVG?</li> </ul> <p class="ft-fragment"><strong>That's what the Paint API does</strong></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p><strong>Define</strong> - <code>js/circle.js</code></p> <pre><code class="language-javascript">registerPaint('circle', class {
-  static get inputProperties() { return ['--circle-color']; }
-  paint(ctx, geom, properties) {
-    // Change the fill color.
-    const color = properties.get('--circle-color').cssText;
-    ctx.fillStyle = color;
+}
+</div>
 
-    // Determine the center point and radius.
-    const x = geom.width / 2;
-    const y = geom.height / 2;
-    const radius = Math.min(x, y);
 
-    // Draw the circle \o/
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);
-    ctx.fill();
+<button class="registered-demo-container--btn registered-demo fragment">This is registered! <span class="registered-demo-icon"></span></button>
+</div>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="topic">
+  <div class="_stage--content">
+    <h3>CSS Paint API</h3>
+<p><em>Draw, in CSS, but, like, for real</em></p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <ul>
+  <li>Ever wanted to use <code>canvas</code> as a background in CSS?</li>
+  <li class="fragment">With the styling flexibility of an element?</li>
+  <li class="fragment">And the scalability of SVG?</li>
+</ul>
+
+<p class="fragment"><strong>That's what the Paint API does</strong></p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5><code>paintWorklet</code> Class</h5>
+<pre><code class="language-js">// From https://drafts.css-houdini.org/css-paint-api/ August 15, 2017 Editor's Draft
+
+class MyPaint {
+  static get inputProperties() { return ['--foo']; }
+  static get inputArguments() { return ['&lt;color&gt;']; }
+  static get alpha() { return true; }
+
+  paint(ctx, size, properties, arguments) {
+    // ctx - drawing context
+    // size - size of the box being painted
+    // properties - inputProperties
+    // arguments - array of passed-in arguments
+
+    // Paint code goes here.
   }
-});</code></pre> <div class="ft-fragment"> <p><strong>Import</strong></p> <pre><code class="language-javascript">window.paintWorklet.import('js/circle.js');</code></pre> </div> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p><strong>Use</strong></p> <pre><code class="language-scss" contenteditable>textarea.painted {
+}</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p><strong>Define</strong> - <code>js/circle.js</code></p>
+<pre><code class="language-javascript">registerPaint('circle', class {
+    static get inputProperties() { return ['--circle-color']; }
+    paint(ctx, geom, properties) {
+      // Change the fill color.
+      const circle = properties.get('--circle-color'); // This is a CSSStyleValue!
+
+      // Determine the center point and radius.
+      const xCircle = geom.width / 2;
+      const yCircle = geom.height / 2;
+      const radiusCircle = Math.min(xCircle, yCircle) - 2.5;
+
+      // Draw the circle \o/
+      ctx.beginPath();
+      ctx.arc(xCircle, yCircle, radiusCircle, 0, 2 * Math.PI);
+      ctx.fillStyle = circle;
+      ctx.fill();
+    }
+});
+</code></pre>
+
+<div class="fragment">
+<p><strong>Import</strong></p>
+<pre><code class="language-javascript">window.CSS.paintWorklet.addModule('js/circle.js');</code></pre>
+</div>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <p><strong>Use</strong></p>
+<div id='circle-demo' class="editor" data-language="scss">textarea.painted {
   --circle-color: #f00;
   background-image: paint(circle);
-}</code></pre> <textarea class="painted">
+}</div>
+
+<textarea class="painted">
   CSS is awesome.
-</textarea> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h3>CSS Animation API</h3> <p><em>Yo dawg, I heard you like parallax</em></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <ul> <li>Listen for user input, like scroll events!</li> <li class="ft-fragment">Style elements, based on that user input</li> <li class="ft-fragment">Do it all off of the main thread!</li> </ul> <p class="ft-fragment"><strong>Animation API: Make Parallax Perform</strong></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p><strong>A Little JS</strong></p> <pre><code class="language-javascript">registerAnimator('sticky-resize', class {
-  static get inputProperties() { return ['--part']; }
-  static get outputProperties() { return ['opacity', 'transform']; }
-  static get inputTime() { return true; }
-  static get rootInputScroll() { return true; }
+</textarea>
 
-  animate(root, children, timeline) {
-    let scroll = root.scrollOffsets.top / (189 - 45);
+  </div>
+  
+  
+</section>
 
-    if (scroll > 1) {
-      scroll = 1;
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="fuzzy">
+  <div class="_stage--content">
+    <h2>Now things get a little fuzzy</h2>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="topic">
+  <div class="_stage--content">
+    <h3>CSS Animation API</h3>
+<p><em>Yo dawg, I heard you like parallax</em></p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <ul>
+  <li>Listen for user input, like scroll events!</li>
+  <li class="fragment">Style elements, based on that user input</li>
+  <li class="fragment">Do it all off of the main thread!</li>
+</ul>
+
+<p class="fragment"><strong>Animation API: Make Parallax Perform</strong></p>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5><code>animationWorklet</code> Class</h5>
+<pre><code class="language-js">// https://wicg.github.io/animation-worklet/ August 1, 2017 Draft Community Group Report
+
+class myAnimator {
+    constructor(options) {
+        // Called when a new animator is instantiated.
     }
+    animate(currentTime, effect) {
+        // Animation frame logic goes here.
+    }
+}</code></pre>
 
-    children.forEach(elem => {
-      const part = elem.styleMap.get('--part');
-      if (part == 'avatar') {
-      	const t = elem.styleMap.transform;
+  </div>
+  
+  
+</section>
 
-      	t.m11 = 1 - 0.6 * scroll;
-      	t.m22 = 1 - 0.6 * scroll;
-      	t.m41 = -scroll * 45*0.6;
 
-      	if(root.scrollOffsets.top > 189 - 45 * 0.6) {
-      	  t.m42 = root.scrollOffsets.top - (189 - 45 * 0.6) + 45;
-      	} else {
-      	  t.m42 = 45;
-      	}
+      
+        
 
-      	elem.styleMap.transform = t;
-      } else if (part == 'bar') {
-      	const t = elem.styleMap.transform;
 
-      	t.m42 = root.scrollOffsets.top;
+  
 
-      	elem.styleMap.transform = t;
-      	elem.styleMap.opacity = scroll;
-      }
-    });
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-javascript">// From https://wicg.github.io/animation-worklet/ August 1, 2017 Draft Community Group Report
+
+registerAnimator('twitter-header', class {
+  // Called when new animator is instantiated
+  constructor(options) {
+    this.timing_ = new CubicBezier('ease-out');
   }
-});</code></pre> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <h4>A Little CSS</h4> <div class="half"><pre><code class="language-scss">#scroller {
-  --animator-root: sticky-resize;
-}
-.avatar {
-  --animator: sticky-resize;
-  --part: avatar;
-}
-.bar {
-  --animator: sticky-resize;
-  --part: bar;
-}</code></pre></div> <div class="half"><pre><code class="language-markup">&lt;div id="scroller"&gt;
-  &lt;section class="bar"&gt;&lt;/section&gt;
+
+  // Internal function to perform effect
+  clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  // Animation Frame Logic
+  animate(currentTime, effect) {
+    const scroll = currentTime; // scroll is in [0, 1] range
+
+    // Drive the output group effect by setting its children local times
+    effect.children[0].localTime = scroll;
+    effect.children[1].localTime = this.timing_(clamp(scroll, 0, .5));
+  }
+});
+</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <div><pre><code class="language-js">window.animationWorklet.addModule('twitter-header.js').then(_ => {
+  const workletAnim = new WorkletAnimation('twitter-header'),
+    [
+      new KeyFrameEffect( // effect.children[0] in worklet
+        $avatar, // Element to work on
+        // Scales down as we scroll up
+        [ { transform: 'scale(1)' }, { transform: 'scale(0.5)' } ], // Effect
+        { duration: 1, iterations: 1 },
+      ),
+      new KeyFrameEffect( // effect.children[0] in worklet
+        $header,
+        // Loses transparency as we scroll up
+        [ { opacity: 0 }, { opacity: 0.8 } ],
+        { duration: 1, iterations: 1 },
+      ),
+    ],
+    // currentTime in worklet
+    // New! Defines animation timeline whose time value depends on scroll position of a scroll container
+    // Work still being done for other input types, like touch and pointer input
+    new ScrollTimeline($scrollingContainer, {
+      timeRange: 1,
+      startScrollOffset: 0,
+      endScrollOffset: $header.clientHeight,
+    },
+  );
+});</code></pre></div>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-markup">&lt;div id="scrollingContainer"&gt;
+  &lt;section id="header"&gt;&lt;/section&gt;
   &lt;header&gt;
-    &lt;picture class="avatar"&gt;
+    &lt;picture id="avatar"&gt;
       &lt;img src="avatar.jpg"&gt;
     &lt;/picture&gt;
     &lt;section class="profile-controls"&gt;
@@ -125,30 +1254,690 @@ getComputedStyleMap(example).get('background-position').y;</code></pre> </div> <
     &lt;p&gt;Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. &lt;/p&gt;
     &lt;p&gt;Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. &lt;/p&gt;
   &lt;/section&gt;
-&lt;/div&gt;</code></pre> </div> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <iframe src="http://googlechrome.github.io/houdini-samples/animation-worklet/twitter-header/" class="twitter" frameborder="0"></iframe> </div> <div class="ft-page--footnote"> <p><a href="http://googlechrome.github.io/houdini-samples/">Animation Worklet demo</a></p> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h3>CSS Layout API</h3> <p><em>JavaScript powered layouts, without being terrible to your users</em></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <ul> <li>Literally, make your own <code>display</code> properties</li> <li class="ft-fragment">Polyfill that awesome new layout spec you love!</li> <li class="ft-fragment">Everyone likes a good Masonry layout, add one without a performance hit!</li> </ul> </div> <div class="ft-page--footnote"> <p>this spec is crazy complicated and I don’t quite understand the whole thing yet</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p><strong>Define</strong></p> <pre><code class="language-javascript">registerLayout('masonry', class {
-  static get inputProperties() {
-    return ['width', 'height']
+&lt;/div&gt;</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    
+<iframe src="http://googlechrome.github.io/houdini-samples/animation-worklet/twitter-header/" class="twitter" frameborder="0"></iframe>
+
+  </div>
+  
+  
+  <footer class="_stage--footnote">
+    <p><a href="http://googlechrome.github.io/houdini-samples/">Animation Worklet demo</a></p>
+
+  </footer>
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="topic">
+  <div class="_stage--content">
+    <h3>CSS Layout API</h3>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    
+<ul>
+  <li>Literally, make your own <code>display</code> properties</li>
+  <li class="fragment">Polyfill that awesome new layout spec you love!</li>
+  <li class="fragment">Everyone likes a good Masonry layout, add one without a performance hit!</li>
+</ul>
+
+  </div>
+  
+  
+  <footer class="_stage--footnote">
+    <p>this spec is crazy complicated and I don't quite understand the whole thing yet</p>
+
+  </footer>
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h4>Main Terminology</h4>
+<ul>
+  <li><strong>Current Layout</strong> - Layout algorithm for the box we are currently performing layout for</li>
+  <li class="fragment"><strong>Parent Layout</strong> - Layout algorithm for the box's direct parent (the thing requesting <em>current layout</em> to be performed)</li>
+  <li class="fragment"><strong>Child Layout</strong> - Layout algorithm for the <code>LayoutChild</code> of the current layout</li>
+  <li class="fragment"><code>LayoutChild</code> - CSS generated box <em>before</em> layout has occurred</li>
+  <li class="fragment"><code>Fragment</code> - Container for layout information</li>
+  <li class="fragment"><code>LayoutEdges</code> - The size of the box model of the current box being laid out</li>
+  <li class="fragment"><code>ConstraintSpace</code> - Available space for the current layout</li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5>LayoutChild</h5>
+<ul>
+  <li>Doesn't contain any layout information itself, but can be used to generate <code>fragment</code>s which do</li>
+  <li class="fragment">Has computed styles that can be accessed by <code>styleMap</code> (from the Typed OM)</li>
+  <li class="fragment">Can be generated by an element, root inline box, <code>::before</code> and <code>::after</code> psuedoelements, or an anonymous box (like blockified text nodes or <code>display: table-cell</code> elements without a parent table</li>
+  <li class="fragment">All children of current box get passed as an array of <code>LayoutChild</code>ren to the layout method</li>
+  <li class="fragment">To perform layout on a box, <code>layoutNextFragment()</code> is called to produce a <code>fragment</code></li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- Three LayoutChild(ren) --&gt;
+&lt;!-- The div, the ::before, and the image --&gt;
+&lt;style&gt;
+  #box::before { content: 'hello!'; }
+&lt;/styleglt;
+&lt;div id="box"&gt;A block level box with text.&lt;/div&lg;
+&lt;img src="..." /&gt;
+</code></pre>
+
+<pre class="fragment"><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- One LayoutChild --&gt;
+&lt;!-- All share root line box --&gt;
+This is a next node, &lt;span&gt;with some additional styling,
+that may&lt;/span&gt; break over&lt;br&gt;multiple lines.
+</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5>Fragment</h5>
+<ul>
+  <li>Contains <code>inlineSize</code> (~width) and <code>blockSize</code> (~height) attributes, which are set by the layout algorithm and cannot be changed</li>
+  <li class="fragment">Can be positioned by setting its <code>inlineOffset</code> and <code>blockOffset</code> attributes, which default to 0</li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre class="half"><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- Fragment --&gt;
+&lt;!-- inlineSize === 50 --&gt;
+&lt;style&gt;
+  #container {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 5px;
   }
-  static get childrenInputProperties() {
-    return ['x', 'y', 'position']
+  #layout-api {
+    display: layout(foo);
+    margin: 0 20px;
   }
-  layout(children, constraintSpace, styleMap, breakToken) {
-    // Magic layout logic goes here.
+&lt;/style&gt;
+&lt;div id="container"&gt;
+  &lt;div id="layout-api"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre class="half fragment"><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- Fragment --&gt;
+&lt;!-- inlineSize === boxSize === 80 --&gt;
+&lt;style&gt;
+  #container {
+    position: relative;
+    width: 100px;
+    height: 100px;
   }
-});</code></pre> <div class="ft-fragment"> <p><strong>Then Use</strong></p> <pre><code class="language-scss">.article {
-  display: layout('masonry');
-}</code></pre> </div> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h3>CSS Parser API</h3> <p><em>The browser's better at parsing CSS than you</em></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <ul> <li>Built on the <code>TypedOM</code></li> <li class="ft-fragment">Parse CSS-like strings in to objects to work with in JS</li> <li class="ft-fragment">Extend what the CSS parser understands, for polyfilling</li> </ul> </div> <div class="ft-page--footnote"> <p>This spec has just <em>barely</em> started to get spec’d out</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <pre><code class="language-javascript">const background = window.cssParse.rule('background: green');
-console.log(background.styleMap.get('background').value) // green</code></pre> <pre class="ft-fragment"><code class="language-javascript">const styles = window.cssParse.ruleSet(".foo { background: green; margin: 5px; }");
-console.log(styles.length) // 5
-console.log(styles[0].styleMap.get("margin-top").value) // 5
-console.log(styles[0].styleMap.get("margin-top").type) // "px"</code></pre> </div> </div> </section> <section class="ft-section"> <div class="ft-page"> <div class="ft-page--content"> <h3>Custom At-Rules</h3> <p><em>Did someone say Element Queries? I swear someone said Element Queries</em></p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p>So, I have one good use-case for creating custom at-rules: <a href="https://github.com/Snugug/eq.js">Element Queries</a>. It's very unlikely we'll get them natively, for a large variety of reasons, but custom at-rules will let us have them at native CSS Engine speed. In theory. Other use cases, <em>and I'm speculating here</em>, could include porting CSS Preprocessor goodies like control directives, mixins, and extends to CSS.</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <h2 class="blink">WARNING</h2> <p>This <em>literally</em> doesn't have a spec yet. You'll find some mention of custom at-rules here and there, but no one's gotten around to actually writing out the draft proposal yet. This is entirely based on a conversation and some sample code that Tab Atkins wrote for me at SassConf 2015. I've updated the sample code based on what the current specs look like, so it's just as likely to be correct as not. <strong>You Have Been Warned</strong>.</p> </div> </div> <div class="ft-page"> <div class="ft-page--content"> <p><strong>Define</strong></p> <pre><code class="language-javascript">window.CSS.registerAtRule({
-  name: '--eq',
-  callback: eqjs, // Callback to do stuff
-  grammar: { // Hard to tell if needs to be this or `declarations`.
-    stylesheet: true,
-  },
-});</code></pre> <div class="ft-fragment"> <p><strong>Then Use</strong></p> <pre><code class="language-scss">.component {
-  @--eq (min-width: 500px) { // I `think` this should work.
-    background: green;
+  #layout-api {
+    display: layout(foo);
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    position: absolute;
   }
-}</code></pre> </div> </div> <div class="ft-page--footnote"> <p><a href="https://github.com/tabatkins/parse-css#canonicalizing-against-a-grammar">Grammar Definitions</a></p> </div> </div> </section> <section class="ft-section"> <div class="ft-page" data-state="excited"> <div class="ft-page--content"> Get Excited </div> </div> <div class="ft-page" data-state="magic-out"> <div class="ft-page--content"> Magic is coming to the browser </div> </div> </section> <section class="ft-section"> <div class="ft-page" data-state="end"> <div class="ft-page--content"> <h1 class="center">👍</h1> <p class="center"> <strong class="lowercase">http://snugug.github.io/magic-tricks-with-houdini</strong> </p> <ul> <li><a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a></li> <li><a href="https://drafts.css-houdini.org/">CSS Houdini Drafts</a></li> <li><a href="https://github.com/w3c/css-houdini-drafts">CSS Houdini Drafts - GitHub</a></li> <li><a href="https://github.com/googlechrome/houdini-samples">Houdini Samples</a></li> <li><a href="https://drafts.css-houdini.org/css-typed-om/">CSS Typed OM Level 1</a></li> <li><a href="https://drafts.csswg.org/css-syntax/#parser-entry-points">CSS Syntax Module Level 3, Parser Entry Points</a></li> <li><a href="https://github.com/WICG/CSS-Parser-API">CSS Parser API</a></li> <li><a href="https://twitter.com/snugug">@snugug</a> (that's me!)</li> </ul> <br> </div> </div> </section> </article> <script src="js/app.js"></script> </body> </html> 
+&lt;/style&gt;
+&lt;div id="container"&gt;
+  &lt;div id="layout-api"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- Fragment --&gt;
+&lt;!-- If #container starts at inlineOffset = 20, blockOffset = 30 --&gt;
+&lt;!-- .child-relative final position is (25, 40), with relative positioning handled by the user agent --&gt;
+&lt;!-- .child-absolute would not appear as a LayoutChild --&gt;
+&lt;style&gt;
+  #container {
+    display: layout(foo);
+    position: relative; /* container is a containing block */
+    width: 100px;
+    height: 100px;
+  }
+  #child-relative {
+    position: relative;
+    left: 5px;
+    top: 10px;
+  }
+&lt;/style&gt;
+&lt;div id="container"&gt;
+  &lt;div id="child-relative"&gt;&lt;/div&gt;
+  &lt;div id="child-absolute"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5>LayoutEdges</h5>
+<ul>
+  <li>Includes <code>border</code>, <code>scrollbar</code>, and <code>padding</code> attributes representing their respective width</li>
+  <li class="fragment">Includes the <code>all</code> attribute which represents the sum of the above</li>
+  <li class="fragment"><code>LayoutEdgeSizes</code> is an object that represents the width, in CSS pixels, of an edge in each of the <a href="https://drafts.csswg.org/css-writing-modes-4/#abstract-dimensions">abstract dimensions</a>(<code>inlineStart</code>, <code>inlineEnd</code>, <code>blockStart</code>, <code>blockEnd</code>)</li>
+  <li class="fragment"><code>LayoutEdgeSizes</code> also includes the <code>inline</code> and <code>block</code> attributes that represent their respective sums</li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <div class="grid-2"><pre class="grid-2--1"><code class="language-scss">.container {
+  width: 50px;
+  height: 50px;
+}
+
+.box {
+  display: layout(box-edges);
+
+  padding: 10%;
+  border: solid 2px;
+  overflow-y: scroll;
+}</code></pre>
+
+<pre class="grid-2--1"><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre class="grid-2--2"><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas
+
+registerLayout('box-edges', class {
+  *layout(space, children, styleMap, edges, breakToken) {
+    edges.padding.inlineStart; // 5 (as 10% * 50px = 5px).
+    edges.border.blockEnd; // 2
+    edges.scrollbar.inlineEnd; // UA-dependent, may be 0 or >0 (e.g. 16).
+    edges.all.block; // 14 (2 + 5 + 5 + 2).
+  }
+}
+</code></pre>
+</div>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5>ConstraintSpace</h5>
+<ul>
+  <li>Passed in to layout and represents the available space for the current layout to perform layout inside</li>
+  <li class="fragment"><code>percentageInlineSize</code> and <code>percentageBlockSize</code> are the percentages a layout should resolve against</li>
+  <li class="fragment"><code>blockFragmentType</code> dictates whether the current layout should produce a <code>fragment</code> at <code>blockSize</code>; may choose not to if it has properties like <code>break-inside: avoid</code></li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5>Utilities</h5>
+<ul>
+  <li><code>resolveInlineSize(constraintSpace, styleMap)</code> -  Determines the inline size based on the read-only <code>styleMap</code></li>
+  <li class="fragment"><code>resolveBlockSize(constraintSpace, styleMap, [autoBlockSize])</code> - Determines the block size based on the read-only <code>styleMap</code></li>
+  <li class="fragment"><code>resolveLength(constraintSpace, value</code> - Resolves a length based on a <code>CSSStyleValue</code></li>
+</ul>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h5><code>layoutWorklet</code> Class</h5>
+<pre><code class="language-js">class MyLayout {
+  static get inputProperties() { return ['--foo']; }
+  static get childrenInputProperties() { return ['--bar']; }
+  static get childDisplay() { return 'normal'; }
+
+  // Generator functions instead of normal functions to support async/parallel layout engines
+  *intrinsicSizes(children, styleMap) {
+    // Intrinsic sizes code goes here.
+  }
+
+  *layout(space, children, styleMap, edges, breakToken) {
+    // Layout code goes here.
+  }
+}</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/#example-13a91ee5 August 29, 2017 Collection of Interesting Ideas
+
+registerLayout('block-like', class {
+  *intrinsicSizes(styleMap, children) {
+    const childrenSizes = yield children.map((child) => {
+      return child.intrinsicSizes();
+    });
+
+    const maxContentSize = childrenSizes.reduce((max, childSizes) => {
+      return Math.max(max, childSizes.maxContentContribution);
+    }, 0);
+
+    const minContentSize = childrenSizes.reduce((max, childSizes) => {
+      return Math.max(max, childSizes.minContentContribution);
+    }, 0);
+
+    return {maxContentSize, minContentSize};
+  }
+
+  // ...</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-js">  // ...
+  *layout(space, children, styleMap, edges) {
+    const inlineSize = resolveInlineSize(space, styleMap);
+
+    const availableInlineSize = inlineSize - edges.all.inline;
+    const availableBlockSize = resolveBlockSize(constraintSpace, styleMap) - edges.all.block;
+
+    const childConstraintSpace = new ConstraintSpace({
+      inlineSize: availableInlineSize,
+      blockSize: availableBlockSize,
+    });
+
+    const childFragments = yield children.map((child) => {
+      return child.layoutNextFragment(childConstraintSpace);
+    });
+
+    // ...</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <pre><code class="language-js">    // ...
+    let blockOffset = edges.all.blockStart;
+    for (let fragment of childFragments) {
+      // Position the fragment in a block like manner, centering it in the inline direction.
+      fragment.blockOffset = blockOffset;
+      fragment.inlineOffset = Math.max(
+        edges.all.inlineStart,
+        (availableInlineSize - fragment.inlineSize) / 2
+      );
+
+      blockOffset += fragment.blockSize;
+    }
+
+    const autoBlockSize = blockOffset + edges.all.blockEnd;
+    const blockSize = resolveBlockSize(
+      constraintSpace,
+      styleMap,
+      autoBlockSize
+    );
+
+    return {
+      inlineSize: inlineSize,
+      blockSize: blockSize,
+      childFragments: childFragments,
+    };
+  }
+});</code></pre>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="future">
+  <div class="_stage--content">
+    The Future Is Bright
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="excited">
+  <div class="_stage--content">
+    Get Excited
+
+  </div>
+  
+  
+</section>
+
+
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="magic-out">
+  <div class="_stage--content">
+    Magic is coming to the browser
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+    <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  data-state="end">
+  <div class="_stage--content">
+    <h1 class="center">👍</h1>
+
+<p class="center">
+  <strong class="lowercase">http://snugug.github.io/magic-tricks-with-houdini</strong>
+</p>
+
+<ul>
+  <li><a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a></li>
+  <li><a href="https://drafts.css-houdini.org/">CSS Houdini Drafts</a></li>
+  <li><a href="https://github.com/w3c/css-houdini-drafts">CSS Houdini Drafts - GitHub</a></li>
+  <li><a href="https://github.com/wicg/animation-worklet/">Animation Working Group</a></li>
+  <li><a href="https://github.com/wicg/CSS-Parser-API/">Parser Working Group</a></li>
+  <li><a href="https://github.com/googlechrome/houdini-samples">Houdini Samples</a></li>
+  <li><a href="https://twitter.com/snugug">@snugug</a> (that's me!)</li>
+</ul>
+
+<br>
+
+  </div>
+  
+  
+</section>
+
+
+      
+    </article>
+  
+</article>
+
+</body>
+</html>

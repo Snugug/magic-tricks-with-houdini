@@ -1,0 +1,26 @@
+<div><pre><code class="language-js">window.animationWorklet.addModule('twitter-header.js').then(_ => {
+  const workletAnim = new WorkletAnimation('twitter-header'),
+    [
+      new KeyFrameEffect( // effect.children[0] in worklet
+        $avatar, // Element to work on
+        // Scales down as we scroll up
+        [ { transform: 'scale(1)' }, { transform: 'scale(0.5)' } ], // Effect
+        { duration: 1, iterations: 1 },
+      ),
+      new KeyFrameEffect( // effect.children[0] in worklet
+        $header,
+        // Loses transparency as we scroll up
+        [ { opacity: 0 }, { opacity: 0.8 } ],
+        { duration: 1, iterations: 1 },
+      ),
+    ],
+    // currentTime in worklet
+    // New! Defines animation timeline whose time value depends on scroll position of a scroll container
+    // Work still being done for other input types, like touch and pointer input
+    new ScrollTimeline($scrollingContainer, {
+      timeRange: 1,
+      startScrollOffset: 0,
+      endScrollOffset: $header.clientHeight,
+    },
+  );
+});</code></pre></div>

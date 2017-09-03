@@ -1,0 +1,28 @@
+<p><strong>A Little JS</strong></p>
+<pre><code class="language-javascript">    children.forEach(elem => {
+      const part = elem.attributeStyleMap.get('--part');
+      if (part == 'avatar') {
+      	const t = elem.attributeStyleMap.get('transform');
+
+      	t.m11 = 1 - 0.6 * scroll;
+      	t.m22 = 1 - 0.6 * scroll;
+      	t.m41 = -scroll * 45*0.6;
+
+      	if(root.scrollOffsets.top > 189 - 45 * 0.6) {
+      	  t.m42 = root.scrollOffsets.top - (189 - 45 * 0.6) + 45;
+      	} else {
+      	  t.m42 = 45;
+      	}
+
+      	elem.attributeStyleMap.get('transform') = t;
+      } else if (part == 'bar') {
+      	const t = elem.attributeStyleMap.get('transform');
+
+      	t.m42 = root.scrollOffsets.top;
+
+      	elem.attributeStyleMap.get('transform') = t;
+      	elem.attributeStyleMap.get('opacity') = scroll;
+      }
+    });
+  }
+});</code></pre>

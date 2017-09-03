@@ -1,0 +1,13 @@
+<pre><code class="language-scss">.example {
+  background-position: center bottom 10px;
+}</code></pre>
+
+<pre><code class="language-javascript">// From https://drafts.css-houdini.org/css-typed-om/ August 28, 2017 Editor Draft
+
+let map = document.querySelector('.example').attributeStyleMap;
+
+map.get('background-position').x;
+// CSS.percent(50)
+
+map.get('background-position').y;
+// CSSMathSum(CSS.percent(100), CSS.px(-10))</code></pre>
