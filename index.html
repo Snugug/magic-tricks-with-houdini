@@ -245,27 +245,6 @@
 
 <section  class="_stage--slide"  >
   <div class="_stage--content">
-    <h2 class="blink">WARNING</h2>
-
-<p>This is very early days work in progress, nothing more. No compatible implementations exist. What little actually works only really does so in Chrome Canary. This deck will likely break if not viewed there. Syntax and semantics are likely to change. In fact, in the course of a year, one API has gone through 4ish incompatible API changes. Some of the examples provided are speculative based on previous and current working implementations and may not reflect final syntax. Terms and conditions apply. Not redeemable for cash. Your mileage may vary.</p>
-
-  </div>
-  
-  
-</section>
-
-
-      
-        
-
-
-  
-
-
-
-
-<section  class="_stage--slide"  >
-  <div class="_stage--content">
     <h4>A Big Thanks to <span class="blink">.</span><span class="blink-2">.</span><span class="blink-3">.</span></h4>
 
 <p><strong><a href="https://twitter.com/tabatkins">Tab Atkins</a></strong> - Spec Hacker, Google, for getting me in to Houdini 4ish years ago</p>
@@ -281,6 +260,27 @@
     </article>
   
     <article class="_stage--group" >
+      
+        
+
+
+  
+
+
+
+
+<section  class="_stage--slide"  >
+  <div class="_stage--content">
+    <h2 class="blink">WARNING</h2>
+
+<p>This is very early days work in progress, nothing more. No compatible implementations exist. What little actually works only really does so in Chrome Canary. This deck will likely break if not viewed there. Syntax and semantics are likely to change. In fact, in the course of a year, one API has gone through 4ish incompatible API changes. Some of the examples provided are speculative based on previous and current working implementations and may not reflect final syntax. Terms and conditions apply. Not redeemable for cash. Your mileage may vary.</p>
+
+  </div>
+  
+  
+</section>
+
+
       
         
 
@@ -617,7 +617,6 @@ map.get('background-position').y;
 <section  class="_stage--slide"  >
   <div class="_stage--content">
     <h3>Yah, But What Can I <em>DO</em> With This?</h3>
-<p>Some <em>pretty rad stuff</em></p>
 
   </div>
   
@@ -844,9 +843,7 @@ window.CSS.registerProperty({
 
 <section  class="_stage--slide"  >
   <div class="_stage--content">
-    <h4>Ooo! A Wild Registered Property!</h4>
-
-<div class="registered-demo-container"><pre class="registered-demo-container--js"><code class="language-javascript">// https://drafts.css-houdini.org/css-properties-values-api/
+    <div class="registered-demo-container"><pre class="registered-demo-container--js"><code class="language-javascript">// https://drafts.css-houdini.org/css-properties-values-api/
 // August 28, 2017 Editor's Draft
 
 window.CSS.registerProperty({
@@ -856,7 +853,7 @@ window.CSS.registerProperty({
   initialValue: 'rebeccapurple',
 });
 </code></pre>
-<div class="editor fragment registered-demo-container--css" data-language="scss">.registered-demo {
+<div class="editor registered-demo-container--css" data-language="scss">.registered-demo {
   --registered-color: #c0ffee;
   background: var(--registered-color);
   transition: background 1s;
@@ -872,7 +869,7 @@ window.CSS.registerProperty({
 </div>
 
 
-<button class="registered-demo-container--btn registered-demo fragment">This is registered! <span class="registered-demo-icon"></span></button>
+<button class="registered-demo-container--btn registered-demo">This is registered! <span class="registered-demo-icon"></span></button>
 </div>
 
   </div>
@@ -917,7 +914,7 @@ window.CSS.registerProperty({
 <section  class="_stage--slide"  >
   <div class="_stage--content">
     <ul>
-  <li>Ever wanted to use <code>canvas</code> as a background in CSS?</li>
+  <li>Ever wanted to use <code>canvas</code>* as a background or a border in CSS?</li>
   <li class="fragment">With the styling flexibility of an element?</li>
   <li class="fragment">And the scalability of SVG?</li>
 </ul>
@@ -926,6 +923,11 @@ window.CSS.registerProperty({
 
   </div>
   
+  
+  <footer class="_stage--footnote">
+    <p>*2D drawing without access to <code>window</code></p>
+
+  </footer>
   
 </section>
 
@@ -944,16 +946,19 @@ window.CSS.registerProperty({
     <h5><code>paintWorklet</code> Class</h5>
 <pre><code class="language-js">// From https://drafts.css-houdini.org/css-paint-api/ August 15, 2017 Editor's Draft
 
-class MyPaint {
+class myPaint {
+  // Input properties from element to look for
   static get inputProperties() { return ['--foo']; }
+  // Input arguments that can be passed to `paint` function
   static get inputArguments() { return ['&lt;color&gt;']; }
+  // Alpha allowed?
   static get alpha() { return true; }
 
-  paint(ctx, size, properties, arguments) {
+  paint(ctx, size, props, args) {
     // ctx - drawing context
     // size - size of the box being painted
-    // properties - inputProperties
-    // arguments - array of passed-in arguments
+    // props - inputProperties
+    // args - array of passed-in arguments
 
     // Paint code goes here.
   }
@@ -979,13 +984,13 @@ class MyPaint {
     <p><strong>Define</strong> - <code>js/circle.js</code></p>
 <pre><code class="language-javascript">registerPaint('circle', class {
     static get inputProperties() { return ['--circle-color']; }
-    paint(ctx, geom, properties) {
+    paint(ctx, size, props) {
       // Change the fill color.
-      const circle = properties.get('--circle-color'); // This is a CSSStyleValue!
+      const circle = props.get('--circle-color'); // This is a CSSStyleValue!
 
       // Determine the center point and radius.
-      const xCircle = geom.width / 2;
-      const yCircle = geom.height / 2;
+      const xCircle = size.width / 2;
+      const yCircle = size.height / 2;
       const radiusCircle = Math.min(xCircle, yCircle) - 2.5;
 
       // Draw the circle \o/
@@ -1122,12 +1127,16 @@ class MyPaint {
 <pre><code class="language-js">// https://wicg.github.io/animation-worklet/ August 1, 2017 Draft Community Group Report
 
 class myAnimator {
-    constructor(options) {
-        // Called when a new animator is instantiated.
-    }
-    animate(currentTime, effect) {
-        // Animation frame logic goes here.
-    }
+  constructor(options) {
+    // Called when a new animator is instantiated
+    // Used to set stuff up for each use of an animator
+  }
+  animate(currentTime, effect) {
+    // currentTime - The current time from the defined timeline
+    // effect - Group of effects that this animation is working on
+
+    // Animation frame logic goes here.
+  }
 }</code></pre>
 
   </div>
@@ -1190,21 +1199,22 @@ registerAnimator('twitter-header', class {
   <div class="_stage--content">
     <div><pre><code class="language-js">window.animationWorklet.addModule('twitter-header.js').then(_ => {
   const workletAnim = new WorkletAnimation('twitter-header'),
+    // Worklet `effects`
     [
       new KeyFrameEffect( // effect.children[0] in worklet
         $avatar, // Element to work on
         // Scales down as we scroll up
-        [ { transform: 'scale(1)' }, { transform: 'scale(0.5)' } ], // Effect
-        { duration: 1, iterations: 1 },
+        [ { transform: 'scale(1)' }, { transform: 'scale(0.5)' } ], // Keyframes
+        { duration: 1, iterations: 1 }, // Only want one frame per timeline tick
       ),
-      new KeyFrameEffect( // effect.children[0] in worklet
+      new KeyFrameEffect( // effect.children[1] in worklet
         $header,
         // Loses transparency as we scroll up
         [ { opacity: 0 }, { opacity: 0.8 } ],
         { duration: 1, iterations: 1 },
       ),
     ],
-    // currentTime in worklet
+    // Worklet `curretTime` timeline
     // New! Defines animation timeline whose time value depends on scroll position of a scroll container
     // Work still being done for other input types, like touch and pointer input
     new ScrollTimeline($scrollingContainer, {
@@ -1217,6 +1227,11 @@ registerAnimator('twitter-header', class {
 
   </div>
   
+  
+  <footer class="_stage--footnote">
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect">KeyFrameEffect, MDN</a></p>
+
+  </footer>
   
 </section>
 
@@ -1303,6 +1318,7 @@ registerAnimator('twitter-header', class {
 <section  class="_stage--slide"  data-state="topic">
   <div class="_stage--content">
     <h3>CSS Layout API</h3>
+<p><em><code>display</code> your way</em></p>
 
   </div>
   
@@ -1384,7 +1400,6 @@ registerAnimator('twitter-header', class {
   <li class="fragment">Has computed styles that can be accessed by <code>styleMap</code> (from the Typed OM)</li>
   <li class="fragment">Can be generated by an element, root inline box, <code>::before</code> and <code>::after</code> psuedoelements, or an anonymous box (like blockified text nodes or <code>display: table-cell</code> elements without a parent table</li>
   <li class="fragment">All children of current box get passed as an array of <code>LayoutChild</code>ren to the layout method</li>
-  <li class="fragment">To perform layout on a box, <code>layoutNextFragment()</code> is called to produce a <code>fragment</code></li>
 </ul>
 
   </div>
@@ -1442,12 +1457,18 @@ that may&lt;/span&gt; break over&lt;br&gt;multiple lines.
   <div class="_stage--content">
     <h5>Fragment</h5>
 <ul>
-  <li>Contains <code>inlineSize</code> (~width) and <code>blockSize</code> (~height) attributes, which are set by the layout algorithm and cannot be changed</li>
+  <li>To perform layout on a box, <code>layoutNextFragment()</code> is called on `LayoutChild` to produce a <code>fragment</code></li>
+  <li class="fragment">Contains <code>inlineSize</code> and <code>blockSize</code> attributes, which are set by the layout algorithm and cannot be changed</li>
   <li class="fragment">Can be positioned by setting its <code>inlineOffset</code> and <code>blockOffset</code> attributes, which default to 0</li>
 </ul>
 
   </div>
   
+  
+  <footer class="_stage--footnote">
+    <p><code>inline</code> and <code>block</code> are <a href="https://drafts.csswg.org/css-writing-modes-4/#abstract-dimensions">abstract dimensions</a></p>
+
+  </footer>
   
 </section>
 
@@ -1528,15 +1549,19 @@ that may&lt;/span&gt; break over&lt;br&gt;multiple lines.
     <pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
 
 &lt;!-- Fragment --&gt;
-&lt;!-- If #container starts at inlineOffset = 20, blockOffset = 30 --&gt;
-&lt;!-- .child-relative final position is (25, 40), with relative positioning handled by the user agent --&gt;
-&lt;!-- .child-absolute would not appear as a LayoutChild --&gt;
+&lt;!--
+  .child-relative final position is (25, 40), with relative positioning handled by UA
+  .child-absolute would not appear as a LayoutChild
+--&gt;
+
 &lt;style&gt;
   #container {
     display: layout(foo);
-    position: relative; /* container is a containing block */
+    position: relative;
     width: 100px;
     height: 100px;
+    margin-left: 20px;
+    margin-top: 30px;
   }
   #child-relative {
     position: relative;
@@ -1544,6 +1569,7 @@ that may&lt;/span&gt; break over&lt;br&gt;multiple lines.
     top: 10px;
   }
 &lt;/style&gt;
+
 &lt;div id="container"&gt;
   &lt;div id="child-relative"&gt;&lt;/div&gt;
   &lt;div id="child-absolute"&gt;&lt;/div&gt;
@@ -1575,7 +1601,7 @@ that may&lt;/span&gt; break over&lt;br&gt;multiple lines.
 <ul>
   <li>Includes <code>border</code>, <code>scrollbar</code>, and <code>padding</code> attributes representing their respective width</li>
   <li class="fragment">Includes the <code>all</code> attribute which represents the sum of the above</li>
-  <li class="fragment"><code>LayoutEdgeSizes</code> is an object that represents the width, in CSS pixels, of an edge in each of the <a href="https://drafts.csswg.org/css-writing-modes-4/#abstract-dimensions">abstract dimensions</a>(<code>inlineStart</code>, <code>inlineEnd</code>, <code>blockStart</code>, <code>blockEnd</code>)</li>
+  <li class="fragment"><code>LayoutEdgeSizes</code> is an object that represents the width, in CSS pixels, of an edge in the <code>inlineStart</code>, <code>inlineEnd</code>, <code>blockStart</code>, <code>blockEnd</code> dimensions</li>
   <li class="fragment"><code>LayoutEdgeSizes</code> also includes the <code>inline</code> and <code>block</code> attributes that represent their respective sums</li>
 </ul>
 
@@ -1596,38 +1622,33 @@ that may&lt;/span&gt; break over&lt;br&gt;multiple lines.
 
 <section  class="_stage--slide"  >
   <div class="_stage--content">
-    <div class="grid-2"><pre class="grid-2--1"><code class="language-scss">.container {
+    <pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!--
+  edges.padding.inlineStart; // 5 (as 10% * 50px = 5px).
+  edges.border.blockEnd; // 2
+  edges.scrollbar.inlineEnd; // UA-dependent, may be 0 or >0 (e.g. 16).
+  edges.all.block; // 14 (2 + 5 + 5 + 2).
+--&gt;
+
+&lt;style&gt;
+.container {
   width: 50px;
   height: 50px;
 }
 
 .box {
   display: layout(box-edges);
-
   padding: 10%;
   border: solid 2px;
   overflow-y: scroll;
-}</code></pre>
-
-<pre class="grid-2--1"><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+}
+&lt;/style&gt;
 
 &lt;div class="container"&gt;
   &lt;div class="box"&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-
-<pre class="grid-2--2"><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas
-
-registerLayout('box-edges', class {
-  *layout(space, children, styleMap, edges, breakToken) {
-    edges.padding.inlineStart; // 5 (as 10% * 50px = 5px).
-    edges.border.blockEnd; // 2
-    edges.scrollbar.inlineEnd; // UA-dependent, may be 0 or >0 (e.g. 16).
-    edges.all.block; // 14 (2 + 5 + 5 + 2).
-  }
-}
-</code></pre>
-</div>
 
   </div>
   
@@ -1695,23 +1716,43 @@ registerLayout('box-edges', class {
 <section  class="_stage--slide"  >
   <div class="_stage--content">
     <h5><code>layoutWorklet</code> Class</h5>
-<pre><code class="language-js">class MyLayout {
+<pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/ August 29, 2017 Collection of Interesting Ideas
+
+class myLayout {
+  // Properties to look for on calling element
   static get inputProperties() { return ['--foo']; }
+  // Properties to look for on direct child elements
   static get childrenInputProperties() { return ['--bar']; }
+  // How children are displayed; either "block" to blockify like Flexbox and Grid
+  // or "normal" to let elements dictate
   static get childDisplay() { return 'normal'; }
 
   // Generator functions instead of normal functions to support async/parallel layout engines
   *intrinsicSizes(children, styleMap) {
+    // children - Child elements of box being laid out
+    // styleMap - Typed OM style map of box being laid out
+
     // Intrinsic sizes code goes here.
   }
 
   *layout(space, children, styleMap, edges, breakToken) {
+    // space - `ConstraintSpace` for the box being laid out
+    // children - Child elements of the box being laid out
+    // styleMap - Typed OM style map of box being laid out
+    // edges - `LayoutEdges` of box being laid out
+    // breakToken - Token (if paginating for printing for example) to resume layout at
+
     // Layout code goes here.
   }
 }</code></pre>
 
   </div>
   
+  
+  <footer class="_stage--footnote">
+    <p><a href="https://www.w3.org/TR/css-sizing-3/">CSS Intrinsic &amp; Extrinsic Sizing</a></p>
+
+  </footer>
   
 </section>
 
