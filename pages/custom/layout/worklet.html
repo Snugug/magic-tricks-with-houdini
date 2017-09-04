@@ -4,6 +4,7 @@ footnote: >
 ---
 <h5><code>layoutWorklet</code> Class</h5>
 <pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/ August 29, 2017 Collection of Interesting Ideas
+// Intrinsic Sizes https://www.w3.org/TR/css-sizing-3/
 
 class myLayout {
   // Properties to look for on calling element
@@ -15,6 +16,7 @@ class myLayout {
   static get childDisplay() { return 'normal'; }
 
   // Generator functions instead of normal functions to support async/parallel layout engines
+  // Determines how a box fits its content or fits in to our layout context
   *intrinsicSizes(children, styleMap) {
     // children - Child elements of box being laid out
     // styleMap - Typed OM style map of box being laid out

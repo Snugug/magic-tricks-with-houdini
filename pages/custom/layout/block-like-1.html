@@ -1,15 +1,21 @@
 <pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/#example-13a91ee5 August 29, 2017 Collection of Interesting Ideas
 
 registerLayout('block-like', class {
-  *intrinsicSizes(styleMap, children) {
+  *intrinsicSizes(children, styleMap) {
+    // Get all the sizes!
     const childrenSizes = yield children.map((child) => {
       return child.intrinsicSizes();
     });
 
+    // How large the box can be given unlimited space
+    //  in order to fit its content with minimum unused
+    //  space
     const maxContentSize = childrenSizes.reduce((max, childSizes) => {
       return Math.max(max, childSizes.maxContentContribution);
     }, 0);
 
+    // How small the box can be so that its content
+    //  doesn't overflow
     const minContentSize = childrenSizes.reduce((max, childSizes) => {
       return Math.max(max, childSizes.minContentContribution);
     }, 0);

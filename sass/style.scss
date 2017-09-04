@@ -82,6 +82,12 @@ code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no
   background-size: contain;
 }
 
+[data-state='final-layout'] {
+  @extend %state-cover;
+  background-image: url('../images/final-layout.svg');
+  background-size: contain;
+}
+
 [data-state='cool'] {
   @extend %state-cover;
   background-image: url('../images/cool.gif');
