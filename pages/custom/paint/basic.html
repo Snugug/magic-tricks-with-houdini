@@ -1,13 +1,13 @@
 <p><strong>Define</strong> - <code>js/circle.js</code></p>
 <pre><code class="language-javascript">registerPaint('circle', class {
     static get inputProperties() { return ['--circle-color']; }
-    paint(ctx, geom, properties) {
+    paint(ctx, size, props) {
       // Change the fill color.
-      const circle = properties.get('--circle-color'); // This is a CSSStyleValue!
+      const circle = props.get('--circle-color'); // This is a CSSStyleValue!
 
       // Determine the center point and radius.
-      const xCircle = geom.width / 2;
-      const yCircle = geom.height / 2;
+      const xCircle = size.width / 2;
+      const yCircle = size.height / 2;
       const radiusCircle = Math.min(xCircle, yCircle) - 2.5;
 
       // Draw the circle \o/

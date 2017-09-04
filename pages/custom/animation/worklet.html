@@ -2,10 +2,14 @@
 <pre><code class="language-js">// https://wicg.github.io/animation-worklet/ August 1, 2017 Draft Community Group Report
 
 class myAnimator {
-    constructor(options) {
-        // Called when a new animator is instantiated.
-    }
-    animate(currentTime, effect) {
-        // Animation frame logic goes here.
-    }
+  constructor(options) {
+    // Called when a new animator is instantiated
+    // Used to set stuff up for each use of an animator
+  }
+  animate(currentTime, effect) {
+    // currentTime - The current time from the defined timeline
+    // effect - Group of effects that this animation is working on
+
+    // Animation frame logic goes here.
+  }
 }</code></pre>

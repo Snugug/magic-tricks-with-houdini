@@ -1,20 +1,25 @@
+---
+footnote: >
+  [KeyFrameEffect, MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect)
+---
 <div><pre><code class="language-js">window.animationWorklet.addModule('twitter-header.js').then(_ => {
   const workletAnim = new WorkletAnimation('twitter-header'),
+    // Worklet `effects`
     [
       new KeyFrameEffect( // effect.children[0] in worklet
         $avatar, // Element to work on
         // Scales down as we scroll up
-        [ { transform: 'scale(1)' }, { transform: 'scale(0.5)' } ], // Effect
-        { duration: 1, iterations: 1 },
+        [ { transform: 'scale(1)' }, { transform: 'scale(0.5)' } ], // Keyframes
+        { duration: 1, iterations: 1 }, // Only want one frame per timeline tick
       ),
-      new KeyFrameEffect( // effect.children[0] in worklet
+      new KeyFrameEffect( // effect.children[1] in worklet
         $header,
         // Loses transparency as we scroll up
         [ { opacity: 0 }, { opacity: 0.8 } ],
         { duration: 1, iterations: 1 },
       ),
     ],
-    // currentTime in worklet
+    // Worklet `curretTime` timeline
     // New! Defines animation timeline whose time value depends on scroll position of a scroll container
     // Work still being done for other input types, like touch and pointer input
     new ScrollTimeline($scrollingContainer, {

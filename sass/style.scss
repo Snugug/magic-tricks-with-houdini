@@ -35,7 +35,8 @@ h5 {
   margin-bottom: .368em; // 1.618 - 1.25 for ++ spacing after a header
 }
 
-p + p {
+p + p,
+ul + p {
   margin-top: 1.25rem;
 }
 
