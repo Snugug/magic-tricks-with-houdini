@@ -3,7 +3,8 @@
 //////////////////////////////
 // Require Gulp and grab Armadillo
 //////////////////////////////
-var gulp = require('gulp');
+const gulp = require('gulp');
+const clean = require('del');
 
 require('gulp-armadillo')(gulp);
 
@@ -14,4 +15,11 @@ gulp.task('copy:js', () => {
 
 gulp.task('copy:js:watch', () => {
   return gulp.watch(['js/**/*.min.js'], ['copy:js']);
+});
+
+gulp.task('clean:deploy:html', cb => {
+  return clean([
+    '.www/**/*.html',
+    '!.www/index.html',
+  ], cb);
 });
