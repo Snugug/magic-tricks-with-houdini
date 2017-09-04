@@ -62,5 +62,5 @@ if (window.CSS) {
 if (window.CSS.paintWorklet) {
   window.CSS.paintWorklet.addModule('js/circle.not.min.js');
   window.CSS.paintWorklet.addModule('js/face.not.min.js');
-  window.CSS.paintWorklet.addModule('js/border-colors.not.min.js');
+  window.CSS.paintWorklet.addModule('js/warning.not.min.js');
 }
