@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - '4.2'
+  - '8.4'
 
 cache:
   directories:
@@ -16,7 +16,7 @@ branches:
 deploy:
   skip_cleanup: true
   provider: script
-  script: sh ./.deploy.sh
+  script: npm run gulp publish
   on:
     branch: master
 
