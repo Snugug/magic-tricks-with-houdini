@@ -3,22 +3,23 @@
 //////////////////////////////
 // Require Gulp and grab Armadillo
 //////////////////////////////
-var gulp = require('gulp');
+const gulp = require('gulp');
+const clean = require('del');
 
-require('gulp-armadillo')(gulp, {
-  tasks: {
-    dist: {
-      copy: [
-        'copy:dist',
-        'copy:js',
-        'imagemin:dist',
-        'usemin',
-      ],
-    },
-  },
-});
+require('gulp-armadillo')(gulp);
 
 gulp.task('copy:js', () => {
-  gulp.src('js/**/*.min.js')
-    .pipe(gulp.dest('.dist/js'));
+  return gulp.src('js/**/*.min.js')
+    .pipe(gulp.dest('.www/js'));
+});
+
+gulp.task('copy:js:watch', () => {
+  return gulp.watch(['js/**/*.min.js'], ['copy:js']);
+});
+
+gulp.task('clean:deploy:html', cb => {
+  return clean([
+    '.www/**/*.html',
+    '!.www/index.html',
+  ], cb);
 });

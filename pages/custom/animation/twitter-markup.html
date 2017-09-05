@@ -1,19 +1,7 @@
-<h4>A Little CSS</h4>
-<div class="half"><pre><code class="language-scss">#scroller {
-  --animator-root: sticky-resize;
-}
-.avatar {
-  --animator: sticky-resize;
-  --part: avatar;
-}
-.bar {
-  --animator: sticky-resize;
-  --part: bar;
-}</code></pre></div>
-<div class="half"><pre><code class="language-markup">&lt;div id="scroller"&gt;
-  &lt;section class="bar"&gt;&lt;/section&gt;
+<pre><code class="language-markup">&lt;div id="scrollingContainer"&gt;
+  &lt;section id="header"&gt;&lt;/section&gt;
   &lt;header&gt;
-    &lt;picture class="avatar"&gt;
+    &lt;picture id="avatar"&gt;
       &lt;img src="avatar.jpg"&gt;
     &lt;/picture&gt;
     &lt;section class="profile-controls"&gt;
@@ -33,4 +21,3 @@
     &lt;p&gt;Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. &lt;/p&gt;
   &lt;/section&gt;
 &lt;/div&gt;</code></pre>
-</div>

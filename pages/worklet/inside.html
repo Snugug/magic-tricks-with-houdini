@@ -1,0 +1,15 @@
+<pre><code class="language-js">// From https://drafts.css-houdini.org/worklets/ May 1, 2017 Editor's Draft
+
+// The kind of worklet it is
+registerDemoWorklet('name', class { // The name we'll call this worklet
+
+  // Each worklet can define different functions to be used
+  // These will be called by the render engine as needed
+  process(arg) {
+    // Stuff happens in here! What happens depends on the worklet
+    // Sometimes it'll return something
+    // Other times it'll work directly on the arguments
+    return !arg;
+  }
+});
+</code></pre>

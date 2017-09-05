@@ -1,0 +1,33 @@
+.registered-demo-container {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  margin: .5em 0;
+
+  &--js {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    margin: 0 !important; // sass-lint:disable-line no-important
+  }
+
+  &--css {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+
+    pre {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    textarea {
+      transform: none;
+    }
+
+  }
+
+  &--btn {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+}

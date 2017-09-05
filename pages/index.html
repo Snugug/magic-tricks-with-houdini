@@ -14,20 +14,32 @@ pages:
       - extend.html
       - wait.html
       - not-quite.html
+      - sw.html
   - slides:
     - intro/cool.html
   - slides:
+    - intro/thanks.html
+  - slides:
     - intro/warning.html
     - intro/ready.html
-  - folder: parser
+  - folder: worklet
     slides:
-      - parser.html
+      - intro.html
+      - overview.html
+      - loading.html
+      - inside.html
+      - diagram.html
+      - nuggets.html
+      - secret.html
+  - folder: typedom
+    slides:
+      - intro.html
       - typedom.html
       - value.html
       - typedom-example.html
       - underlying.html
-      - secret.html
-  - folder: parser
+      - happy-nuggets.html
+  - folder: typedom
     slides:
       - what-to-do.html
       - rad.html
@@ -39,38 +51,56 @@ pages:
     slides:
       - intro.html
       - basic.html
+      - overview.html
+      - syntaxes.html
+      - combiners.html
       - advanced.html
   - folder: custom/paint
     slides:
       - intro.html
       - explain.html
+      - worklet.html
       - basic.html
       - demo.html
+  - folder: custom
+    slides:
+      - fuzzy.html
   - folder: custom/animation
     slides:
       - intro.html
       - explain.html
-      - basic.html
-      - css.html
+      - worklet.html
+      - twitter-worklet.html
+      - twitter-browser.html
+      - diagram.html
+      - twitter-markup.html
       - twitter.html
   - folder: custom/layout
     slides:
       - intro.html
       - explain.html
-      - basic.html
-  - folder: custom/parser
+      - terminology.html
+      - diagram.html
+      - child.html
+      - child-example.html
+      - fragment.html
+      - fragment-example-1.html
+      - fragment-example-2.html
+  - folder: custom/layout
     slides:
-      - intro.html
-      - explain.html
-      - basic.html
-  - folder: custom/at-rules
-    slides:
-      - intro.html
-      - explain.html
-      - warning.html
-      - basic.html
+      - edges.html
+      - edges-example.html
+      - constraint.html
+      - utilities.html
+      - worklet.html
+      - block-like-1.html
+      - block-like-2.html
+      - block-like-3.html
+      - block-like-4.html
+      - output.html
   - folder: outro
     slides:
+      - future.html
       - excited.html
       - magic.html
   - slides:
@@ -81,13 +111,13 @@ pages:
 {% from '_slide.html' import slide %}
 
 {%block content %}
-<article class="flowtime">
+<main class="_stage">
   {% for section in pages %}
-    <section class="ft-section" {% if section.title %}data-title="{{section.title}}"{% endif %}>
+    <article class="_stage--group" {% if section.title %}data-title="{{section.title}}"{% endif %}>
       {% for page in section.slides %}
         {{ slide(page, section) }}
       {% endfor %}
-    </section>
+    </article>
   {% endfor %}
 </article>
 {% endblock %}
