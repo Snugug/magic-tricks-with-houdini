@@ -15,6 +15,11 @@ $black: #000;
 @import 'editor';
 @import 'registered-demo-container';
 @import 'bordered-demo';
+@import 'layout-demo';
+
+:root {
+  font-size: 100%;
+}
 
 *,
 li,
@@ -80,6 +85,46 @@ code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no
   background-color: color('purple', 80);
   background-image: url('../images/magic.gif');
   background-size: contain;
+}
+
+[data-state='snozzberries'] {
+  @extend %state-cover;
+  background-image: url('../images/snozzberries.gif');
+
+  h2 {
+    text-shadow: none;
+  }
+}
+
+[data-state='paint'] {
+  @extend %state-cover;
+  background-color: black;
+  background-image: url('../images/paint.gif');
+  background-size: contain;
+
+  h2 {
+    text-shadow: none;
+  }
+}
+
+[data-state='parallax'] {
+  @extend %state-cover;
+  background-image: url('../images/parallax.gif');
+
+  h2 {
+    text-shadow: none;
+  }
+}
+
+[data-state='tetris'] {
+  @extend %state-cover;
+  background-color: black;
+  background-image: url('../images/tetris.gif');
+  background-size: contain;
+
+  h2 {
+    text-shadow: none;
+  }
 }
 
 [data-state='final-layout'] {
@@ -319,4 +364,11 @@ del {
 h1.center {
   text-align: center;
   font-size: 3em;
+}
+
+
+.content-image {
+  height: 85vh;
+  display: block;
+  margin: 0 auto;
 }
