@@ -1,0 +1,57 @@
+._fake-layout {
+  box-sizing: border-box;
+  border: 2px solid black;
+  padding: {
+    top: 3rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 1rem
+  };
+  position: relative;
+
+  &::before {
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
+    border: 2px dashed rgba(red, .25);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3rem;
+    left: 2rem;
+    z-index: -1;
+  }
+
+  &--item {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+
+    $seed: random() * 360;
+    $offset: 360/6;
+
+    @for $i from 1 through 6 {
+      &:nth-of-type(#{$i}) {
+        $color: hsl($seed + ($offset * $i), 60%, 70%);
+        background-color: $color;
+        border: 2px solid invert($color);
+
+        @if $i > 1 {
+          $width: random();
+          @while $width < .15 {
+            $width: random();
+          }
+
+          width: $width * 100%;
+        }
+        @else {
+          width: 100% - (15% * random());
+        }
+
+
+      }
+    }
+  }
+}
+
+
+// ._fake-layout{box-sizing:border-box;border:2px solid black;padding-top:3rem;padding-left:2rem;padding-right:2rem;padding-bottom:1rem;position:relative}._fake-layout::before{width:calc(100% - 4rem);height:calc(100% - 4rem);border:2px dashed rgba(255,0,0,0.25);content:'';display:block;position:absolute;top:3rem;left:2rem;z-index:-1}._fake-layout--item{display:block;margin:0 auto;padding:1rem 2rem}._fake-layout--item:nth-of-type(1){background-color:#85b7e0;border:2px solid #7a481f;width:100%}._fake-layout--item:nth-of-type(2){background-color:#ae85e0;border:2px solid #517a1f;width:28.50327%}._fake-layout--item:nth-of-type(3){background-color:#e085b7;border:2px solid #1f7a48;width:51.08977%}._fake-layout--item:nth-of-type(4){background-color:#e0ae85;border:2px solid #1f517a;width:29.62416%}._fake-layout--item:nth-of-type(5){background-color:#b7e085;border:2px solid #481f7a;width:62.9521%}._fake-layout--item:nth-of-type(6){background-color:#85e0ae;border:2px solid #7a1f51;width:48.29151%}

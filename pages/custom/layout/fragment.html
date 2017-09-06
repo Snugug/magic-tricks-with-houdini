@@ -1,14 +1,8 @@
 ---
+notes: >
+  * Contains `inlineSize` and `blockSize` attributes, which are set by the layout algorithm and cannot be changed
+  * Can be positioned by setting its `inlineOffset` and `blockOffset` attributes, which default to 0
 footnote: >
   `inline` and `block` are [abstract dimensions](https://drafts.csswg.org/css-writing-modes-4/#abstract-dimensions)
 ---
-<h5>Fragment</h5>
-
-<div class="grid-2">
-  <ul class="grid-2--1">
-    <li>To perform layout on a box, <code>layoutNextFragment()</code> is called on <code>LayoutChild</code> to produce a <code>fragment</code></li>
-    <li class="fragment">Contains <code>inlineSize</code> and <code>blockSize</code> attributes, which are set by the layout algorithm and cannot be changed</li>
-    <li class="fragment">Can be positioned by setting its <code>inlineOffset</code> and <code>blockOffset</code> attributes, which default to 0</li>
-  </ul>
-  <img src="images/fragment.svg" alt="" class="grid-2--1">
-</div>
+<img src="images/fragment.svg" alt="" class="content-image">
