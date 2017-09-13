@@ -72,7 +72,7 @@ CSS Paint API
 
 bit.ly/houdini-updates
 
-http://ishoudinireadyyet.com/
+https://ishoudinireadyyet.com/
 
 Parser API is where custom at rules will likely come it
 
