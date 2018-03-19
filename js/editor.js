@@ -98,22 +98,51 @@ export default class {
         }
       });
 
-      // // Keydown Event Listener
-      // textarea.addEventListener('keydown', e => {
-      //   const input = e.target;
-      //   const selStartPos = input.selectionStart;
-      //   const inputVal = input.value;
-      //   const currentLineStart = selStartPos - input.value.substr(0, selStartPos).split('\n').pop().length;
+      // Keydown Event Listener
+      textarea.addEventListener('keydown', e => {
+        const input = e.target;
+        const selStartPos = input.selectionStart;
+        const selEndPos = input.selectionEnd;
+        const inputVal = input.value;
 
-      //   // If `tab` is pressed, indent
-      //   if (e.keyCode === 9) {
-      //     e.preventDefault();
+        // Indent on enter
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const indented = [inputVal.slice(0, selStartPos + 1), '  \n', inputVal.slice(selStartPos + 1)].join('');
+          input.value = indented;
+          input.selectionStart = selStartPos + 3;
+          input.selectionEnd = selEndPos + 3;
 
-      //     if (e.shiftKey) {
-      //       indentLength = this.indent.length;
-      //     }
-      //   }
-      // })
+          const event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true,
+          });
+
+          input.dispatchEvent(event);
+        }
+
+
+        // if (e.key === 'Enter') {
+        //   console.log(input);
+        //   console.log(input.value);
+        //   e.target.querySelector('.editor--textarea').value += '  ';
+          // const event = new Event('input', {
+          //   'bubbles': true,
+          //   'cancelable': true,
+          // });
+
+          // input.dispatchEvent(event);
+        // }
+
+        // If `tab` is pressed, indent
+        // if (e.keyCode === 9) {
+        //   e.preventDefault();
+
+        //   if (e.shiftKey) {
+        //     indentLength = this.indent.length;
+        //   }
+        // }
+      })
     }
 
     this._scroll = (textarea, pre) => {
