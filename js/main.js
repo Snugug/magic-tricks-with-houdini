@@ -42,7 +42,7 @@ const borderColors = {
       '--corner-radius',
     ],
   },
-  '<custom-ident>': {
+  'bevel | scoop | round | notch | iphonex': {
     initial: 'scoop',
     items: [
       '--corner-shape',
