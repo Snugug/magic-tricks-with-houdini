@@ -36,6 +36,18 @@ const borderColors = {
       '--border-left-width',
     ],
   },
+  '<length>': {
+    initial: '20px',
+    items: [
+      '--corner-radius',
+    ],
+  },
+  '<custom-ident>': {
+    initial: 'scoop',
+    items: [
+      '--corner-shape',
+    ],
+  },
 };
 
 if (window.CSS) {
@@ -63,4 +75,5 @@ if (window.CSS.paintWorklet) {
   window.CSS.paintWorklet.addModule('js/circle.not.min.js');
   window.CSS.paintWorklet.addModule('js/face.not.min.js');
   window.CSS.paintWorklet.addModule('js/warning.not.min.js');
+  window.CSS.paintWorklet.addModule('js/corner.not.min.js');
 }
