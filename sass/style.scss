@@ -172,6 +172,14 @@ code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no
   background-image: url('../images/nuggets.gif');
 }
 
+
+[data-state='fireworks'] {
+  @extend %state-cover;
+  background-color: black;
+  background-image: url('../images/fireworks.webp');
+  background-size: contain;
+}
+
 [data-state='rad'] {
   @extend %state-cover;
   $rad: rgb(237, 254, 253);
@@ -371,4 +379,10 @@ h1.center {
   height: 85vh;
   display: block;
   margin: 0 auto;
+}
+
+
+.layout-video {
+  margin: 0 auto;
+  display: block;
 }
