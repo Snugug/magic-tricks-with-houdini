@@ -2,12 +2,19 @@
   background-position: center bottom 10px;
 }</code></pre>
 
-<pre><code class="language-javascript">// From https://drafts.css-houdini.org/css-typed-om/ August 28, 2017 Editor Draft
+<pre><code class="language-javascript">// From https://drafts.css-houdini.org/css-typed-om/ March 7, 2018 Editor Draft
 
-let map = document.querySelector('.example').attributeStyleMap;
+let map = document.querySelector('.example').computedStyleMap();
 
 map.get('background-position').x;
-// CSS.percent(50)
+// CSSUnitValue { value: 50, unit: 'percent' }
 
 map.get('background-position').y;
-// CSSMathSum(CSS.percent(100), CSS.px(-10))</code></pre>
+// CSSMathSum {
+//   operator: 'sum',
+//   values: [ // CSSNumericArray
+//     { value: -10, unit: 'px' }, // CSSUnitValue
+//     { value: 100, unit: 'percent' }, // CSSUnitValue
+//   ]
+// }
+</code></pre>
