@@ -172,6 +172,14 @@ code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no
   background-image: url('../images/nuggets.gif');
 }
 
+[data-state='glue'] {
+  $color1: rgb(159, 168, 110);
+  $color2: rgb(130, 133, 96);
+  @extend %state-cover;
+  background-image: url('../images/krazy-glue.webp'), linear-gradient(to bottom, $color1, $color1 68%, $color2 74%, $color2);
+  background-size: contain;
+  background-position: right;
+}
 
 [data-state='fireworks'] {
   @extend %state-cover;
