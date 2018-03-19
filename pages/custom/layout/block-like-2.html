@@ -4,7 +4,7 @@
 
     // Get content area inside edges
     const availableInlineSize = inlineSize - edges.all.inline;
-    const availableBlockSize = resolveBlockSize(constraintSpace, styleMap) - edges.all.block;
+    const availableBlockSize = resolveBlockSize(space, styleMap) - edges.all.block;
 
     const childConstraintSpace = new ConstraintSpace({
       inlineSize: availableInlineSize,
