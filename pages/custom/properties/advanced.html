@@ -9,17 +9,14 @@ window.CSS.registerProperty({
 });
 </code></pre>
 <div class="editor registered-demo-container--css" data-language="scss">.registered-demo {
-  --registered-color: #c0ffee;
-  background: var(--registered-color);
-  transition: background 1s;
-}
-
-.registered-demo::after {
-  background-image: url('../images/icon.svg');
+  --unregistered-color: #c0ffee;
+  background: linear-gradient(white, var(--unregistered-color));
+  transition: --unregistered-color 1s;
+  height: 3em;
 }
 
 .registered-demo:hover {
-  --registered-color: #bada55;
+  --unregistered-color: #bada55;
 }
 </div>
 
