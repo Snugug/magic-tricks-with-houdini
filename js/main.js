@@ -46,7 +46,7 @@ if (window.CSS) {
     initialValue: 'rebeccapurple',
   });
 
-  for (type in borderColors) {
+  for (const type in borderColors) {
     const item = borderColors[type];
     item.items.forEach(prop => {
       window.CSS.registerProperty({
