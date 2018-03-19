@@ -9,7 +9,7 @@
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.8.11",
-    "gulp-armadillo": "^4.2.1",
+    "gulp-armadillo": "^5.0.0",
     "ibm-design-colors": "^2.0.4"
   },
   "dependencies": {
