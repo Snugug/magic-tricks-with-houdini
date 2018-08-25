@@ -20,9 +20,7 @@ $black: #272822;
 
 @import 'stage-fright';
 @import 'editor';
-@import 'registered-demo-container';
-@import 'bordered-demo';
-@import 'layout-demo';
+@import 'repl';
 
 :root {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -57,8 +55,8 @@ ul + p {
   margin-top: 1.25rem;
 }
 
-pre[class*='language-'], // sass-lint:disable-line force-attribute-nesting, no-qualifying-elements
-code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no-qualifying-elements
+pre[class*='language-']:not(.editor--pre), // sass-lint:disable-line force-attribute-nesting, no-qualifying-elements
+code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-attribute-nesting, no-qualifying-elements
   font-size: 1.1rem !important; // sass-lint:disable-line no-important
   line-height: 1.25 !important; // sass-lint:disable-line no-important
 }
@@ -160,6 +158,10 @@ code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no
 
 [data-state='paintapi'] {
   @include new-banner($grey, $paint, 'Finger Paint');
+
+  ._stage--content {
+    max-width: 95vw;
+  }
 }
 
 [data-state='animationapi'] {
@@ -183,7 +185,7 @@ code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no
   justify-content: center;
   background-image: paint(brushstroke);
   min-height: 5em;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
   // transform: rotate(-3.5deg);
 }
@@ -206,6 +208,7 @@ code[class*='language-'] { // sass-lint:disable-line force-attribute-nesting, no
   text-shadow: 4px 4px $paint, -4px -4px $paint, 4px -4px $paint, -4px 4px $paint;
   text-transform: uppercase;
   transform: rotate(-3.5deg);
+  margin-top: .25em;
 }
 
 .layout-api {

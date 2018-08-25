@@ -1,4 +1,4 @@
-import Prism from 'prismjs';
+import './prism.js';
 
 export default class {
   constructor(indent = '  ') {
@@ -20,7 +20,8 @@ export default class {
       const textarea = document.createElement('textarea');
       const pre = document.createElement('pre');
       const code = document.createElement('code');
-      const live = document.createElement('style');
+      const liveCSS = document.createElement('style');
+      const liveHTML = document.createElement('div');
 
       const language = target.dataset.language || opts.language || 'markup';
 
@@ -38,8 +39,11 @@ export default class {
       target.classList.add('editor');
       textarea.classList.add('editor--textarea');
       pre.classList.add('editor--pre');
-      code.classList.add('editor--code', `language-${language}`);
-      live.classList.add('editor--live');
+      code.classList.add('editor--code', `language-${lang}`);
+      liveCSS.classList.add('editor--live');
+      liveHTML.classList.add('editor--live');
+      liveHTML.setAttribute('markup', true);
+
 
       // Fix iOS "drunk-text" issue
       if (/iPad|iPhone|iPod/.test(navigator.platform)) {
@@ -70,12 +74,14 @@ export default class {
       const rendered = this._render(code, textarea);
 
       if (opts.live && language.match(/css/)) {
-        target.appendChild(live);
-        live.innerText = rendered;
+        target.appendChild(liveCSS);
+        liveCSS.innerText = rendered;
+      } else if (opts.live && language.match(/markup/)) {
+        target.appendChild(liveHTML);
+        liveHTML.innerHTML = rendered;
       }
 
       this._input(target);
-      this._scroll(textarea, pre);
 
       return target;
     }
@@ -86,6 +92,13 @@ export default class {
       const code = target.querySelector('.editor--code');
       const live = target.querySelector('.editor--live');
 
+      // Scroll Sync
+      textarea.addEventListener('scroll', e => {
+        window.requestAnimationFrame(() => {
+          pre.scrollTop = e.target.scrollTop;
+        });
+      });
+
       // Input Event Listener
       textarea.addEventListener('input', e => {
         const input = e.target;
@@ -94,7 +107,11 @@ export default class {
         const rendered = this._render(code, textarea);
 
         if (live) {
-          live.innerText = rendered;
+          if (live.hasAttribute('markup')) {
+            live.innerHTML = input.value;
+          } else {
+            live.innerText = rendered;
+          }
         }
       });
 
@@ -147,7 +164,7 @@ export default class {
 
     this._scroll = (textarea, pre) => {
       textarea.addEventListener('scroll', e => {
-        const roundedScroll = Math.floow(e.target.scrollTop);
+        const roundedScroll = Math.flow(e.target.scrollTop);
 
         // Fixes issues of desync text on mouse wheel in Firefox
         if (navigator.userAgent.toLowerCase().indexOf('firefox') < 0) {
@@ -177,7 +194,7 @@ export default class {
       if(lang.match(/html|xml|xhtml|svg/)) {
         return 'markup';
       }
-      else if(lang.match(/js/)) {
+      else if(lang.match(/js|worklet/)) {
         return 'javascript';
       }
       else {

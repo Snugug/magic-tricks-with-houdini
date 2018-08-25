@@ -1,7 +1,10 @@
 import stageFright from 'stage-fright/src/js/lib/core';
-import Editor from './editor';
-import 'prismjs/components/prism-scss';
-import 'prismjs/components/prism-javascript';
+import REPL from './repl';
+
+import propsSettings from './settings/props';
+import paintSettings from './settings/paint';
+import animationSettings from './settings/animation';
+import layoutSettings from './settings/layout';
 
 stageFright({
   navigation: {
@@ -11,53 +14,15 @@ stageFright({
   notes: 'alt',
 });
 
-const editor = new Editor;
+const propsRepl = new REPL('#props-repl', propsSettings, 'props');
+const paintRepl = new REPL('#paint-repl', paintSettings, 'paint');
+const animationRepl = new REPL('#animation-repl', animationSettings, 'animation');
+const layoutRepl = new REPL('#layout-repl', layoutSettings, 'layout');
 
-editor.run('.editor', {
-  live: true,
-});
-
-const borderColors = {
-  '<color>+': {
-    initial: 'currentcolor',
-    items: [
-      '--border-top-color',
-      '--border-right-color',
-      '--border-bottom-color',
-      '--border-left-color',
-    ],
-  },
-  '<number>': {
-    initial: '0',
-    items: [
-      '--border-top-width',
-      '--border-right-width',
-      '--border-bottom-width',
-      '--border-left-width',
-    ],
-  },
-  '<length>': {
-    initial: '20px',
-    items: [
-      '--corner-radius',
-    ],
-  },
-  'bevel | scoop | round | notch | iphonex': {
-    initial: 'scoop',
-    items: [
-      '--corner-shape',
-    ],
-  },
-};
-
-if (window.CSS) {
-  window.CSS.registerProperty({
-    name: '--registered-color',
-    syntax: '<color>',
-    inherits: false,
-    initialValue: 'rebeccapurple',
-  });
-
+//////////////////////////////
+// Register Houdini Awesomeness to be used in actual presentation!
+//////////////////////////////
+if (window.CSS && CSS.registerProperty) {
   CSS.registerProperty({
     name: '--brush-color',
     syntax: '<color>',
@@ -100,28 +65,20 @@ if (window.CSS) {
     initialValue: 1,
   });
 
-  for (const type in borderColors) {
-    const item = borderColors[type];
-    item.items.forEach(prop => {
-      window.CSS.registerProperty({
-        name: prop,
-        syntax: type,
-        inherits: false,
-        initialValue: item.initial,
-      });
-    });
-  }
+  CSS.registerProperty({
+    name: '--prime-color',
+    syntax: '<color>',
+    inherits: true,
+    initialValue: 'rebeccapurple',
+  });
 }
 
-if (window.CSS.paintWorklet) {
-  CSS.paintWorklet.addModule('js/circle.not.min.js');
-  CSS.paintWorklet.addModule('js/face.not.min.js');
-  CSS.paintWorklet.addModule('js/warning.not.min.js');
-  CSS.paintWorklet.addModule('js/corner.not.min.js');
-  CSS.paintWorklet.addModule('js/brushstroke.not.min.js');
-  CSS.paintWorklet.addModule('js/holman.not.min.js');
+if (CSS.paintWorklet) {
+  CSS.paintWorklet.addModule('js/paint/brushstroke.not.min.js');
+  CSS.paintWorklet.addModule('js/paint/holman.not.min.js');
+  CSS.paintWorklet.addModule('js/paint/switcher.not.min.js');
 }
 
-if (window.CSS.layoutWorklet) {
-  CSS.layoutWorklet.addModule('js/blueprint.not.min.js');
+if (CSS.layoutWorklet) {
+  CSS.layoutWorklet.addModule('js/layout/blueprint.not.min.js');
 }
