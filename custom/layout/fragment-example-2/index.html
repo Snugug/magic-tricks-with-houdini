@@ -1,0 +1,29 @@
+<pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- Fragment --&gt;
+&lt;!--
+  .child-relative final position is (25, 40), with relative positioning handled by UA
+  .child-absolute would not appear as a LayoutChild
+--&gt;
+
+&lt;style&gt;
+  #container {
+    display: layout(foo);
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  #child-relative {
+    position: relative;
+    left: 5px;
+    top: 10px;
+  }
+&lt;/style&gt;
+
+&lt;div id="container"&gt;
+  &lt;div id="child-relative"&gt;&lt;/div&gt;
+  &lt;div id="child-absolute"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>

@@ -1,0 +1,17 @@
+<pre><code class="language-js">    // ...
+    // Start counting block positioning from the start of block edges
+    let blockOffset = edges.all.blockStart;
+    for (let fragment of childFragments) {
+      // Set fragment's block offset
+      fragment.blockOffset = blockOffset;
+      // Center the block inline
+      fragment.inlineOffset = Math.max(
+        edges.all.inlineStart,
+        (availableInlineSize - fragment.inlineSize) / 2
+      );
+
+      // Add the fragment's block size to the offset to set the next below this one
+      blockOffset += fragment.blockSize;
+    }
+    // ...
+</code></pre>

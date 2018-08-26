@@ -1,0 +1,18 @@
+<pre><code class="language-js">// From https://drafts.css-houdini.org/worklets/ September 1, 2017 Editor's Draft
+
+// From inside the browser's context
+// Script gets loaded in the main thread, then sources are sent to Worklet threads
+// Same script can be loaded in to multiple Worklet threads
+window.demoWorklet.addModule('path/to/script.js');</code></pre>
+
+<pre class="fragment"><code class="language-js">// From https://drafts.css-houdini.org/worklets/ September 1, 2017 Editor's Draft
+
+// worklet.addModule returns a Promise!
+// Sometimes post-register work is done with loaded worklets, this makes it possible
+Promise.all([
+  window.demoWorklet1.addModule('path/to/script1.js'),
+  window.demoWorklet2.addModule('path/to/script2.js'),
+]).then(worklets => {
+  // Worklets have loaded and can be worked on!
+});
+</code></pre>

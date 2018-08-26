@@ -1,0 +1,7 @@
+<pre><code class="language-javascript">const background = window.cssParse.rule('background: green');
+console.log(background.styleMap.get('background').value) // green</code></pre>
+
+<pre class="fragment"><code class="language-javascript">const styles = window.cssParse.ruleSet(".foo { background: green; margin: 5px; }");
+console.log(styles.length) // 5
+console.log(styles[0].styleMap.get("margin-top").value) // 5
+console.log(styles[0].styleMap.get("margin-top").type) // "px"</code></pre>

@@ -1,0 +1,27 @@
+<pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!--
+  edges.padding.inlineStart; // 5 (as 10% * 50px = 5px).
+  edges.border.blockEnd; // 2
+  edges.scrollbar.inlineEnd; // UA-dependent, may be 0 or >0 (e.g. 16).
+  edges.all.block; // 14 (2 + 5 + 5 + 2).
+--&gt;
+
+&lt;style&gt;
+.container {
+  width: 50px;
+  height: 50px;
+}
+
+.box {
+  display: layout(box-edges);
+  padding: 10%;
+  border: solid 2px;
+  overflow-y: scroll;
+}
+&lt;/style&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>

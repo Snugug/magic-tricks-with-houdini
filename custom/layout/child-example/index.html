@@ -1,0 +1,18 @@
+<pre><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- Three LayoutChild(ren) --&gt;
+&lt;!-- The div, the ::before, and the image --&gt;
+&lt;style&gt;
+  #box::before { content: 'hello!'; }
+&lt;/styleglt;
+&lt;div id="box"&gt;A block level box with text.&lt;/div&gt;
+&lt;img src="..." /&gt;
+</code></pre>
+
+<pre class="fragment"><code class="language-markup">&lt;!-- From https://drafts.css-houdini.org/css-layout-api August 29, 2017 Collection of Interesting Ideas --&gt;
+
+&lt;!-- One LayoutChild --&gt;
+&lt;!-- All share root line box --&gt;
+This is a next node, &lt;span&gt;with some additional styling,
+that may&lt;/span&gt; break over&lt;br&gt;multiple lines.
+</code></pre>
