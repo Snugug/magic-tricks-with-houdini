@@ -1,0 +1,94 @@
+.animation-header {
+  bottom: 0;
+  color: $grey;
+  font-family: 'Faster One', cursive;
+  font-size: calc(1.75em + 7vw);
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  padding: .25rem;
+  position: absolute;
+  text-align: center;
+  text-shadow: 2px 2px $black, -2px -2px $black, 2px -2px $black, -2px 2px $black;
+  width: 100vw;
+  z-index: 10;
+  transform: translateY(-1em);
+}
+
+.anim-span {
+  font-family: 'Faster One', cursive;
+  color: $black;
+  text-shadow: 2px 2px $animation, -2px -2px $animation, 2px -2px $animation, -2px 2px $animation;
+  font-weight: normal;
+}
+
+.landscape {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  // background-image: linear-gradient(to bottom, #67B7AF, #3F988F 90%, $grey 90%);
+}
+
+.sun {
+  width: 15vw;
+  height: 15vw;
+  top: 3.7vw;
+  left: 7vw;
+  position: absolute;
+  animation: sun 9s alternate infinite cubic-bezier(0.655, 0.000, 0.345, 1.000);
+}
+
+.sun--fill{fill:#FFFF00;}
+.sun--outline{fill:#D6D63F;}
+
+.hills--stroke{fill:#207b50}
+.hills--fill{fill:#8cc63f}
+
+.background {
+  width: 150vw;
+  top: 10vw;
+  position: absolute;
+  animation: hills 12s alternate infinite cubic-bezier(0.655, 0.000, 0.345, 1.000);
+}
+
+.midground {
+  width: 150vw;
+  top: 15vw;
+  position: absolute;
+  animation: hills 9s alternate infinite cubic-bezier(0.655, 0.000, 0.345, 1.000);
+}
+
+.foreground {
+  width: 150vw;
+  top: 22vw;
+  position: absolute;
+  animation: hills 6s alternate infinite cubic-bezier(0.655, 0.000, 0.345, 1.000);
+}
+
+.bottom {
+  position: absolute;
+  width: 150vw;
+  bottom: 0;
+  left: -1rem;
+  height: 1rem;
+  animation: hills 6s alternate infinite cubic-bezier(0.655, 0.000, 0.345, 1.000);
+}
+
+@keyframes sun {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(90vw) translateY(-10vh);
+  }
+}
+
+@keyframes hills {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateX(-50vw);
+  }
+}

@@ -21,6 +21,7 @@ $black: #272822;
 @import 'stage-fright';
 @import 'editor';
 @import 'repl';
+@import 'animation';
 
 :root {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -165,7 +166,12 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
 }
 
 [data-state='animationapi'] {
-  @include new-banner($animation, $black, 'Faster One');
+  background-image: linear-gradient(to bottom, #67B7AF, #3F988F 90%, $grey 90%);
+
+  ._stage--content {
+    max-width: 100vw;
+  }
+}
 }
 
 [data-state='layoutapi'] {
