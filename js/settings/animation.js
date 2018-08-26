@@ -438,8 +438,8 @@ limitations under the License.
   <section class="tweet">
     <img src="http://houdini.glitch.me/animation/bunny.svg" class="avatar">
     <section class="meta">
-      <span class="name">Surma</span>
-      <span class="handle">@DasSurma</span>
+      <span class="name">Houdini Bunny</span>
+      <span class="handle">@HoudiniBunny</span>
       <span class="date">Dec 27</span>
     </section>
     🐰 New post-🎩 I'm making magic now!
@@ -455,8 +455,8 @@ limitations under the License.
   <section class="tweet">
     <img src="http://houdini.glitch.me/animation/bunny.svg" class="avatar">
     <section class="meta">
-      <span class="name">Surma</span>
-      <span class="handle">@DasSurma</span>
+      <span class="name">Houdini Bunny</span>
+      <span class="handle">@HoudiniBunny</span>
       <span class="date">Dec 27</span>
     </section>
     🐰 New post-🎩 I'm making magic now!
@@ -472,8 +472,8 @@ limitations under the License.
   <section class="tweet">
     <img src="http://houdini.glitch.me/animation/bunny.svg" class="avatar">
     <section class="meta">
-      <span class="name">Surma</span>
-      <span class="handle">@DasSurma</span>
+      <span class="name">Houdini Bunny</span>
+      <span class="handle">@HoudiniBunny</span>
       <span class="date">Dec 27</span>
     </section>
     🐰 New post-🎩 I'm making magic now!
@@ -489,8 +489,8 @@ limitations under the License.
   <section class="tweet">
     <img src="http://houdini.glitch.me/animation/bunny.svg" class="avatar">
     <section class="meta">
-      <span class="name">Surma</span>
-      <span class="handle">@DasSurma</span>
+      <span class="name">Houdini Bunny</span>
+      <span class="handle">@HoudiniBunny</span>
       <span class="date">Dec 27</span>
     </section>
     🐰 New post-🎩 I'm making magic now!
