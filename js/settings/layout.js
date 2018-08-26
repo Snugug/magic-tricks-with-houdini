@@ -1,10 +1,7 @@
 export default {
   'centered blocks': {
     name: 'Centered Blocks',
-    features: [
-      'basic',
-      'input properties',
-    ],
+    features: ['A simple stacking of elements centered in their parent'],
     worklet: `registerLayout('block-like', class {
   static get inputProperties() {
     return ['--gap'];
@@ -102,9 +99,7 @@ export default {
   },
   masonry: {
     name: 'Masonry',
-    features: [
-      'input properties',
-    ],
+    features: ['C\'mon! Masonry with adjustable columns and padding'],
     worklet: `// From https://github.com/GoogleChromeLabs/houdini-samples
 
 registerLayout('masonry', class {

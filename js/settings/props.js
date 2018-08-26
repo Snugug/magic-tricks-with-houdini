@@ -1,11 +1,7 @@
 export default {
-  'animated gradient': {
-    name: 'Custom Properties - Animated Gradient',
-    features: [
-      'basic',
-      'linear gradient',
-      'transition',
-    ],
+  'gradient transition': {
+    name: 'Gradient Transition',
+    features: ['Transitioning a registered property lets us use transitions in gradients!'],
     js: `CSS.registerProperty({
   name: '--registered',
   syntax: '<color>',
@@ -13,7 +9,7 @@ export default {
   initialValue: 'purple',
 });`,
     css: `.registered {
---registered: #c0ffee;
+  --registered: #c0ffee;
   background: linear-gradient(white, var(--registered));
   transition: --registered 1s;
   height: 3em;

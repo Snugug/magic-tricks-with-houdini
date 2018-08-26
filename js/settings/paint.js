@@ -1,10 +1,7 @@
 export default {
   circle: {
     name: 'Circle',
-    features: [
-      'basic',
-      'input properties',
-    ],
+    features: ['Draw basic shapes and style them with custom properties'],
     worklet: `registerPaint('circle', class {
   static get inputProperties() { return ['--circle-color']; }
   paint(ctx, size, properties) {
@@ -39,12 +36,7 @@ export default {
   },
   tabs: {
     name: 'Tabs',
-    features: [
-      'basic',
-      'input properties',
-      'input arguments',
-      'component system',
-    ],
+    features: ['Build reusable components that extend standard CSS and make adjustments with input arguments'],
     worklet: `registerPaint('tab', class {
   static get inputProperties() {
     return [
@@ -132,26 +124,10 @@ function swap(e) {
     }
   }
 };`,
-    css: `.tabs {
-  --tab-multiplier: 1;
-  --tab-margin: 1px;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-
-.tabs--tab {
-  background: red;
+    css: `.tabs--tab {
   border-image-outset: 30px;
   border-image-slice: 0 fill;
   border-image-source: paint(tab, middle);
-  border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
-  display: inline-block;
-  font-size: 1em;
-  padding: .15em .25em;
-  position: relative;
-  margin: 0
-  padding: 0;
 }
 
 .tabs--tab:first-of-type {
@@ -162,11 +138,6 @@ function swap(e) {
 .tabs--tab:last-of-type {
   border-image-source: paint(tab, right);
   margin-left: var(--tab-margin);
-}
-
-.tabs--tab:not(:first-of-type):not(:last-of-type) {
-  margin-left: var(--tab-margin);
-  margin-right: var(--tab-margin);
 }
 
 .tabs--tab:nth-of-type(2) {
@@ -183,6 +154,31 @@ function swap(e) {
   color: white;
 }
 
+.tabs {
+  --tab-multiplier: 1;
+  --tab-margin: 1px;
+  padding-left: 0;
+  margin-bottom: 0;
+  font-size: 1.5em;
+}
+
+.tabs--tab {
+  background: red;
+  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  display: inline-block;
+  font-size: 1em;
+  padding: .15em .25em;
+  position: relative;
+  margin: 0
+  padding: 0;
+}
+
+.tabs--tab:not(:first-of-type):not(:last-of-type) {
+  margin-left: var(--tab-margin);
+  margin-right: var(--tab-margin);
+}
+
 .tabs--tab button {
   color: inherit;
   text-decoration: none;
@@ -191,6 +187,7 @@ function swap(e) {
   border: none;
   font-family: inherit;
   font-size: inherit;
+  cursor: pointer;
 }
 
 .tabs--tab[data-active='true'] {
@@ -254,10 +251,7 @@ function swap(e) {
   },
   'generative art': {
     name: 'Generative Art',
-    features: [
-      'complex',
-      'input properties',
-    ],
+    features: ['Apply generative art principles to make dynamic backgrounds'],
     worklet: `// Based on the amazing work by Tim Holman (@twholman)
 // https://www.youtube.com/watch?v=4Se0_w0ISYk&list=PLZriQCloF6GDuXF8RRPd1mIl9W2QXF-sQ&index=11
 
@@ -364,12 +358,7 @@ CSS.registerProperty({
   },
   animation: {
     name: 'Ripple Effect',
-    features: [
-      'complex',
-      'animation',
-      'input properties',
-      'user input',
-    ],
+    features: ['Update properties in JavaScript to trigger the paint again, creating an animation effect'],
     worklet: `/* Example from https://github.com/GoogleChromeLabs/houdini-samples/tree/master/paint-worklet/ripple */
 
 registerPaint('ripple', class {

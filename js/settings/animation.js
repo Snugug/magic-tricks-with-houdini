@@ -1,10 +1,7 @@
 export default {
   twitter: {
     name: 'Twitter Header',
-    features: [
-      'complex',
-      'properties',
-    ],
+    features: ['Combining a simple animator and smart timing updates for our keyframes to create complex animations'],
     worklet: `registerAnimator('twitter-header', class {
   constructor(options) {
   }
@@ -499,10 +496,7 @@ limitations under the License.
   },
   parallax: {
     name: 'Parallax',
-    features: [
-      'basic',
-      'options'
-    ],
+    features: ['Multiply our timeline with a rate to create a parallax effect'],
     worklet: `registerAnimator('parallax', class {
   constructor(options) {
     this._rate = options.rate;
