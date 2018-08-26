@@ -48,13 +48,15 @@ export default class {
     // Build Menu
     const menuItems = {};
 
-    for (const key of this.optKeys) {
-      menuItems[key] = document.createElement('button');
-      menuItems[key].classList.add('repl--menu-item');
-      menuItems[key].setAttribute('data-type', key);
-      menuItems[key].textContent = key;
-      menuItems[key].addEventListener('click', this.menuHandler());
-      menu.appendChild(menuItems[key]);
+    if (this.optKeys.length > 1) {
+      for (const key of this.optKeys) {
+        menuItems[key] = document.createElement('button');
+        menuItems[key].classList.add('repl--menu-item');
+        menuItems[key].setAttribute('data-type', key);
+        menuItems[key].textContent = key;
+        menuItems[key].addEventListener('click', this.menuHandler());
+        menu.appendChild(menuItems[key]);
+      }
     }
 
     // Props Edits
