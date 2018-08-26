@@ -173,6 +173,14 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
   }
 }
 
+[data-state='bumper'] {
+  color: $black !important;
+
+  h2 a {
+    background-position: 0 1.21em;
+  }
+}
+
 .progress--slide {
   background-color: $black;
   border-color: $black;
