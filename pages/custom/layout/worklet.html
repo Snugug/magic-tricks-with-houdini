@@ -3,34 +3,30 @@ footnote: >
   [CSS Intrinsic & Extrinsic Sizing](https://www.w3.org/TR/css-sizing-3/)
 ---
 <h5><code>layoutWorklet</code> Class</h5>
-<pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/ August 29, 2017 Collection of Interesting Ideas
-// Intrinsic Sizes https://www.w3.org/TR/css-sizing-3/
+<pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/ April 24, 2018 Editor's Draft
 
 class myLayout {
   // Properties to look for on calling element
   static get inputProperties() { return ['--foo']; }
   // Properties to look for on direct child elements
   static get childrenInputProperties() { return ['--bar']; }
-  // How children are displayed; either "block" to blockify like Flexbox and Grid
-  // or "normal" to let elements dictate
-  static get childDisplay() { return 'normal'; }
-
-  // Generator functions instead of normal functions to support async/parallel layout engines
-  // Determines how a box fits its content or fits in to our layout context
-  *intrinsicSizes(children, styleMap) {
-    // children - Child elements of box being laid out
-    // styleMap - Typed OM style map of box being laid out
-
-    // Intrinsic sizes code goes here.
+  // Options for the Layout
+  static get layoutOptions() {
+    return { childDisplay: 'normal', sizing: 'block-like' };
   }
 
-  *layout(space, children, styleMap, edges, breakToken) {
-    // space - `ConstraintSpace` for the box being laid out
-    // children - Child elements of the box being laid out
+  // Determines how a box fits its content or fits in to our layout context
+  *intrinsicSizes(children, edges, styleMap) {
+    // children - Child elements of box being laid out
+    // edges - `LayoutEdges` of Parent Layout
     // styleMap - Typed OM style map of box being laid out
-    // edges - `LayoutEdges` of box being laid out
-    // breakToken - Token (if paginating for printing for example) to resume layout at
+  }
 
-    // Layout code goes here.
+  *layout(children, edges, constraints, styleMap, breakToken) {
+    // children - Child elements of Parent Layout
+    // edges - `LayoutEdges` of Parent Layout
+    // constraints - `Layout Constraints` of Parent Layout
+    // styleMap - Typed OM style map of Parent Layout
+    // breakToken - Token (if paginating for printing for example) to resume layout at
   }
 }</code></pre>

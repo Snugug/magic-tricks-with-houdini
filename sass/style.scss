@@ -580,10 +580,19 @@ h1.center {
   $multiplier: .65;
   width: 1.25rem * $multiplier;
   height: .95rem * $multiplier;
+
+  &[data-active='true'] {
+    background-color: color('purple', 40);
+  }
 }
 
 
 .layout-video {
   margin: 0 auto;
   display: block;
+}
+
+.bunny-end {
+  max-height: 5em;
+  margin-bottom: 1em;
 }

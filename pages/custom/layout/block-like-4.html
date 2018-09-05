@@ -1,18 +1,11 @@
 <pre><code class="language-js">    // ...
     // Close off block size by adding edges
-    const autoBlockSize = blockOffset + edges.all.blockEnd;
-    // Resolve total block size
-    const blockSize = resolveBlockSize(
-      constraintSpace,
-      styleMap,
-      autoBlockSize
-    );
+    const autoBlockSize = blockOffset;
 
-    // Return the element's inlineSize, new blockSize, and child fragments
+    // Return the element's generated blockSize, and child fragments
     return {
-      inlineSize: inlineSize,
-      blockSize: blockSize,
-      childFragments: childFragments,
+      autoBlockSize,
+      childFragments,
     };
   }
 });</code></pre>
