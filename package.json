@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "prismjs": "^1.6.0",
-    "stage-fright": "^0.8.0"
+    "stage-fright": "^1.0.0"
   }
 }

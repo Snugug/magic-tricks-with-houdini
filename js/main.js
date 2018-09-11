@@ -1,4 +1,4 @@
-import stageFright from 'stage-fright/src/js/lib/core';
+import StageFright from 'stage-fright/src/js/lib/init';
 import REPL from './repl';
 
 import propsSettings from './settings/props';
@@ -6,13 +6,7 @@ import paintSettings from './settings/paint';
 import animationSettings from './settings/animation';
 import layoutSettings from './settings/layout';
 
-stageFright({
-  navigation: {
-    arrows: false,
-    spacebar: 'alt',
-  },
-  notes: 'alt',
-});
+const stage = new StageFright('._stage');
 
 const propsRepl = new REPL('#props-repl', propsSettings, 'props');
 const paintRepl = new REPL('#paint-repl', paintSettings, 'paint');
