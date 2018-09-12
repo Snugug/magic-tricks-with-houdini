@@ -77,7 +77,7 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
   transform: translateX(-35%) translateY(-25%) rotate(-7deg);
   text-transform: uppercase;
   font-family: 'Special Elite', cursive;
-  mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png');
+  mask-image: url('../images/grunge.png');
   mask-size: 944px 604px;
   mix-blend-mode: multiply;
   text-shadow: 10px 10px color('red', 80);
@@ -266,112 +266,40 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
   }
 }
 
+._stage--video {
+  width: 100vw;
+}
+
+._stage--video__cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  max-width: unset;
+}
+
 [data-state='magic'] {
-  @extend %state-cover;
   background-color: color('purple', 80);
-  background-image: url('../images/magic.gif');
-  background-size: contain;
 }
 
-[data-state='snozzberries'] {
-  @extend %state-cover;
-  background-image: url('../images/snozzberries.gif');
-
-  h2 {
-    text-shadow: none;
-  }
-}
-
-[data-state='paint'] {
-  @extend %state-cover;
-  background-color: black;
-  background-image: url('../images/paint.gif');
-  background-size: contain;
-
-  h2 {
-    text-shadow: none;
-  }
-}
-
-[data-state='parallax'] {
-  @extend %state-cover;
-  background-image: url('../images/parallax.gif');
-
-  h2 {
-    text-shadow: none;
-  }
-}
-
+[data-state='paint'],
 [data-state='tetris'] {
-  @extend %state-cover;
   background-color: black;
-  background-image: url('../images/tetris.gif');
-  background-size: contain;
 
   h2 {
     text-shadow: none;
   }
-}
-
-[data-state='final-layout'] {
-  @extend %state-cover;
-  background-image: url('../images/final-layout.svg');
-  background-size: contain;
-
-  h2 {
-    text-shadow: none;
-  }
-}
-
-[data-state='cool'] {
-  @extend %state-cover;
-  background-image: url('../images/cool.gif');
-}
-
-[data-state='secret-sauce'] {
-  @extend %state-cover;
-  background-image: url('../images/tennent-sauce.gif');
-}
-
-[data-state='fuzzy'] {
-  @extend %state-cover;
-  background-image: url('../images/fuzzy.webp');
-
-  h2 {
-    color: transparent;
-    text-shadow: none;
-  }
-}
-
-[data-state='superfuzzy'] {
-  @extend %state-cover;
-  background-image: url('../images/dryer floof.gif');
-
-  h2 {
-    color: transparent;
-    text-shadow: none;
-  }
-}
-
-[data-state='nuggets'] {
-  @extend %state-cover;
-  background-image: url('../images/nuggets.gif');
 }
 
 [data-state='glue'] {
   $color1: rgb(159, 168, 110);
   $color2: rgb(130, 133, 96);
-  @extend %state-cover;
-  background-image: url('../images/krazy-glue.webp'), linear-gradient(to bottom, $color1, $color1 68%, $color2 74%, $color2);
-  background-size: contain;
-  background-position: right;
-}
-
-[data-state='fireworks'] {
-  @extend %state-cover;
-  background-color: black;
-  background-image: url('../images/fireworks.webp');
-  background-size: contain;
+  background-image: linear-gradient(to bottom, $color1, $color1 68%, $color2 74%, $color2);
 }
 
 [data-state='rad'] {
@@ -384,24 +312,10 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
 }
 
 
-[data-state='excited'] {
-  @extend %state-cover;
-  background-color: $black;
-  background-image: url('../images/excited.gif');
-  background-size: contain;
-}
-
-[data-state='future'] {
-  @extend %state-cover;
-  background-color: $black;
-  background-image: url('../images/future.gif');
-}
-
+[data-state='excited'],
+[data-state='fireworks'],
 [data-state='magic-out'] {
-  @extend %state-cover;
   background-color: $black;
-  background-image: url('../images/magic-gob.gif');
-  background-size: contain;
 }
 
 [data-state='end'] {

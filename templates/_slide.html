@@ -9,6 +9,9 @@
 {% set attrs = url|attributes %}
 
 <section  class="_stage--slide" {% if attrs.title %}data-title="{{attrs.title}}"{% endif %} {% if attrs.state%}data-state="{{attrs.state}}"{% endif %}>
+  {% if attrs.video %}
+  <video class="_stage--video{% if attrs.cover %}__cover{% endif %}" autoplay="true" playsinline="true" loop="true" muted="true" src="videos/{{attrs.video}}"></video>
+  {% else %}
   <div class="_stage--content">
     {{ url|render|safe }}
   </div>
@@ -21,6 +24,7 @@
   <footer class="_stage--footnote">
     {{ attrs.footnote|markdown|safe }}
   </footer>
+  {% endif %}
   {% endif %}
 </section>
 
