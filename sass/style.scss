@@ -24,8 +24,11 @@ $black: #272822;
 @import 'animation';
 
 :root {
-  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 125%;
+}
+
+.font--PlexSans {
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 *,
@@ -126,42 +129,45 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
   }
 }
 
-@mixin new-banner($background, $color, $family) {
+@mixin new-banner($background, $color, $family, $name) {
   background: $background;
   color: $color !important;
-  font-family: #{$family}, cursive;
+
+  .font--#{$name} & {
+    font-family: #{$family}, cursive;
+  }
 
   @extend %new-state-intro;
 }
 
 [data-state='intro'],
 [data-state='custom-stuff'] {
-  @include new-banner($black, $grey, 'Bungee Shade');
+  @include new-banner($black, $grey, 'Bungee Shade', 'BungeeShade');
 }
 
 [data-state='worklets'] {
-  @include new-banner($worklets, $black, 'Black Ops One');
+  @include new-banner($worklets, $black, 'Black Ops One', 'BlackOpsOne');
 }
 
 [data-state='typedom'] {
-  @include new-banner($typed, $black, 'Nixie One');
+  @include new-banner($typed, $black, 'Nixie One', 'NixieOne');
+}
+
+[data-state='props'] {
+  @include new-banner($props, $grey, 'Megrim', 'Megrim');
+}
+
+[data-state='paintapi'] {
+  @include new-banner($grey, $paint, 'Finger Paint', 'FingerPaint');
+
+  ._stage--content {
+    max-width: 95vw;
+  }
 }
 
 [data-state='custom-stuff'] {
   h2 {
     hyphens: unset;
-  }
-}
-
-[data-state='props'] {
-  @include new-banner($props, $grey, 'Megrim');
-}
-
-[data-state='paintapi'] {
-  @include new-banner($grey, $paint, 'Finger Paint');
-
-  ._stage--content {
-    max-width: 95vw;
   }
 }
 
@@ -227,7 +233,6 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
 
 .paint-api--text {
   color: $grey;
-  font-family: 'Finger Paint', cursive;
   font-weight: 400;
   line-height: 1;
   text-align: center;
@@ -237,18 +242,25 @@ code[class*='language-']:not(.editor--code) { // sass-lint:disable-line force-at
   text-transform: uppercase;
   transform: rotate(-3.5deg);
   margin-top: .25em;
+
+  .font--FingerPaint & {
+    font-family: 'Finger Paint', cursive;
+  }
 }
 
 .layout-api {
   display: layout(blueprint);
   #{'--padding'}: 5;
   #{'--offset'}: .25;
-  font-family: 'Fredericka the Great', cursive;
   font-weight: normal;
   max-width: 35ch;
   margin: 0 auto;
   color: $grey;
   font-size: calc(1em + 5vw);
+
+  .font--Fredericka & {
+    font-family: 'Fredericka the Great', cursive;
+  }
 }
 
 
