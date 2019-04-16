@@ -1,5 +1,5 @@
 <p><strong>Define</strong> - <code>js/circle.js</code></p>
-<pre><code class="language-javascript">registerPaint('circle', class {
+<pre style="font-size: .9em !important"><code class="language-javascript" style="font-size: .9em !important">registerPaint('circle', class {
     static get inputProperties() { return ['--circle-color']; }
     paint(ctx, size, props) {
       // Change the fill color.
@@ -20,6 +20,6 @@
 </code></pre>
 
 <div class="fragment">
-<p><strong>Import</strong></p>
-<pre><code class="language-javascript">CSS.paintWorklet.addModule('js/circle.js');</code></pre>
+  <p><strong>Import</strong></p>
+  <pre style="font-size: .9em !important"><code class="language-javascript" style="font-size: .9em !important">CSS.paintWorklet.addModule('js/circle.js');</code></pre>
 </div>

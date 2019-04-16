@@ -1,0 +1,30 @@
+---
+state: theme
+notes: >
+  One of the first big things I made with the Paint API was some background themes for a slide deck I was building. Here, we're doing something with Custom Properties and the Paint API that goes beyond what's currently possible with CSS Variables alone. We've got a pair of custom idents that, when changed, actually change what gets displayed!
+
+  The `--theme-color` property is especially interesting for me, as we're not actually taking a `<color>` but rather taking an ident that _looks_ like a color. The Paint worklet takes it in and figured out what actual colors to use; the user just picks what theme color they'd like!
+---
+
+<h3>Advanced Theming</h3>
+<div>
+  <!-- prettier-ignore -->
+  <div class="editor see-through" data-language="scss">[data-state='theme'] {
+  --theme-color: blue;
+  --theme-background-type: divider;
+  background: paint(BackgroundTheme);
+}</div>
+  <pre class="see-through" style="font-size: .9em !important"><code class="language-scss" style="font-size: .9em !important">:root {
+  @property --theme-color {
+    syntax: 'blue|green|red|yellow|grey';
+    inherits: true;
+    initial: blue;
+  }
+
+  @property --theme-background-type {
+    syntax: 'footer|divider';
+    inherits: false;
+    initial: divider;
+  }
+}</code></pre>
+</div>

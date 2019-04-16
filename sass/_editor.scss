@@ -11,14 +11,15 @@
     border: 0;
     box-sizing: border-box;
     font-family: 'IBM Plex Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
-    font-size: .9rem !important;
+    font-size: 0.9rem !important;
     left: 0;
     line-height: 1.25 !important;
-    padding: .75rem !important;
+    padding: 0.75rem !important;
     top: 0;
     white-space: pre-wrap !important;
     width: 100%;
     word-wrap: break-word;
+    height: 100% !important;
   }
 
   &--textarea {

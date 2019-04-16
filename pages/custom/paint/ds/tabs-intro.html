@@ -1,0 +1,16 @@
+---
+notes: >
+  Buttons are good, but the _component_ that first resonated with me, and if you've got a keen eye you can see used in the text editors in this talk, is a tab with outward-rounded bottom corners. This is a tricky effect to pull off with just CSS with lots of hoops you need to jump through with box shadows or images and lots of pseudo elements to pull off. These rounded tabs are one element, and utilize the Paint API in an interesting way: to build border images, so there's no extra elements, pseudo or otherwise, to get these to work! Plus, they're super flexible, taking their color from the background of the tab itself!
+
+  We're using the same worklet we just looked at, except that instead of passing in a position argument we've added a custom property for position because we no longer have direct access to the `paint()` function we're calling. Here you can see that they behave the same as our previous example, but actually using them is our new Web Component `rounded-tab`!
+---
+
+<h3>A Rounded Tab Component</h3>
+<pre style="font-size: .9em !important" class="half"><code style="font-size: .9em !important" class="language-markup">&lt;rounded-tab&gt;First&lt;/rounded-tab&gt;
+&lt;rounded-tab&gt;Second&lt;/rounded-tab&gt;
+&lt;rounded-tab&gt;Third&lt;/rounded-tab&gt;</code></pre>
+<div class="half" style="margin-top: .5rem;">
+  <rounded-tab>One</rounded-tab>
+  <rounded-tab>Two</rounded-tab>
+  <rounded-tab>Three</rounded-tab>
+</div>

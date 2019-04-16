@@ -1,0 +1,27 @@
+---
+notes: >
+  Ship custom properties with the proposed [CSS Syntax](https://github.com/w3c/css-houdini-drafts/issues/137) and transpile them to the JS equivalent with the [PostCSS Register Custom Props](https://www.npmjs.com/package/postcss-register-custom-props)
+---
+
+<h3>Register in CSS</h3>
+
+<br />
+
+<div>
+  <div class="half">
+    <h4>Proposed CSS Syntax</h4>
+    <pre style="font-size: .9em !important"><code class="language-scss" style="font-size: .9em !important">@property --my-color {
+  syntax: '&lt;color&gt;';
+}</code></pre>
+  </div>
+
+  <div class="half">
+    <h4>JS Equivalent</h4>
+    <pre style="font-size: .9em !important"><code class="language-js" style="font-size: .9em !important">if ('registerProperty' in CSS) {
+  window.CSS.registerProperty({
+    name: '--my-color',
+    syntax: '&lt;color&gt;',
+  });
+}</code></pre>
+  </div>
+</div>

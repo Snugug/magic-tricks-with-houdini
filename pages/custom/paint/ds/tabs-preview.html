@@ -1,0 +1,29 @@
+---
+notes: >
+---
+
+<h3>Paint-Powered Web Component Tabs</h3>
+<div class="half">
+  <!-- prettier-ignore -->
+  <div class="editor" data-language="scss">rounded-tab::part(body) {
+  --tab-multiplier: 1;
+  background: red;
+  color: white;
+}
+
+rounded-tab:first-of-type::part(body) {
+  --tab-position: left;
+  background: blue;
+}
+
+rounded-tab:last-of-type::part(body) {
+  --tab-position: right;
+  background: green;
+}</div>
+</div>
+
+<div class="half preview" style="margin-top: .5rem;">
+  <rounded-tab>First</rounded-tab>
+  <rounded-tab>Second</rounded-tab>
+  <rounded-tab>Third</rounded-tab>
+</div>

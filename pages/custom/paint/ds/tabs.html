@@ -1,0 +1,25 @@
+---
+notes: >
+  Web Components can be written with plain old HTML! The `<template>` element provides reusable markup that can be reused throughout a document. We're including the CSS that we want inside the template so that it's available inside the Shadow DOM. You can think of the `<sot>` as a hole in our Web Component, allowing authors to put additional content (including more markup!) inside our component at that spot. Things put inside the `<slot>` are ouside of the Shadow DOM and therefore styled by the CSS of the rest of the page. The `part="body"` is a new addition to Web Components that will allow an external stylesheet to style that specific part of the Web Component from the outside. We'll need this to make our component a bit more flexible for authors, and to reduce the need for us to make custom properties for each CSS property we'd like users to be able to control.
+
+  A fun thing to look at here: we have a couple of custom properties we're defining right in here to make use of the `--tab-multiplier` custom property being passed in. This will allow more than just the Paint worklet to adapt based on that property, and because we're about to define it as a unitless number, we know we're safe in using it as a multiplier.
+---
+
+<pre style="font-size: .9em !important"><code style="font-size: .9em !important" class="language-markup">&lt;template id="tab-template"&gt;
+  &lt;style&gt;
+    .tab {
+      --tab-border-radius: calc(5px * var(--tab-multiplier));
+      --tab-border-offset: calc(30px * var(--tab-multiplier));
+      background: red;
+      border-image-outset: var(--tab-border-offset);
+      border-image-slice: 0 fill;
+      border-image-source: paint(TabBottom);
+      border-radius: var(--tab-border-radius) var(--tab-border-radius) 0 0;
+      display: inline-block;
+      font-size: 1em;
+      padding: 0.25em 0.5em;
+      box-sizing: border-box;
+    }
+  &lt;/style&gt;
+  &lt;div class="tab" part="body"&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;
+&lt;/template&gt;</code></pre>

@@ -6,7 +6,7 @@ export default class {
 
     this._isString = x => {
       return Object.prototype.toString.call(x) === '[object String]';
-    }
+    };
 
     this._run = (selector, opts = {}) => {
       const target = this._isString(selector) ? document.querySelectorAll(selector) : selector;
@@ -14,7 +14,7 @@ export default class {
       for (let i = 0; i < target.length; i++) {
         this._scaffold(target[i], true, opts);
       }
-    }
+    };
 
     this._scaffold = (target, isMultiple, opts = {}) => {
       const textarea = document.createElement('textarea');
@@ -43,7 +43,6 @@ export default class {
       liveCSS.classList.add('editor--live');
       liveHTML.classList.add('editor--live');
       liveHTML.setAttribute('markup', true);
-
 
       // Fix iOS "drunk-text" issue
       if (/iPad|iPhone|iPod/.test(navigator.platform)) {
@@ -84,9 +83,9 @@ export default class {
       this._input(target);
 
       return target;
-    }
+    };
 
-    this._input = (target) => {
+    this._input = target => {
       const textarea = target.querySelector('.editor--textarea');
       const pre = target.querySelector('.editor--pre');
       const code = target.querySelector('.editor--code');
@@ -101,6 +100,7 @@ export default class {
 
       // Input Event Listener
       textarea.addEventListener('input', e => {
+        // e.stopPropagation();
         const input = e.target;
         input.value = input.value.replace(/\t/g, this.indent);
 
@@ -117,6 +117,10 @@ export default class {
 
       // Keydown Event Listener
       textarea.addEventListener('keydown', e => {
+        if (e.key === ' ') {
+          e.stopPropagation();
+        }
+
         const input = e.target;
         const selStartPos = input.selectionStart;
         const selEndPos = input.selectionEnd;
@@ -131,24 +135,23 @@ export default class {
           input.selectionEnd = selEndPos + 3;
 
           const event = new Event('input', {
-            'bubbles': true,
-            'cancelable': true,
+            bubbles: true,
+            cancelable: true
           });
 
           input.dispatchEvent(event);
         }
 
-
         // if (e.key === 'Enter') {
         //   console.log(input);
         //   console.log(input.value);
         //   e.target.querySelector('.editor--textarea').value += '  ';
-          // const event = new Event('input', {
-          //   'bubbles': true,
-          //   'cancelable': true,
-          // });
+        // const event = new Event('input', {
+        //   'bubbles': true,
+        //   'cancelable': true,
+        // });
 
-          // input.dispatchEvent(event);
+        // input.dispatchEvent(event);
         // }
 
         // If `tab` is pressed, indent
@@ -159,8 +162,8 @@ export default class {
         //     indentLength = this.indent.length;
         //   }
         // }
-      })
-    }
+      });
+    };
 
     this._scroll = (textarea, pre) => {
       textarea.addEventListener('scroll', e => {
@@ -173,7 +176,7 @@ export default class {
 
         pre.style.transformY = `-${roundedScroll}px`;
       });
-    }
+    };
 
     this._render = (code, input) => {
       const cleaned = input.value
@@ -188,19 +191,17 @@ export default class {
       Prism.highlightElement(code);
 
       return cleaned;
-    }
+    };
 
     this._language = lang => {
-      if(lang.match(/html|xml|xhtml|svg/)) {
+      if (lang.match(/html|xml|xhtml|svg/)) {
         return 'markup';
-      }
-      else if(lang.match(/js|worklet/)) {
+      } else if (lang.match(/js|worklet/)) {
         return 'javascript';
-      }
-      else {
+      } else {
         return lang;
       }
-    }
+    };
   }
 
   run(selector, opts) {

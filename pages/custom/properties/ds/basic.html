@@ -1,0 +1,21 @@
+<h3>Make CSS Variables Smarter</h3>
+
+<br />
+
+<pre><code class="language-scss">:root {
+  --main-blue: #466BB0;
+
+  // When this lands, we can drop the above!
+  @property --my-blue {
+    syntax: '&lt;color&gt;';
+    inherits: true;
+    initial-value: #466BB0;
+  }
+
+  // Make sure that --background is always valid!
+  @property --background {
+    syntax: '&lt;image&gt; | &lt;color&gt;';
+    inherits: false;
+  }
+}
+</code></pre>

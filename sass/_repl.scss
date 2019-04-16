@@ -17,7 +17,7 @@
 }
 
 #animation-repl {
-  #{'--prime-color'}: $animation
+  #{'--prime-color'}: $animation;
 }
 
 .repl {
@@ -32,9 +32,9 @@
   position: relative;
   // border: 3px dashed var(--prime-color);
   width: 100%;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   margin: 0 1rem;
-  font-size: .75em;
+  font-size: 0.75em;
 
   @include mq($half) {
     grid-template-columns: 1fr 1fr 8rem;
@@ -45,7 +45,7 @@
   &--menu {
     grid-column: 1 / span 1;
     grid-row: 3 / span 1;
-    margin-left: -.25em;
+    margin-left: -0.25em;
     display: flex;
     flex-wrap: wrap;
     padding-top: 1em;
@@ -55,15 +55,14 @@
     }
   }
 
-
   &--menu-item {
     font-size: 1em;
     background: transparent;
-    margin: .125em .25em;
+    margin: 0.125em 0.25em;
     flex-grow: 1;
     border: 1px solid var(--prime-color);
-    outline: .25em solid transparent;
-    transition: outline .25s ease-in-out, border .25s ease-in-out;
+    outline: 0.25em solid transparent;
+    transition: outline 0.25s ease-in-out, border 0.25s ease-in-out;
 
     &:hover,
     &:focus {
@@ -78,11 +77,11 @@
     grid-row: 1 / span 1;
     margin: 0;
     padding: 0;
-    padding-top: .5rem;
+    padding-top: 0.5rem;
     line-height: 1.1;
     font-size: 1.5em;
     font-weight: bolder;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
     @include mq($half) {
       grid-column: 1 / span 2;
@@ -94,9 +93,9 @@
     grid-row: 2 / span 1;
     margin: 0;
     padding: 0;
-    font-size: .8em;
+    font-size: 0.8em;
     font-style: italic;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
     @include mq($half) {
       grid-column: 1 / span 2;
@@ -111,16 +110,16 @@
     background-image: paint(replswitcher);
     border-radius: 5px 5px 0 0;
     border: 0;
-    bottom: -.7rem;
+    bottom: -0.7rem;
     color: #f8f8f2;
     font-family: 'IBM Plex Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
-    font-size: .75em;
+    font-size: 0.75em;
     grid-column: 2 / span 1;
     grid-row: 2 / span 2;
     height: 2rem;
     line-height: 1.618;
-    padding: .25em .5em;
-    padding-left: 1.5em;
+    padding: 0.25em 0.5em;
+    padding-left: 2em;
     padding-right: 2em;
     position: absolute;
     right: 0;
@@ -151,8 +150,8 @@
     @include mq($half) {
       grid-column: 1 / span 1;
       grid-row: 4 / span 1;
-      margin-top: .7rem;
-      height: calc(500px - .7rem);
+      margin-top: 0.7rem;
+      height: calc(500px - 0.7rem);
     }
   }
 }

@@ -1,0 +1,38 @@
+---
+notes: >
+  The first set of things here are pretty straight forward. We create the `--tab-multiplier` property, make it a unitless number, make it inheritable, and give it an initial value of 1. `--tab-position` isn't inheritable because we want it to be specific to each tab, it'll accept either left, right, or middle, and the default's middle. We then register the tabs Paint worklet.
+
+  The next set of stuff is just about the bare minimum you need to register a Custom Element. We create a `class` that extends `HTMLElement`, and inside the constructor we grab the template we just made, grab the template's content, and clone that content in to its Shadow DOM. Finally, we define the custom element with a name of our choosing and the class we've just made. Custom elements need to have hyphenated names in order to distinguish them from built-in components.
+
+  Bam! We've made our first Web Component!
+---
+
+<pre class="half" style="font-size: .9em !important"><code style="font-size: .9em !important"  class="language-javascript">CSS.registerProperty({
+    name: '--tab-multiplier',
+    syntax: '&lt;number&gt;',
+    inherits: true,
+    initialValue: 1
+  });
+
+  CSS.registerProperty({
+    name: '--tab-position',
+    syntax: 'left|right|middle',
+    inherits: false,
+    initialValue: 'middle'
+  });
+}
+
+CSS.paintWorklet.addModule('./tabs.js');
+</code></pre>
+
+<pre class="half" style="font-size: .9em !important"><code style="font-size: .9em !important"  class="language-javascript">class RoundedTab extends HTMLElement {
+  constructor() {
+    super();
+    const template = document.getElementById('tab-template');
+    const content = template.content;
+    this.attachShadow({ mode: 'open' })
+      .appendChild(content.cloneNode(true));
+  }
+}
+
+customElements.define('rounded-tab', RoundedTab);</code></pre>

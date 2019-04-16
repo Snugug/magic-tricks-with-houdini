@@ -1,5 +1,5 @@
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   color: #f8f8f2;
   background: none;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
@@ -18,22 +18,27 @@ pre[class*="language-"] {
   hyphens: none;
 }
 
-pre[class*="language-"] {
+pre[class*='language-'] {
   padding: 1rem;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   overflow: hidden;
   border-radius: 0.3em;
   height: 100%;
 }
 
-:not(pre)>code[class*="language-"],
-pre[class*="language-"] {
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
   background: #272822;
+
+  .see-through &,
+  &.see-through {
+    background: rgba(#272822, 0.85);
+  }
 }
 
-:not(pre)>code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  border-radius: 0.3em;
   white-space: normal;
 }
 
@@ -110,5 +115,5 @@ pre[class*="language-"] {
 }
 
 .namespace {
-  opacity: .7;
+  opacity: 0.7;
 }
