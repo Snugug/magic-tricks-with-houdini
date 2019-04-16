@@ -102,7 +102,7 @@ window.addEventListener('load', () => {
     CSS.layoutWorklet.addModule('js/layout/blueprint.not.min.js');
   }
 
-  const replGoodness = [import('./settings/props'), import('./settings/paint'), import('./settings/animation'), import('./settings/layout'), import('./repl')];
+  const replGoodness = [import('./settings/props'), import('./settings/paint'), import('./settings/layout'), import('./repl')];
 
   const repls = [
     {
@@ -112,10 +112,6 @@ window.addEventListener('load', () => {
     {
       id: '#paint-repl',
       type: 'paint'
-    },
-    {
-      id: '#animation-repl',
-      type: 'animation'
     },
     {
       id: '#layout-repl',
