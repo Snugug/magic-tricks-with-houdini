@@ -1,1 +1,12 @@
-<img data-src="//houdini.glitch.me/layout/layout.svg" alt="Overview of layout terminology" class="center content-image">
+---
+notes: >
+  * Layout is performed on a box, which is the representation of an element or pseudo-element that's being rendered
+  * The **Current Layout** is the layout algorithm for the box that's currently being laid out
+  * The **Parent Layout** is the layout algorithm for the direct parent of the box that's causing the Current Layout to be performed. For CSS Grid, this is what gets `display: grid`
+  * The **Child Layout** is the layout algorithm for the **LayoutChild**, which is a box before layout has occurred (`display: none`)
+  * **LayoutChild** doesn't contain any layout information itself, but can generate **LayoutFragments**, which do.
+  * **Layout Constraints** describe the available space for the **Current Layout**
+  * **LayoutEdges** are the sum of all box model edges (borders, scrollbars, padding) for the current box being laid out.
+---
+
+<img data-src="//houdini.glitch.me/layout/layout.svg" alt="Overview of layout terminology" class="center content-image" />
