@@ -1,14 +1,16 @@
-<pre><code class="language-js">  // ...
-  *layout(children, edges, constraints, styleMap) {
-    // Get content area inside edges
-    const availableInlineSize = constraints.fixedInlineSize;
-    const availableBlockSize = constraints.fixedBlockSize;
+<pre style="font-size: .9em !important;"><code style="font-size: .9em !important;" class="language-js">  // ...
+  async layout(children, edges, constraints, styleMap) {
+    // Determine our (inner) available size
+    const availableInlineSize = constraints.fixedInlineSize - edges.inline;
+    const availableBlockSize = constraints.fixedBlockSize ?
+      constraints.fixedBlockSize - edges.block : null;
 
+    const childFragments = [];
     const childConstraints = { availableInlineSize, availableBlockSize };
 
     // Build fragments inside the content area
-    const childFragments = yield children.map((child) => {
+    const childFragments = await Promise.all(children.map((child) => {
       return child.layoutNextFragment(childConstraints);
-    });
+    }));
 
     // ...</code></pre>

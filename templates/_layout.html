@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>
-      {% if title %}{{ title }} | {% endif %}Magic Tricks with Houdini
-    </title>
+    <title>{% if title %}{{ title }} | {% endif %}Magic Tricks with Houdini</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="css/style.css" />
@@ -13,69 +11,46 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
 
     <link rel="preload" as="script" href="js/main.js" />
-    <link
-      rel="preload"
-      as="script"
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"
-      crossorigin
-    />
+    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js" crossorigin />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Bungee+Shade&text=DyMagicTrkswithHoudinTheColCustomStuffBIY"
-      rel="preload"
-      as="style"
-      crossorigin
-      onload="this.onload=null;this.rel='stylesheet';"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade&text=DyMagicTrkswithHoudinTheColCustomStuffBIYR" rel="preload" as="style" crossorigin onload="this.onload=null;this.rel='stylesheet';" />
   </head>
   <body>
     {% block content %}{% endblock %}
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"
-      defer
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js" defer></script>
     <script type="module" src="js/main.js" defer></script>
     <script>
-      window.addEventListener("load", () => {
-        const fonts = [
-          "https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|IBM+Plex+Sans:400,400i,600,600i",
-          "https://fonts.googleapis.com/css?family=Special+Elite&text=NOPEKINDA",
-          "https://fonts.googleapis.com/css?family=Black+Ops+One&text=Worklets",
-          "https://fonts.googleapis.com/css?family=Megrim&text=CustomProperties",
-          "https://fonts.googleapis.com/css?family=Finger+Paint&text=PAINT",
-          "https://fonts.googleapis.com/css?family=Faster+One&text=AnimationAPI",
-          "https://fonts.googleapis.com/css?family=Fredericka+the+Great&text=LAYOUTAPI",
-          "https://fonts.googleapis.com/css?family=Nixie+One&text=TypedOM"
-        ];
+      window.addEventListener('load', () => {
+        const fonts = ['https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|IBM+Plex+Sans:400,400i,600,600i', 'https://fonts.googleapis.com/css?family=Special+Elite&text=NOPEKINDA', 'https://fonts.googleapis.com/css?family=Black+Ops+One&text=Worklets', 'https://fonts.googleapis.com/css?family=Megrim&text=CustomProperties', 'https://fonts.googleapis.com/css?family=Finger+Paint&text=PAINT', 'https://fonts.googleapis.com/css?family=Faster+One&text=AnimationAPI', 'https://fonts.googleapis.com/css?family=Fredericka+the+Great&text=LAYOUTAPI', 'https://fonts.googleapis.com/css?family=Nixie+One&text=TypedOM'];
 
         fonts.forEach(font => {
-          const f = document.createElement("link");
-          f.rel = "stylesheet";
+          const f = document.createElement('link');
+          f.rel = 'stylesheet';
           f.href = font;
           document.body.appendChild(f);
         });
       });
 
       document.fonts.load('1em "Bungee Shade"').then(loaded => {
-        document.body.classList.add("font--BungeeShade");
+        document.body.classList.add('font--BungeeShade');
       });
       document.fonts.load('1em "IBM Plex Sans"').then(loaded => {
-        document.body.classList.add("font--PlexSans");
+        document.body.classList.add('font--PlexSans');
       });
       document.fonts.load('1em "Black Ops One"').then(loaded => {
-        document.body.classList.add("font--BlackOpsOne");
+        document.body.classList.add('font--BlackOpsOne');
       });
       document.fonts.load('1em "Nixie One"').then(loaded => {
-        document.body.classList.add("font--NixieOne");
+        document.body.classList.add('font--NixieOne');
       });
       document.fonts.load('1em "Megrim"').then(loaded => {
-        document.body.classList.add("font--Megrim");
+        document.body.classList.add('font--Megrim');
       });
       document.fonts.load('1em "Finger Paint"').then(loaded => {
-        document.body.classList.add("font--FingerPaint");
+        document.body.classList.add('font--FingerPaint');
       });
       document.fonts.load('1em "Fredericka the Great"').then(loaded => {
-        document.body.classList.add("font--Fredericka");
+        document.body.classList.add('font--Fredericka');
       });
     </script>
   </body>

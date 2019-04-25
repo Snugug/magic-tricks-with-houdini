@@ -74,6 +74,33 @@ if (window.CSS && CSS.registerProperty) {
     inherits: false,
     initialValue: 'divider'
   });
+
+  CSS.registerProperty({
+    name: '--masonry-padding',
+    syntax: '<number>',
+    inherits: false,
+    initialValue: 0
+  });
+
+  CSS.registerProperty({
+    name: '--masonry-columns',
+    syntax: '<number> | auto',
+    inherits: false,
+    initialValue: 'auto'
+  });
+
+  CSS.registerProperty({
+    name: '--item-size',
+    syntax: '<number>',
+    inherits: true,
+    initialValue: 32
+  });
+  CSS.registerProperty({
+    name: '--angle',
+    syntax: '<number>',
+    inherits: true,
+    initialValue: 0
+  });
 }
 
 function tabClick(e) {
@@ -100,6 +127,8 @@ window.addEventListener('load', () => {
 
   if (CSS.layoutWorklet) {
     CSS.layoutWorklet.addModule('js/layout/blueprint.not.min.js');
+    CSS.layoutWorklet.addModule('js/layout/masonry.not.min.js');
+    CSS.layoutWorklet.addModule('js/layout/circle.not.min.js');
   }
 
   const replGoodness = [import('./settings/props'), import('./settings/paint'), import('./settings/layout'), import('./repl')];
@@ -125,4 +154,14 @@ window.addEventListener('load', () => {
       new REPL(example.id, items[i].default, example.type);
     });
   });
+});
+
+document.querySelector('.circle-menu').addEventListener('click', e => {
+  const p = e.target.closest('.circle');
+
+  if (p.dataset.state === 'active') {
+    delete p.dataset.state;
+  } else {
+    p.dataset.state = 'active';
+  }
 });

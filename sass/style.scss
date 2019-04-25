@@ -36,7 +36,7 @@ a {
 
 :root {
   font-size: 150%;
-  #{--sf-transition}: none;
+  // #{--sf-transition}: none;
 }
 
 .minimap {
@@ -134,7 +134,7 @@ code[class*='language-']:not(.editor--code) {
   min-width: 30vw;
 }
 
-[data-state]:not([data-state='end']):not([data-state='intro']):not([data-state='theme']) {
+[data-state]:not([data-state='end']):not([data-state='intro']):not([data-state='theme']):not([data-state='layoutapi']) {
   // sass-lint:disable-line force-pseudo-nesting
   color: transparent;
 }
@@ -209,6 +209,10 @@ code[class*='language-']:not(.editor--code) {
   }
 }
 
+[data-state='video'] {
+  background-color: $black;
+}
+
 [data-state='custom-stuff'] {
   h2 {
     hyphens: unset;
@@ -229,6 +233,10 @@ code[class*='language-']:not(.editor--code) {
   h2 a {
     background-position: 0 1.21em;
   }
+}
+
+[data-state='layoutapi'] {
+  color: #f9f9f9;
 }
 
 .progress--slide {
@@ -356,6 +364,12 @@ code[class*='language-']:not(.editor--code) {
   $color2: rgb(130, 133, 96);
   background-image: linear-gradient(to bottom, $color1, $color1 68%, $color2 74%, $color2);
 }
+
+// [data-state='power'] {
+//   @extend %state-cover;
+//   background-image: url('../images/power.gif');
+//   background-size: contain;
+// }
 
 [data-state='rad'] {
   @extend %state-cover;
@@ -560,8 +574,8 @@ h1.center {
 }
 
 .bunny-end {
-  max-height: 5em;
-  margin-bottom: 1em;
+  max-height: 12em;
+  // margin-bottom: 1em;
 }
 
 blockquote {
@@ -590,4 +604,80 @@ rounded-tab {
   &[data-active] {
     z-index: 4;
   }
+}
+
+.masonry {
+  img {
+    // display: block;
+    max-height: unset;
+    max-width: unset;
+    height: unset;
+    width: unset;
+  }
+}
+
+.layout-editor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .editor {
+    border-radius: 5px;
+  }
+}
+
+.circle {
+  fill: transparent;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  // transition: fill 0.25s ease-in-out, transform 0.25s ease-in-out;
+  // background: linear-gradient(to right, red, red 50%, blue 50%);
+
+  &[data-state='active'] {
+    fill: black;
+    // transform: translateY(-5px);
+  }
+}
+
+.circle-menu {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  fill: black;
+  // background: white;
+
+  &--close {
+    display: none;
+  }
+
+  &--open {
+    display: block;
+  }
+
+  [data-state='active'] & {
+    &--close {
+      display: block;
+    }
+    &--open {
+      display: none;
+    }
+  }
+}
+
+// .circle {
+//   background: red;
+//   // height: 32px;
+//   // width: 32px;
+// }
+
+.centered {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
 }

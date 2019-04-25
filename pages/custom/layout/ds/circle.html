@@ -1,0 +1,23 @@
+---
+notes: >
+  Masonry's great, but the Layout API has one more trick up its sleeve. With a few couple of lines of JavaScript and a little Googled trigonometry, we can make ourself an expanding circular menu that we can distribute with one Layout worklet and a couple of lines of CSS. And that's it. No external dependencies, works with any framework, infinitely distributable. All the makings of an ideal pattern for a design system.
+---
+
+<div class="half layout-editor">
+  <!-- prettier-ignore -->
+  <div class="editor" data-language="scss">.circle-layout {
+  --item-size: 32;
+  --padding: 32;
+  --angle: 0;
+  display: layout(circle);
+}</div>
+  <!-- prettier-ignore -->
+  <div class="editor" id="html" data-language="markup">&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;3&lt;/p&gt;
+&lt;p&gt;4&lt;/p&gt;</div>
+</div>
+
+<div class="half">
+  <div class="circle-layout"></div>
+</div>

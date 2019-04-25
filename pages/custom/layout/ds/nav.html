@@ -1,0 +1,43 @@
+---
+notes: >
+  Let's use that circle layout we built, which we already know can take any number of items we can throw at it. We'll throw a button in as the first element that only toggles the `data-state` attribute on and off on its parent. Paired with registered properties, everything else is good old fashioned CSS and transitions.
+
+  No external dependencies, works with any framework, infinitely distributable. All the makings of an ideal pattern for a design system.
+---
+
+<h3>Animated Circular Navigation Menu</h3>
+<div class="half">
+  <!-- prettier-ignore -->
+  <div class="editor" data-language="scss">.circle {
+  --item-size: 32;
+  --padding: 32;
+  --angle: 0;
+  display: layout(circle);
+  transition-property: --angle, --padding, fill;
+}
+
+.circle[data-state="active"] {
+  --padding: 32;
+  --angle: 0;
+}</div>
+</div>
+
+<div class="half" style="padding-top: .5rem;">
+  <div class="circle">
+    <button class="circle-menu">
+      <svg class="circle-menu--open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M4 6h24v2H4zm0 18h24v2H4zm0-9h24v2H4z" /></svg>
+      <svg class="circle-menu--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#231f20" d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4l6.6 6.6L8 22.6 9.4 24l6.6-6.6 6.6 6.6 1.4-1.4-6.6-6.6L24 9.4z" /></svg>
+    </button>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M31 16l-7 7-1.41-1.41L28.17 16l-5.58-5.59L24 9l7 7zM1 16l7-7 1.41 1.41L3.83 16l5.58 5.59L8 23l-7-7zm11.42 9.484L17.64 6l1.932.517L14.352 26z" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M29.83 20l.34-2-5.17-.85v-4.38l5.06-1.36-.51-1.93-4.83 1.29A9 9 0 0 0 20 5V2h-2v2.23a8.81 8.81 0 0 0-4 0V2h-2v3a9 9 0 0 0-4.71 5.82L2.46 9.48 2 11.41l5 1.36v4.38L1.84 18l.32 2L7 19.18a8.9 8.9 0 0 0 .82 3.57l-4.53 4.54 1.42 1.42 4.19-4.2a9 9 0 0 0 14.2 0l4.19 4.2 1.42-1.42-4.54-4.54a8.9 8.9 0 0 0 .83-3.57zM15 25.92A7 7 0 0 1 9 19v-6h6zM9.29 11a7 7 0 0 1 13.42 0zM23 19a7 7 0 0 1-6 6.92V13h6z" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M29.92 16.61l-3-7A1 1 0 0 0 26 9h-3V7a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v17a1 1 0 0 0 1 1h2.14a4 4 0 0 0 7.72 0h5.28a4 4 0 0 0 7.72 0H29a1 1 0 0 0 1-1v-7a1 1 0 0 0-.08-.39zM25.34 11l2.14 5H23v-5zM9 26a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm9.14-3h-5.28a4 4 0 0 0-7.72 0H4V8h17v12.14A4 4 0 0 0 18.14 23zM22 26a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm6-3h-2.14A4 4 0 0 0 23 20.14V18h5z" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path d="M11 18l1.41 1.41L15 16.83V29h2V16.83l2.59 2.58L21 18l-5-5-5 5z" />
+      <path d="M23.5 22H23v-2h.5a4.5 4.5 0 0 0 .36-9H23l-.1-.82a7 7 0 0 0-13.88 0L9 11h-.86a4.5 4.5 0 0 0 .36 9H9v2h-.5A6.5 6.5 0 0 1 7.2 9.14a9 9 0 0 1 17.6 0A6.5 6.5 0 0 1 23.5 22z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path d="M21 2a9 9 0 0 0-9 9 8.87 8.87 0 0 0 .39 2.61L2 24v6h6l10.39-10.39A9 9 0 0 0 30 11.74a8.77 8.77 0 0 0-1.65-6A9 9 0 0 0 21 2zm0 16a7 7 0 0 1-2-.3l-1.15-.35-.85.85-3.18 3.18L12.41 20 11 21.41l1.38 1.38-1.59 1.59L9.41 23 8 24.41l1.38 1.38L7.17 28H4v-3.17L13.8 15l.85-.85-.29-.95a7.14 7.14 0 0 1 3.4-8.44 7 7 0 0 1 10.24 6 6.69 6.69 0 0 1-1.09 4A7 7 0 0 1 21 18z" />
+      <circle cx="22" cy="10" r="2" />
+    </svg>
+  </div>
+</div>

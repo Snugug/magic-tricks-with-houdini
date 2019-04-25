@@ -95,11 +95,11 @@ export default {
   <div class="block three">How</div>
   <div class="block four">Are</div>
   <div class="block five">You?</div>
-</div>`,
+</div>`
   },
   masonry: {
     name: 'Masonry',
-    features: ['C\'mon! Masonry with adjustable columns and padding'],
+    features: ["C'mon! Masonry with adjustable columns and padding"],
     worklet: `// From https://github.com/GoogleChromeLabs/houdini-samples
 
 registerLayout('masonry', class {
@@ -207,6 +207,99 @@ div::first-letter {
 
 <div>8 Lorem ipsum dolor sit amet, consul disputando ne his, et vim accumsan ponderum. Rebum deseruisse ex vix. Vix stet honestatis definitionem an, et natum ocurreret cum, semper interpretaris cu mea. Eam saperet fierent luptatum no. Ius ei dicunt detracto elaboraret.</div>
 
-<div>9 Lorem ipsum dolor sit amet, consul disputando ne his, et vim accumsan ponderum. Rebum deseruisse ex vix. Vix stet honestatis definitionem an, et natum ocurreret cum, semper interpretaris cu mea. Eam saperet fierent luptatum no. Ius ei dicunt detracto elaboraret.</div>`,
+<div>9 Lorem ipsum dolor sit amet, consul disputando ne his, et vim accumsan ponderum. Rebum deseruisse ex vix. Vix stet honestatis definitionem an, et natum ocurreret cum, semper interpretaris cu mea. Eam saperet fierent luptatum no. Ius ei dicunt detracto elaboraret.</div>`
   },
+  circle: {
+    name: 'Circular Layout',
+    features: ['Arrange any number of items in a circle'],
+    worklet: `registerLayout(
+  'circle',
+  class {
+    static get inputProperties() {
+      return ['--item-size', '--padding', '--angle'];
+    }
+
+    *intrinsicSizes() {}
+    *layout(children, edges, constraints, styleMap) {
+      const childFragments = yield children.map(child => {
+        return child.layoutNextFragment({
+          fixedInlineSize: styleMap.get('--item-size')
+        });
+      });
+
+      const items = childFragments.length;
+      const angle = 360 / items;
+      const offset = ((90 - styleMap.get('--angle').value) * Math.PI) / 180;
+
+      const θ = (angle * Math.PI) / 180;
+      const p = styleMap.get('--padding').value;
+      const r = styleMap.get('--item-size').value + p;
+
+      let autoBlockSize = 0;
+      const blockStack = [0];
+      for (const [i, childFragment] of childFragments.entries()) {
+        const x = r * Math.cos(θ * i - offset);
+        const y = r * Math.sin(θ * i - offset);
+
+        childFragment.inlineOffset = x + constraints.fixedInlineSize / 2 - childFragment.inlineSize / 2;
+        childFragment.blockOffset = y + r;
+
+        if (y >= blockStack[blockStack.length - 1]) {
+          autoBlockSize = y + r;
+          blockStack.push(y);
+        }
+      }
+
+      return { autoBlockSize, childFragments };
+    }
+  }
+);
+
+/**
+ * Copyright 2018 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */`,
+    js: `CSS.registerProperty({
+  name: '--item-size',
+  syntax: '<number>',
+  inherits: true,
+  initialValue: 32
+});
+
+CSS.registerProperty({
+  name: '--angle',
+  syntax: '<number>',
+  inherits: true,
+  initialValue: 0
+});
+
+CSS.registerProperty({
+  name: '--padding',
+  syntax: '<number>',
+  inherits: true,
+  initialValue: 5
+});`,
+    css: `.circle-layout {
+  --item-size: 32;
+  --padding: 32;
+  --angle: 0;
+  display: layout(circle);
+}`,
+    html: `<div class="circle-layout">
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+</div>`
+  }
 };

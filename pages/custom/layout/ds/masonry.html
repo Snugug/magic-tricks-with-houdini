@@ -1,0 +1,28 @@
+---
+notes: >
+  A masonry layout's great, so pretty, and using it for laying out photos or cards is something that we can finally and distribute easily across any framework that wants to pick it up.
+
+  But, it's just a layout. What if we brought all of our magic tricks together to deliver a component in less than 100 lines of code what reams and reams of blog posts have been spilled on?
+
+  **A Circular Navigation Menu**
+---
+
+<div class="half layout-editor">
+  <!-- prettier-ignore -->
+  <div class="editor" data-language="scss">.masonry {
+  --masonry-padding: 10;
+  --masonry-columns: auto;
+  display: layout(masonry);
+}</div>
+</div>
+
+<div class="half">
+  <div class="masonry">
+    <img src="https://picsum.photos/200/100" alt="Placeholder Images" />
+    <img src="https://picsum.photos/200/200" alt="Placeholder Images" />
+    <img src="https://picsum.photos/200/250" alt="Placeholder Images" />
+    <img src="https://picsum.photos/200/300" alt="Placeholder Images" />
+    <img src="https://picsum.photos/200/400" alt="Placeholder Images" />
+    <img src="https://picsum.photos/200/175" alt="Placeholder Images" />
+  </div>
+</div>

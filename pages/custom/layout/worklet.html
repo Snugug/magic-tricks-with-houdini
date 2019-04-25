@@ -1,28 +1,31 @@
 ---
+notes: >
+  * **childDisplay** can be `normal` or `block`; if the later all children will be blockified like with Flexbox or Grid
+
+  * **sizing** is either `block-like` or `manual`, in which sizing is specified by the developer.
 footnote: >
   [CSS Intrinsic & Extrinsic Sizing](https://www.w3.org/TR/css-sizing-3/)
 ---
+
 <h5><code>layoutWorklet</code> Class</h5>
-<pre><code class="language-js">// From https://drafts.css-houdini.org/css-layout-api/ April 24, 2018 Editor's Draft
+<pre style="font-size: .9em !important;"><code class="language-js" style="font-size: .9em !important;">// From https://drafts.css-houdini.org/css-layout-api/ February 20, 2019 Editor's Draft
 
 class myLayout {
   // Properties to look for on calling element
-  static get inputProperties() { return ['--foo']; }
+  static inputProperties = ['--foo'];
   // Properties to look for on direct child elements
-  static get childrenInputProperties() { return ['--bar']; }
+  static childrenInputProperties = ['--bar'];
   // Options for the Layout
-  static get layoutOptions() {
-    return { childDisplay: 'normal', sizing: 'block-like' };
-  }
+  static layoutOptions = { childDisplay: 'normal', sizing: 'block-like' };
 
   // Determines how a box fits its content or fits in to our layout context
-  *intrinsicSizes(children, edges, styleMap) {
+  async intrinsicSizes(children, edges, styleMap) {
     // children - Child elements of box being laid out
     // edges - `LayoutEdges` of Parent Layout
     // styleMap - Typed OM style map of box being laid out
   }
 
-  *layout(children, edges, constraints, styleMap, breakToken) {
+  async layout(children, edges, constraints, styleMap, breakToken) {
     // children - Child elements of Parent Layout
     // edges - `LayoutEdges` of Parent Layout
     // constraints - `Layout Constraints` of Parent Layout
