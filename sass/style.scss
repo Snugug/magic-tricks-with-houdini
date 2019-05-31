@@ -629,13 +629,17 @@ rounded-tab {
 }
 
 .circle {
+  #{--offset}: 0;
+  #{--circle-color}: black;
   fill: transparent;
-  transition-duration: 0.25s;
+  background-image: paint(circle-nav);
+  transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   // transition: fill 0.25s ease-in-out, transform 0.25s ease-in-out;
   // background: linear-gradient(to right, red, red 50%, blue 50%);
 
   &[data-state='active'] {
+    #{--offset}: 360;
     fill: black;
     // transform: translateY(-5px);
   }

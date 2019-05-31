@@ -123,6 +123,7 @@ window.addEventListener('load', () => {
     CSS.paintWorklet.addModule('js/paint/holman.not.min.js');
     CSS.paintWorklet.addModule('js/paint/switcher.not.min.js');
     CSS.paintWorklet.addModule('js/paint/theme.not.min.js');
+    CSS.paintWorklet.addModule('js/paint/circle-nav.not.min.js');
   }
 
   if (CSS.layoutWorklet) {
