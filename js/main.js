@@ -166,3 +166,21 @@ document.querySelector('.circle-menu').addEventListener('click', e => {
     p.dataset.state = 'active';
   }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('rounded-tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', switchTab);
+  });
+});
+
+function switchTab(e) {
+  const target = e.target;
+  const parent = e.target.closest('._stage--slide');
+  const active = parent.querySelector('.tabs--section[data-active="true"]');
+  const targetSection = parent.querySelector(`.${target.getAttribute('for')}`);
+
+  active.removeAttribute('data-active');
+  targetSection.dataset.active = true;
+}

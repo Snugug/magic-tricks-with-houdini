@@ -10,7 +10,20 @@ notes: >
 &lt;rounded-tab&gt;Second&lt;/rounded-tab&gt;
 &lt;rounded-tab&gt;Third&lt;/rounded-tab&gt;</code></pre>
 <div class="half" style="margin-top: .5rem;">
-  <rounded-tab>One</rounded-tab>
-  <rounded-tab>Two</rounded-tab>
-  <rounded-tab>Three</rounded-tab>
+  <div class="tabs--top">
+    <rounded-tab for="tabs--section__first">One</rounded-tab>
+    <rounded-tab for="tabs--section__second">Two</rounded-tab>
+    <rounded-tab for="tabs--section__third">Three</rounded-tab>
+  </div>
+  <div class="tabs--container">
+    <section class="tabs--section tabs--section__first" data-active="true">
+      <p>The first section! Isn't this cool?</p>
+    </section>
+    <section class="tabs--section tabs--section__second">
+      <p>The second section! Isn't this cool?</p>
+    </section>
+    <section class="tabs--section tabs--section__third">
+      <p>The third section! Isn't this cool?</p>
+    </section>
+  </div>
 </div>

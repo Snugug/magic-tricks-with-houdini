@@ -685,3 +685,37 @@ rounded-tab {
   margin: 0 auto;
   width: 100%;
 }
+
+rounded-tab {
+  cursor: pointer;
+}
+
+.tabs--container {
+  position: relative;
+}
+
+.tabs--section {
+  height: 25vh;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  padding: 0.25em 1em;
+  box-sizing: border-box;
+
+  &[data-active='true'] {
+    z-index: 0;
+  }
+
+  &__first {
+    background: blue;
+  }
+
+  &__second {
+    background: red;
+  }
+
+  &__third {
+    background: green;
+    color: white;
+  }
+}

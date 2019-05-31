@@ -5,25 +5,41 @@ notes: >
 <h3>Paint-Powered Web Component Tabs</h3>
 <div class="half">
   <!-- prettier-ignore -->
-  <div class="editor" data-language="scss">rounded-tab::part(body) {
+  <div class="editor" data-language="scss">rounded-tab::part(body),
+.tabs--section {
   --tab-multiplier: 1;
   background: red;
   color: white;
 }
 
-rounded-tab:first-of-type::part(body) {
+rounded-tab:first-of-type::part(body),
+.tabs--section:first-of-type {
   --tab-position: left;
   background: blue;
 }
 
-rounded-tab:last-of-type::part(body) {
+rounded-tab:last-of-type::part(body),
+.tabs--section:last-of-type {
   --tab-position: right;
   background: green;
 }</div>
 </div>
 
-<div class="half preview" style="margin-top: .5rem;">
-  <rounded-tab>First</rounded-tab>
-  <rounded-tab>Second</rounded-tab>
-  <rounded-tab>Third</rounded-tab>
+<div class="half" style="margin-top: .5rem;">
+  <div class="tabs--top">
+    <rounded-tab for="tabs--section__first">One</rounded-tab>
+    <rounded-tab for="tabs--section__second">Two</rounded-tab>
+    <rounded-tab for="tabs--section__third">Three</rounded-tab>
+  </div>
+  <div class="tabs--container">
+    <section class="tabs--section tabs--section__first" data-active="true">
+      <p>The first section! Isn't this cool?</p>
+    </section>
+    <section class="tabs--section tabs--section__second">
+      <p>The second section! Isn't this cool?</p>
+    </section>
+    <section class="tabs--section tabs--section__third">
+      <p>The third section! Isn't this cool?</p>
+    </section>
+  </div>
 </div>
