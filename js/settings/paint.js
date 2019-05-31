@@ -32,222 +32,7 @@ export default {
   height: 80vh;
   width: 100vw;
 }`,
-    html: `<div class="circle"></div>`,
-  },
-  tabs: {
-    name: 'Tabs',
-    features: ['Build reusable components that extend standard CSS and make adjustments with input arguments'],
-    worklet: `registerPaint('tab', class {
-  static get inputProperties() {
-    return [
-      'background-color',
-      'border-image-outset',
-      '--tab-multiplier',
-    ];
-  }
-
-  static get inputArguments() {
-    return ['*'];
-  }
-
-  paint(ctx, size, props, args) {
-    const bkg = props.get('background-color');
-    const offset = parseInt(props.get('border-image-outset').toString());
-    const m = props.get('--tab-multiplier').value;
-    const sides = args[0].toString();
-
-    const x = 10 * m;
-    const y = 5.6 * m;
-
-    if (sides === 'right' || sides === 'middle') {
-      const yoff = size.height - offset - x;
-      const xoff = offset - x;
-
-      ctx.beginPath();
-      ctx.moveTo(0.0 + xoff, x + yoff);
-      ctx.lineTo(x + xoff, x + yoff);
-      ctx.lineTo(x + xoff, 0.0 + yoff);
-      ctx.bezierCurveTo(x + xoff, y + yoff, y + xoff, x + yoff, 0.0 + xoff, x + yoff);
-      ctx.closePath();
-      ctx.fillStyle = bkg;
-      ctx.fill();
-    }
-
-    if (sides === 'left' || sides === 'middle') {
-      const yoff = size.height - offset - x;
-      const xoff = size.width - offset;
-
-      ctx.beginPath();
-      ctx.moveTo(x + xoff, x + yoff);
-      ctx.lineTo(0.0 + xoff, x + yoff);
-      ctx.lineTo(0.0 + xoff, 0.0 + yoff);
-      ctx.bezierCurveTo(0.0 + xoff, y + yoff, y + xoff, x + yoff, x + xoff, x + yoff);
-      ctx.closePath();
-      ctx.fillStyle = bkg;
-      ctx.fill();
-    }
-  }
-});`,
-    js: `CSS.registerProperty({
-  name: '--tab-multiplier',
-  syntax: '<number>',
-  inherits: true,
-  initialValue: 1,
-});
-
-const buttons = document.querySelectorAll('.tabs--tab button');
-const sections = document.querySelectorAll('.tabs--section');
-
-for (const button of buttons) {
-  button.addEventListener('click', swap);
-}
-
-function swap(e) {
-  const target = e.target;
-  const targetFor = target.getAttribute('for');
-
-  // Set Active attribute on section
-  for (const section of sections) {
-    if (section.id === targetFor) {
-      section.setAttribute('data-active', true);
-    } else {
-      section.removeAttribute('data-active');
-    }
-  }
-
-  // Set Active attribute on tab
-  for (const button of buttons) {
-    if (button === target) {
-      button.closest('.tabs--tab').setAttribute('data-active', true);
-    } else {
-      button.closest('.tabs--tab').removeAttribute('data-active');
-    }
-  }
-};`,
-    css: `.tabs--tab {
-  border-image-outset: 30px;
-  border-image-slice: 0 fill;
-  border-image-source: paint(tab, middle);
-}
-
-.tabs--tab:first-of-type {
-  border-image-source: paint(tab, left);
-  margin-right: var(--tab-margin);
-}
-
-.tabs--tab:last-of-type {
-  border-image-source: paint(tab, right);
-  margin-left: var(--tab-margin);
-}
-
-.tabs--tab:nth-of-type(2) {
-  background: orange;
-}
-
-.tabs--tab:nth-of-type(3) {
-  background: green;
-  color: white;
-}
-
-.tabs--tab:nth-of-type(4) {
-  background: blue;
-  color: white;
-}
-
-.tabs {
-  --tab-multiplier: 1;
-  --tab-margin: 1px;
-  padding-left: 0;
-  margin-bottom: 0;
-  font-size: 1.5em;
-}
-
-.tabs--tab {
-  background: red;
-  border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
-  display: inline-block;
-  font-size: 1em;
-  padding: .15em .25em;
-  position: relative;
-  margin: 0
-  padding: 0;
-}
-
-.tabs--tab:not(:first-of-type):not(:last-of-type) {
-  margin-left: var(--tab-margin);
-  margin-right: var(--tab-margin);
-}
-
-.tabs--tab button {
-  color: inherit;
-  text-decoration: none;
-  padding: inherit;
-  background: none;
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-}
-
-.tabs--tab[data-active='true'] {
-  z-index: 2;
-}
-
-.tabs--container {
-  position: relative;
-}
-
-.tabs--section {
-  height: 25vh;
-  position: absolute;
-  width: 100vw;
-  z-index: -1;
-  padding: .25em 1em;
-  box-sizing: border-box;
-}
-
-.tabs--section[data-active='true'] {
-  z-index: 0;
-}
-
-#first {
-  background: red;
-}
-
-#second {
-  background: orange;
-}
-
-#third {
-  background: green;
-  color: white;
-}
-
-#fourth {
-  background: blue;
-  color: white;
-}`,
-    html: `<ul class="tabs">
-  <li class="tabs--tab" data-active="true"><button for="first">First</button></li>
-  <li class="tabs--tab"><button for="second">Second</button></li>
-  <li class="tabs--tab"><button for="third">Third</button></li>
-  <li class="tabs--tab"><button for="fourth">Fourth</button></li>
-</ul>
-<div class="tabs--container">
-  <section class="tabs--section" data-active="true" id="first">
-    <p>The first section! Isn't this cool?</p>
-  </section>
-  <section class="tabs--section" id="second">
-    <p>The second section! Isn't this cool?</p>
-  </section>
-  <section class="tabs--section" id="third">
-    <p>The third section! Isn't this cool?</p>
-  </section>
-  <section class="tabs--section" id="fourth">
-    <p>The fourth section! Isn't this cool?</p>
-  </section>
-</div>`,
+    html: `<div class="circle"></div>`
   },
   'generative art': {
     name: 'Generative Art',
@@ -354,7 +139,7 @@ CSS.registerProperty({
   text-align: right;
   text-shadow: 1px 1px black, -1px 1px black;
 }`,
-    html: `<h1><span>Hello World</span></h1>`,
+    html: `<h1><span>Hello World</span></h1>`
   },
   animation: {
     name: 'Ripple Effect',
@@ -443,19 +228,18 @@ CSS.registerProperty({
 
 const button = document.querySelector('#ripple');
 button.addEventListener('click', evt => {
-  button.classList.add('animating');
   const [x, y] = [evt.clientX, evt.clientY];
-  const start = performance.now();
-  requestAnimationFrame(function raf(now) {
-    const count = Math.floor(now - start);
-    button.style.cssText = \`--ripple-x: \${x}; --ripple-y: \${y}; --animation-tick: \${count};\`;
-    if(count > 1000) {
-      button.classList.remove('animating');
-      button.style.cssText = \`--animation-tick: 0\`;
-      return;
-    }
-    requestAnimationFrame(raf);
-  })
+  button.style.cssText = \`--ripple-x: \${x}; --ripple-y: \${y}\`;
+  button.classList.add('animating');
+  const duration = evt.target.computedStyleMap().get('transition-duration');
+  let time = duration.value;
+  if (duration.unit === 's') {
+    time *= 1000;
+  }
+
+  setTimeout(() => {
+    button.classList.remove('animating');
+  }, time);
 })`,
     css: `#ripple {
   width: 300px;
@@ -470,15 +254,18 @@ button.addEventListener('click', evt => {
   --ripple-y: 0;
   --ripple-color: rgba(255,255,255,0.54);
   --animation-tick: 0;
+  background-image: paint(ripple);
+  
 }
 #ripple:focus {
   outline: none;
 }
 #ripple.animating {
-  background-image: paint(ripple);
+  --animation-tick: 1000;
+  transition: --animation-tick .5s ease-in;
 }`,
     html: `<button id="ripple">
   Click me!
-</button>`,
-  },
+</button>`
+  }
 };
